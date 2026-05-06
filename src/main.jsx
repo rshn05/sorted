@@ -7,7 +7,7 @@ import HeroSection from "./HeroSection.jsx";
 import LogoSlider from "./LogoSlider.jsx";
 import DashboardSection from "./DashboardSection.jsx";
 import FeatureSection from "./FeatureSection.jsx";
-import SEOSection from "./SEOsection.jsx";
+import SEOSection from "./SEOSection.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlatformSection from "./PlatformSection.jsx";
 

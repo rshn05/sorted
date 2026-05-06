@@ -3,7 +3,7 @@ import HeroSection from "./HeroSection";
 import LogoSlider from "./LogoSlider";
 import DashboardSection from "./DashboardSection";
 import FeatureSection from "./FeatureSection";
-import SEOSection from "./SEOsection";
+import SEOSection from "./SEOSection";
 import FAQSection from "./FAQSection";
 import PlatformSection from "./PlatformSection";
 
@@ -21,8 +21,8 @@ function App() {
       <DashboardSection />
       <FeatureSection />
       <SEOSection />
-      <FAQSection />
       <PlatformSection />
+      <FAQSection />
 
 
       
