@@ -29,7 +29,7 @@ function HeroSection() {
       </div>
 
       {/* 🔹 Heading */}
-      <h1 className="text-[42px] sm:text-[58px] md:text-[70px] leading-tight md:leading-[82px] font-bold max-w-[1200px] text-black">
+      <h1 className="text-[42px] sm:text-[58px] md:text-[50px] leading-tight md:leading-[82px] font-bold max-w-[1200px] text-black">
 
         Write Content that
 
@@ -45,12 +45,12 @@ function HeroSection() {
       </h1>
 
       {/* 🔹 Description */}
-      <p className="mt-6 text-gray-500 text-lg sm:text-2xl md:text-[34px] font-medium max-w-[900px]">
+      <p className="mt-6 text-gray-500 text-lg sm:text-2xl md:text-[25px] font-medium max-w-[900px]">
         Create content people are searching for and get found.
       </p>
 
       {/* 🔹 Button */}
-      <button className="mt-10 bg-gradient-to-r from-[#3B1FAE] to-[#E12AC8] text-white text-lg md:text-[28px] font-bold px-8 md:px-12 py-4 md:py-6 rounded-2xl shadow-[0_15px_35px_rgba(128,0,255,0.35)] hover:scale-105 transition duration-300">
+      <button className="mt-10 bg-gradient-to-r from-[#3B1FAE] to-[#E12AC8] text-white text-lg md:text-[20px] font-bold px-5 md:px-6 py-4 md:py-3 rounded-2xl shadow-[0_15px_35px_rgba(128,0,255,0.35)] hover:scale-105 transition duration-300">
 
         Get started for free
 
