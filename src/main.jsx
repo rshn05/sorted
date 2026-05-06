@@ -11,9 +11,8 @@ import SEOSection from "./SEOSection.jsx";
 import FAQSection from "./FAQSection.jsx";
 import PlatformSection from "./PlatformSection.jsx";
 import FeedbackSection from "./FeedbackSection.jsx";
-
-
-
+import DownloadSection from "./DownloadSection.jsx";
+import FooterSection from "./FooterSection.jsx";
 
 
 
@@ -29,9 +28,10 @@ createRoot(document.getElementById('root')).render(
     <FeatureSection />
     <SEOSection />
     <PlatformSection />
-    <FAQSection />
     <FeedbackSection />
-
-
+    <FAQSection />
+    <DownloadSection />
+    <FooterSection />
+    
   </StrictMode>,
 )

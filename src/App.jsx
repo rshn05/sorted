@@ -7,6 +7,9 @@ import SEOSection from "./SEOSection";
 import FAQSection from "./FAQSection";
 import PlatformSection from "./PlatformSection";
 import FeedbackSection from "./FeedbackSection";
+import DownloadSection from "./DownloadSection";
+import FooterSection from "./FooterSection";
+
 
 
 
@@ -24,8 +27,10 @@ function App() {
       <FeatureSection />
       <SEOSection />
       <PlatformSection />
-      <FAQSection />
       <FeedbackSection />
+      <FAQSection />
+      <DownloadSection />
+      <FooterSection />
 
       
     </>
