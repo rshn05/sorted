@@ -21,7 +21,7 @@ function DownloadSection() {
                 </div>
 
                 {/* Heading */}
-                <h2 className="text-4xl md:text-6xl font-bold text-center text-black leading-tight mt-6">
+                <h2 className="text-2xl md:text-6xl text-center text-black leading-tight mt-6">
 
                     Download Capable and
                     <br />
@@ -45,16 +45,16 @@ function DownloadSection() {
                         <img
                             src={androidIcon}
                             alt="android"
-                            className="w-10 h-10"
+                            className="w-8 h-8"
                         />
 
                         <div className="text-left">
 
-                            <p className="text-[11px] text-gray-500">
+                            <p className="text-[8px] text-gray-500">
                                 Get It On
                             </p>
 
-                            <h3 className="text-black text-2xl font-medium">
+                            <h3 className="text-black text-sm font-medium">
                                 Google Play
                             </h3>
 
@@ -68,16 +68,16 @@ function DownloadSection() {
                         <img
                             src={appleIcon}
                             alt="apple"
-                            className="w-10 h-10"
+                            className="w-8 h-8"
                         />
 
                         <div className="text-left">
 
-                            <p className="text-[11px] text-gray-500">
+                            <p className="text-[8px] text-gray-500">
                                 Download on the
                             </p>
 
-                            <h3 className="text-black text-2xl font-medium">
+                            <h3 className="text-black text-sm font-medium">
                                 App Store
                             </h3>
 
@@ -122,8 +122,7 @@ function DownloadSection() {
 
                         <button
                             key={index}
-                            className="border border-gray-200 rounded-full px-8 py-4 text-black text-lg hover:bg-black hover:text-white transition"
-                        >
+className="border border-gray-200 rounded-full px-5 py-2 text-black text-xs hover:bg-black hover:text-white transition"                        >
                             {item}
                         </button>
 
