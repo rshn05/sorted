@@ -4,13 +4,10 @@ function DashboardSection() {
   return (
     <section className="relative w-full py-24 overflow-hidden">
 
-      {/* 🔹 Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#5B12B5] via-[#8F63D9] to-white"></div>
 
-      {/* 🔹 Content */}
 <div className="relative z-10 max-w-[900px] mx-auto px-5 flex justify-center">
 
-        {/* 🔹 Dashboard Image */}
 <div className="overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.18)] w-full">
 
           <img

@@ -7,6 +7,13 @@ import HeroSection from "./HeroSection.jsx";
 import LogoSlider from "./LogoSlider.jsx";
 import DashboardSection from "./DashboardSection.jsx";
 import FeatureSection from "./FeatureSection.jsx";
+import SEOSection from "./SEOsection.jsx";
+import FAQSection from "./FAQSection.jsx";
+import PlatformSection from "./PlatformSection.jsx";
+
+
+
+
 
 
 
@@ -18,6 +25,11 @@ createRoot(document.getElementById('root')).render(
     <LogoSlider />
     <DashboardSection />
     <FeatureSection />
+    <SEOSection />
+    <PlatformSection />
+    <FAQSection />
+
+
 
   </StrictMode>,
 )
