@@ -57,7 +57,7 @@ function FeedbackSection() {
                 {/* Top Slider */}
                 <div className="relative flex overflow-hidden mb-6">
 
-                    <div className="flex animate-[scrollLeft_35s_linear_infinite] gap-5 whitespace-nowrap">
+                    <div className="flex animate-scrollLeft gap-5 whitespace-nowrap slider-track">
 
                         {[...reviews, ...reviews].map((item, index) => (
 
@@ -116,7 +116,7 @@ function FeedbackSection() {
                 {/* Bottom Slider */}
                 <div className="relative flex overflow-hidden">
 
-                    <div className="flex animate-[scrollRight_35s_linear_infinite] gap-5 whitespace-nowrap">
+                    <div className="flex animate-scrollRight gap-5 whitespace-nowrap slider-track">
 
                         {[...reviews, ...reviews].map((item, index) => (
 
@@ -193,6 +193,22 @@ function FeedbackSection() {
                         100% {
                             transform: translateX(0);
                         }
+                    }
+
+                    .animate-scrollLeft {
+                        animation: scrollLeft 35s linear infinite;
+                    }
+
+                    .animate-scrollRight {
+                        animation: scrollRight 35s linear infinite;
+                    }
+
+                    .slider-track:hover {
+                        animation-play-state: paused;
+                    }
+
+                    .slider-track:active {
+                        animation-play-state: paused;
                     }
                 `}
             </style>
