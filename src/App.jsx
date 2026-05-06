@@ -6,6 +6,8 @@ import FeatureSection from "./FeatureSection";
 import SEOSection from "./SEOSection";
 import FAQSection from "./FAQSection";
 import PlatformSection from "./PlatformSection";
+import FeedbackSection from "./FeedbackSection";
+
 
 
 
@@ -23,7 +25,7 @@ function App() {
       <SEOSection />
       <PlatformSection />
       <FAQSection />
-
+      <FeedbackSection />
 
       
     </>

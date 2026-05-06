@@ -54,13 +54,12 @@ function FAQSection() {
 
                 </div>
 
-                {/* Heading */}
-                <h2 className="text-4xl md:text-6xl font-bold text-center text-black mb-14">
+                <h2 className="text-xl md:text-6xl font-bold text-center text-black mb-14">
                     Frequently Asked Questions
                 </h2>
 
                 {/* FAQ Items */}
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-2">
 
                     {faqs.map((faq, index) => {
 
@@ -70,7 +69,7 @@ function FAQSection() {
 
                             <div
                                 key={index}
-                                className="bg-[#F5F7FA] border border-gray-200 rounded-2xl px-6 py-6 transition-all duration-300"
+                                className="bg-[#F5F7FA] border border-gray-200 rounded-2xl px-5 py-4 transition-all duration-300"
                             >
 
                                 {/* Question */}
@@ -79,11 +78,11 @@ function FAQSection() {
                                     className="w-full flex items-center justify-between text-left"
                                 >
 
-                                    <h3 className="text-lg md:text-xl font-semibold text-black">
+                                    <h3 className="text-sm md:text-base font-semibold text-black">
                                         {faq.question}
                                     </h3>
 
-                                    <div className="w-10 h-10 rounded-full bg-[#2F2F2F] flex items-center justify-center text-white text-2xl flex-shrink-0">
+                                    <div className="w-8 h-8 rounded-full bg-[#2F2F2F] flex items-center justify-center text-white text-lg flex-shrink-0">
 
                                         {isOpen ? "−" : "+"}
 
@@ -94,9 +93,9 @@ function FAQSection() {
                                 {/* Answer */}
                                 {isOpen && (
 
-                                    <div className="mt-6 pt-6 border-t border-gray-300">
+                                    <div className="mt-4 pt-4 border-t border-gray-300">
 
-                                        <p className="text-gray-600 leading-8 text-sm md:text-base max-w-[720px]">
+                                        <p className="text-gray-500 leading-6 text-xs md:text-sm max-w-[720px]">
                                             {faq.answer}
                                         </p>
 

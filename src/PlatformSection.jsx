@@ -63,13 +63,12 @@ function PlatformSection() {
                 </h2>
 
                 {/* Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[950px] mx-auto">
                     {features.map((item, index) => (
 
                         <div
                             key={index}
-                            className="bg-[#050816] border border-[#312E81] rounded-[24px] p-7 shadow-[0_0_40px_rgba(59,130,246,0.08)] hover:translate-y-[-5px] transition duration-300"
+                            className="bg-[#050816] border border-[#312E81] rounded-[24px] p-5 shadow-[0_0_40px_rgba(59,130,246,0.08)] hover:translate-y-[-5px] transition duration-300"
                         >
 
                             <div className="flex items-center gap-4 mb-8">
