@@ -19,16 +19,12 @@ function LogoSlider() {
   return (
     <section className="relative w-full overflow-hidden py-14 bg-white">
 
-      {/* 🔹 Left Fade */}
       <div className="absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
 
-      {/* 🔹 Right Fade */}
       <div className="absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
 
-      {/* 🔹 Slider Wrapper */}
       <div className="relative w-full overflow-hidden">
 
-        {/* 🔹 Scrolling Logos */}
         <div className="flex w-max animate-scroll">
 
           {logos.map((logo, index) => (

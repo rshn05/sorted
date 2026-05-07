@@ -2,7 +2,6 @@ function HeroSection() {
   return (
     <section className="w-full flex flex-col items-center justify-center text-center pt-16 md:pt-24 pb-20 px-5 bg-white overflow-hidden">
 
-      {/* 🔹 Top Badge */}
       <div className="flex flex-col sm:flex-row items-center gap-3 mb-5">
 
         <span className="bg-gradient-to-r from-[#5B21B6] to-[#9333EA] text-white text-sm md:text-base font-semibold px-4 py-2 rounded-full shadow-md">
@@ -15,7 +14,6 @@ function HeroSection() {
 
       </div>
 
-      {/* 🔹 Rating */}
       <div className="flex flex-col sm:flex-row items-center gap-2 mb-8">
 
         <div className="flex text-yellow-400 text-xl md:text-2xl">
@@ -28,7 +26,6 @@ function HeroSection() {
 
       </div>
 
-      {/* 🔹 Heading */}
       <h1 className="text-[42px] sm:text-[58px] md:text-[50px] leading-tight md:leading-[82px] font-bold max-w-[1200px] text-black">
 
         Write Content that
@@ -44,12 +41,10 @@ function HeroSection() {
 
       </h1>
 
-      {/* 🔹 Description */}
       <p className="mt-6 text-gray-500 text-lg sm:text-2xl md:text-[25px] font-medium max-w-[900px]">
         Create content people are searching for and get found.
       </p>
 
-      {/* 🔹 Button */}
       <button className="mt-10 bg-gradient-to-r from-[#3B1FAE] to-[#E12AC8] text-white text-lg md:text-[20px] font-bold px-5 md:px-6 py-4 md:py-3 rounded-2xl shadow-[0_15px_35px_rgba(128,0,255,0.35)] hover:scale-105 transition duration-300">
 
         Get started for free

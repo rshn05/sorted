@@ -8,7 +8,6 @@ function Navbar() {
     <nav className="bg-white px-5 md:px-10 py-5 shadow-sm relative">
       <div className="flex items-center justify-between">
 
-        {/* 🔹 Left Logo */}
         <div className="flex items-center">
           <img
             src={logo}
@@ -17,10 +16,8 @@ function Navbar() {
           />
         </div>
 
-        {/* 🔹 Desktop Menu */}
         <ul className="hidden lg:flex items-center gap-8 text-[18px] font-medium text-black list-none">
 
-          {/* Features Dropdown */}
           <li className="relative group cursor-pointer">
 
             <span className="flex items-center hover:text-[rgb(249,117,24)] transition-colors duration-200">
@@ -35,7 +32,6 @@ function Navbar() {
 
             </span>
 
-            {/* Dropdown */}
             <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-52 bg-white rounded-[18px] shadow-[0_20px_50px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 list-none p-4">
 
               <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
@@ -75,7 +71,6 @@ function Navbar() {
 
         </ul>
 
-        {/* 🔹 Desktop Buttons */}
         <div className="hidden lg:flex items-center gap-5">
 
           <button className="text-black font-medium hover:text-gray-700 transition">
@@ -96,7 +91,7 @@ function Navbar() {
 
         </div>
 
-        {/* 🔹 Mobile Menu Button */}
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="lg:hidden text-3xl text-black"
@@ -106,7 +101,7 @@ function Navbar() {
 
       </div>
 
-      {/* 🔹 Mobile Menu */}
+      {/*  Mobile Menu */}
       {menuOpen && (
         <div className="lg:hidden mt-5 bg-white rounded-2xl shadow-lg p-5">
 

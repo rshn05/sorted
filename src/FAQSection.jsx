@@ -45,7 +45,6 @@ function FAQSection() {
 
             <div className="max-w-[900px] mx-auto">
 
-                {/* Badge */}
                 <div className="flex justify-center mb-5">
 
                     <div className="border border-gray-300 rounded-full px-4 py-1 text-[12px] text-gray-500">
@@ -58,7 +57,6 @@ function FAQSection() {
                     Frequently Asked Questions
                 </h2>
 
-                {/* FAQ Items */}
                 <div className="flex flex-col gap-2">
 
                     {faqs.map((faq, index) => {
@@ -72,7 +70,6 @@ function FAQSection() {
                                 className="bg-[#F5F7FA] border border-gray-200 rounded-2xl px-5 py-4 transition-all duration-300"
                             >
 
-                                {/* Question */}
                                 <button
                                     onClick={() => toggleFAQ(index)}
                                     className="w-full flex items-center justify-between text-left"
@@ -90,7 +87,6 @@ function FAQSection() {
 
                                 </button>
 
-                                {/* Answer */}
                                 {isOpen && (
 
                                     <div className="mt-4 pt-4 border-t border-gray-300">

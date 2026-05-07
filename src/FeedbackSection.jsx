@@ -33,28 +33,22 @@ function FeedbackSection() {
 
             <div className="max-w-[1200px] mx-auto">
 
-                {/* Heading */}
                 <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-6">
                     User Reviews and Feedback
                 </h2>
 
-                {/* Sub Heading */}
                 <p className="text-center text-gray-500 text-xs md:text-sm max-w-[650px] mx-auto leading-7 mb-16">
                     See how Capable has transformed users' social experiences through their own words.
                 </p>
 
             </div>
 
-            {/* Slider Container */}
             <div className="relative max-w-[1200px] mx-auto overflow-hidden">
 
-                {/* Left Fade */}
                 <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
 
-                {/* Right Fade */}
                 <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
 
-                {/* Top Slider */}
                 <div className="relative flex overflow-hidden mb-6">
 
                     <div className="flex animate-scrollLeft gap-5 whitespace-nowrap slider-track">
@@ -66,7 +60,6 @@ function FeedbackSection() {
                                 className="min-w-[280px] max-w-[280px] bg-[#F8FAFC] border border-gray-200 rounded-[24px] p-5"
                             >
 
-                                {/* Top */}
                                 <div className="flex items-start justify-between mb-4">
 
                                     <div className="flex items-center gap-3">
@@ -125,7 +118,6 @@ function FeedbackSection() {
                                 className="min-w-[280px] max-w-[280px] bg-[#F8FAFC] border border-gray-200 rounded-[24px] p-5"
                             >
 
-                                {/* Top */}
                                 <div className="flex items-start justify-between mb-4">
 
                                     <div className="flex items-center gap-3">

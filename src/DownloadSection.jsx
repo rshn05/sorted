@@ -9,7 +9,6 @@ function DownloadSection() {
 
             <div className="max-w-[1200px] mx-auto">
 
-                {/* Mobile Image */}
                 <div className="flex justify-center">
 
                     <img
@@ -20,7 +19,6 @@ function DownloadSection() {
 
                 </div>
 
-                {/* Heading */}
                 <h2 className="text-2xl md:text-6xl text-center text-black leading-tight mt-6">
 
                     Download Capable and
@@ -29,7 +27,6 @@ function DownloadSection() {
 
                 </h2>
 
-                {/* Description */}
                 <p className="text-center text-gray-500 text-sm md:text-lg leading-8 max-w-[800px] mx-auto mt-8">
 
                     Download Capable now to start connecting with like-minded people and enjoy a seamless social experience!
@@ -39,7 +36,6 @@ function DownloadSection() {
                 {/* Download Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-12">
 
-                    {/* Google Play */}
                     <button className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition">
 
                         <img
@@ -62,7 +58,6 @@ function DownloadSection() {
 
                     </button>
 
-                    {/* App Store */}
                     <button className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition">
 
                         <img
@@ -87,7 +82,6 @@ function DownloadSection() {
 
                 </div>
 
-                {/* Email Divider */}
                 <div className="flex items-center gap-6 mt-24">
 
                     <div className="flex-1 h-[1px] bg-gray-200"></div>
