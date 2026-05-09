@@ -2,143 +2,191 @@ import { useState } from "react";
 import logo from "./assets/images/logo1.png";
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
+
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <nav className="bg-white px-5 md:px-10 py-5 shadow-sm relative">
-      <div className="flex items-center justify-between">
+<nav className="w-full bg-white px-5 py-5 relative z-50 font-sans">
+  
+      <div className="max-w-[1160px] mx-auto flex items-center justify-between">
 
+        {/* Logo */}
         <div className="flex items-center">
+
           <img
             src={logo}
             alt="logo"
-            className="h-5 md:h-6 w-auto object-contain cursor-pointer"
+            className="h-4 w-auto object-contain cursor-pointer"
           />
+
         </div>
 
-        <ul className="hidden lg:flex items-center gap-8 text-[18px] font-medium text-black list-none">
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-10">
 
-          <li className="relative group cursor-pointer">
+          {/* Features Dropdown */}
+          <div className="relative group">
 
-            <span className="flex items-center hover:text-[rgb(249,117,24)] transition-colors duration-200">
+            <button className="flex items-center gap-2 text-[15px] font-medium text-[#1E0D01] hover:text-[rgb(249,117,24)] transition duration-300">
 
-              <span className="mr-2">
+              <span>
                 Features
               </span>
 
-              <span className="transform transition-transform duration-300 rotate-90 group-hover:-rotate-90">
-                &gt;
+              {/* Arrow */}
+              <span className="relative top-[0px] inline-flex items-center justify-center text-[15px] leading-none transition-transform duration-300 origin-center group-hover:-scale-y-100">
+                ⌵
               </span>
 
-            </span>
+            </button>
 
-            <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-4 w-52 bg-white rounded-[18px] shadow-[0_20px_50px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 list-none p-4">
+            {/* Dropdown */}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
 
-              <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
-                Home
-              </li>
+              <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] py-4 px-4 min-w-[180px]">
 
-              <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
-                About
-              </li>
+                {[
+                  "Home",
+                  "About",
+                  "Pricing",
+                  "Career",
+                  "Blog"
+                ].map((item, index) => (
 
-              <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
-                Pricing
-              </li>
+                  <div
+                    key={index}
+                    className="px-4 py-3 rounded-xl text-[15px] font-medium text-[#1E0D01] hover:text-[rgb(249,117,24)] hover:bg-gray-50 cursor-pointer transition"
+                  >
+                    {item}
+                  </div>
 
-              <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
-                Career
-              </li>
+                ))}
 
-              <li className="px-3 py-2 rounded-xl hover:bg-gray-100 hover:text-[rgb(249,117,24)] transition text-left">
-                Blog
-              </li>
+              </div>
 
-            </ul>
-          </li>
+            </div>
 
-          <li className="cursor-pointer hover:text-gray-700 transition">
-            Pricing
-          </li>
+          </div>
 
-          <li className="cursor-pointer hover:text-gray-700 transition">
-            FAQ
-          </li>
+          {/* Menu Items */}
+          {["Pricing", "FAQ", "Blog"].map((item, index) => (
 
-          <li className="cursor-pointer hover:text-gray-700 transition">
-            Blog
-          </li>
+            <button
+              key={index}
+              className="text-[15px] font-medium text-[#1E0D01] hover:text-[#5A5A5A] transition duration-300"
+            >
+              {item}
+            </button>
 
-        </ul>
+          ))}
 
-        <div className="hidden lg:flex items-center gap-5">
+        </div>
 
-          <button className="text-black font-medium hover:text-gray-700 transition">
+        {/* Right Side */}
+        <div className="hidden lg:flex items-center gap-7">
+
+          {/* Sign In */}
+          <button className="text-[15px] font-bold text-[#1E0D01] hover:text-[#5A5A5A] transition duration-300">
+
             Sign in
-          </button>
-
-          <button className="bg-[#5B21B6] text-white px-5 py-2 rounded-full hover:bg-[#4C1D95] transition font-bold flex items-center">
-
-            <span className="text-white">
-              Get Started
-            </span>
-
-            <span className="ml-3 text-xl text-white">
-              &gt;
-            </span>
 
           </button>
+
+          {/* Get Started */}
+       <button className="group bg-[#5D21B0] text-white text-[17px] font-semibold px-4 py-1 rounded-full flex items-center gap-3 overflow-hidden">
+
+    {/* Animated Text */}
+    <div className="relative h-[22px] overflow-hidden">
+
+        <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[22px]">
+
+            <span className="h-[22px] leading-[22px]">
+                Get Started
+            </span>
+
+            <span className="h-[22px] leading-[22px]">
+                Get Started
+            </span>
+
+        </div>
+
+    </div>
+
+    {/* Arrow */}
+    <span className="text-xl font-normal">
+        ❯
+    </span>
+
+</button>
 
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="lg:hidden text-3xl text-black"
+          onClick={() => setMobileMenu(!mobileMenu)}
+          className="lg:hidden flex flex-col gap-1"
         >
-          ☰
+
+          <span className="w-6 h-[2px] bg-black"></span>
+          <span className="w-6 h-[2px] bg-black"></span>
+          <span className="w-6 h-[2px] bg-black"></span>
+
         </button>
 
       </div>
 
-      {/*  Mobile Menu */}
-      {menuOpen && (
-        <div className="lg:hidden mt-5 bg-white rounded-2xl shadow-lg p-5">
+      {/* Mobile Menu */}
+      {mobileMenu && (
 
-          <ul className="flex flex-col gap-4 text-black text-[17px] font-medium">
+        <div className="lg:hidden bg-white border-t border-gray-100 mt-5">
 
-            <li className="hover:text-[rgb(249,117,24)] transition">
-              Features
-            </li>
+          <div className="flex flex-col py-5">
 
-            <li className="hover:text-[rgb(249,117,24)] transition">
-              Pricing
-            </li>
+            {[
+              "Features",
+              "Pricing",
+              "FAQ",
+              "Blog"
+            ].map((item, index) => (
 
-            <li className="hover:text-[rgb(249,117,24)] transition">
-              FAQ
-            </li>
+              <button
+                key={index}
+                className="text-left px-2 py-4 text-[15px] font-medium text-[#1E0D01] hover:text-[#262626] transition"
+              >
+                {item}
+              </button>
 
-            <li className="hover:text-[rgb(249,117,24)] transition">
-              Blog
-            </li>
+            ))}
 
-          </ul>
+            {/* Mobile Buttons */}
+            <div className="flex flex-col gap-4 mt-5 pt-5 border-t border-gray-100">
 
-          <div className="flex flex-col gap-3 mt-6">
+              <button className="text-left text-[15px] font-bold text-[#1E0D01]">
 
-            <button className="text-black font-medium border border-gray-300 rounded-full py-3">
-              Sign in
-            </button>
+                Sign in
 
-            <button className="bg-[#5B21B6] text-white py-3 rounded-full font-bold">
-              Get Started
-            </button>
+              </button>
+
+              <button className="bg-[#5D21B0] text-white text-[15px] font-semibold px-6 py-3 rounded-full w-fit flex items-center gap-3">
+
+                <span>
+                  Get Started
+                </span>
+
+                <span>
+                  ❯
+                </span>
+
+              </button>
+
+            </div>
 
           </div>
 
         </div>
+
       )}
+
     </nav>
   );
 }
