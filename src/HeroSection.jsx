@@ -1,55 +1,105 @@
 function HeroSection() {
   return (
-    <section className="w-full flex flex-col items-center justify-center text-center pt-16 md:pt-24 pb-20 px-5 bg-white overflow-hidden">
+    <section className="w-full flex flex-col items-center justify-center text-center pt-16 md:pt-12 pb-20 px-5 bg-white overflow-hidden">
 
-      <div className="flex flex-col sm:flex-row items-center gap-3 mb-5">
+      <div className="flex items-center gap-4">
 
-        <span className="bg-gradient-to-r from-[#5B21B6] to-[#9333EA] text-white text-sm md:text-base font-semibold px-4 py-2 rounded-full shadow-md">
-          AI-Powered
-        </span>
+    {/* AI Powered Badge */}
+    <div className="relative rounded-full p-[1px] overflow-hidden">
 
-        <span className="text-gray-500 text-sm md:text-lg">
-          Intent-based content intelligence
-        </span>
+        {/* Border Linear */}
+        <div className="absolute inset-0 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0)_55%)]"></div>
 
-      </div>
+        {/* Border Radial */}
+        <div className="absolute inset-0 rounded-full bg-[radial-gradient(88%_50%_at_50.7%_97.2%,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0)_37%)]"></div>
 
-      <div className="flex flex-col sm:flex-row items-center gap-2 mb-8">
+        {/* Main Background */}
+        <div className="relative bg-[#4316AB] rounded-full px-5 py-2 backdrop-blur-[12px] shadow-[inset_0px_0px_8px_rgba(182,118,223,0.1)]">
 
-        <div className="flex text-yellow-400 text-xl md:text-2xl">
-          ★★★★★
+            {/* Inner Gradient */}
+            <div className="absolute inset-0 rounded-full bg-[linear-gradient(180deg,rgba(255,255,255,0.1)_0%,rgba(110,108,108,0.1)_100%)] shadow-[inset_0px_3px_6px_rgba(182,118,223,0.2)]"></div>
+
+            {/* Text */}
+            <p className="relative text-white text-[14px] font-medium tracking-[0.42px] leading-[10px] font-sans">
+                AI-Powered
+            </p>
+
         </div>
 
-        <span className="text-green-700 font-semibold text-lg md:text-2xl">
-          Loved by 5000+ Users
-        </span>
+    </div>
 
-      </div>
+    {/* Right Text */}
+    <p className="text-[#6B7280] text-[14px] font-medium tracking-[0.42px] leading-[10px] font-sans">
+        Intent-based content intelligence
+    </p>
 
-      <h1 className="text-[42px] sm:text-[58px] md:text-[50px] leading-tight md:leading-[82px] font-bold max-w-[1200px] text-black">
+</div>
 
-        Write Content that
+      <div className="flex items-center gap-3">
 
-        <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent ml-2 md:ml-4 relative inline-block">
+    {/* Stars */}
+    <div className="flex items-center gap-[2px]">
 
-          ranks on Google
+        {[1, 2, 3, 4, 5].map((star) => (
 
-          {/* Underline */}
-          <span className="absolute left-0 -bottom-2 md:-bottom-3 w-full h-[6px] md:h-[10px] bg-blue-500 rounded-full opacity-70"></span>
+            <span
+                key={star}
+                className="text-[14px] text-[#FCAA1C]"
+            >
+                ★
+            </span>
 
-        </span>
+        ))}
 
-      </h1>
+    </div>
 
-      <p className="mt-6 text-gray-500 text-lg sm:text-2xl md:text-[25px] font-medium max-w-[900px]">
-        Create content people are searching for and get found.
-      </p>
+    {/* Text */}
+    <p className="text-[15px] font-semibold tracking-[-0.02em] leading-[1.3em] text-[#2F8A0B] font-sans">
+        Loved by 5000+ Users
+    </p>
 
-      <button className="mt-10 bg-gradient-to-r from-[#3B1FAE] to-[#E12AC8] text-white text-lg md:text-[20px] font-bold px-5 md:px-6 py-4 md:py-3 rounded-2xl shadow-[0_15px_35px_rgba(128,0,255,0.35)] hover:scale-105 transition duration-300">
+</div>
 
-        Get started for free
+      <div className="flex flex-col items-center text-center mt-10">
 
-      </button>
+    {/* Heading */}
+    <h1 className="text-[42px] md:text-[52px] font-semibold leading-[1] tracking-[-0.05em] text-black max-w-[950px] font-sans">
+
+        Write content that
+
+       <span className="bg-[linear-gradient(90deg,#3BA8FF_0%,#7B61FF_50%,#9333EA_100%)] bg-clip-text text-transparent">
+    {" "}ranks on Google
+</span>
+
+    </h1>
+
+    <p className="mt-6 text-[18px] md:text-[20px] font-medium leading-[1.6] tracking-[-0.02em] text-[#6B7280] max-w-[720px] text-center font-sans">
+    Create content people are searching for and get found.
+</p>
+
+    {/* Button */}
+    <button className="group mt-10 bg-[linear-gradient(265deg,rgb(233,48,201)_0%,rgb(120,35,177)_30%,rgb(82,35,177)_60%,rgb(46,22,152)_100%)] shadow-[0px_4px_20px_rgba(120,35,177,0.75)] rounded-[10px] px-6 py-3 overflow-hidden">
+
+    {/* Animated Text */}
+    <div className="relative h-[24px] overflow-hidden">
+
+        <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[24px]">
+
+            <span className="h-[24px] leading-[24px] text-white text-[17px] font-semibold font-sans tracking-[-0.02em]">
+                Get started for free
+            </span>
+
+            <span className="h-[24px] leading-[24px] text-white text-[17px] font-semibold font-sans tracking-[-0.02em]">
+                Get started for free
+            </span>
+
+        </div>
+
+    </div>
+
+</button>
+
+</div>
 
     </section>
   );
