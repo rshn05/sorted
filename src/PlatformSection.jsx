@@ -91,40 +91,40 @@ function PlatformSection() {
             <div className="max-w-[1240px] mx-auto">
 
                 {/* Badge */}
-                <div className="flex justify-center mb-6">
+               <div className="flex justify-center mb-6">
 
-                    <div
-                        className="px-8 py-[8px]
-                        rounded-full
-                        border border-[#3B82F6]/20
-                        bg-[linear-gradient(90deg,#111C77_0%,#6D28D9_100%)]"
-                    >
+    <div
+        className="
+        px-9 py-[7px]
+        rounded-full font-bold
+        border border-[rgba(41,137,255,0.2)]
+        bg-[linear-gradient(155deg,rgb(0,17,79)_23%,rgba(98,0,150,0.8)_60%)]
+        shadow-[inset_0_0_32px_rgba(116,176,253,0.12),inset_0_3px_12px_rgba(212,232,255,0.08),inset_0_0.5px_0.5px_rgba(212,232,255,0.12)]
+        "
+    >
 
-                        <span
-                            className="text-white text-[22px] font-semibold"
-                            style={{ fontFamily: "Inter Tight, sans-serif" }}
-                        >
-                            Features
-                        </span>
+        <p
+            className="text-[22px] font-medium tracking-[0.05em] leading-none text-[#EBF3FE]"
+            style={{ fontFamily: "Inter Tight, sans-serif" }}>
+                Features
+        </p>
 
-                    </div>
+    </div>
 
-                </div>
+</div>
 
                 {/* Heading */}
-                <h2
-                    className="text-center text-white
-                    text-[42px]
-                    leading-[1.1]
-                    font-medium
-                    tracking-[-1.5px]
-                    mb-16"
-                    style={{ fontFamily: "Geist, sans-serif" }}
-                >
-
-                    One Platform for Your Brand’s Growth
-
-                </h2>
+               <h2
+    className="text-center text-white
+    text-[42px]
+    leading-[1.1]
+    tracking-[-2.25px]
+    font-normal
+    mb-16"
+    style={{ fontFamily: "Geist, sans-serif" }}
+>
+    One Platform for Your Brand’s Growth
+</h2>
 
                 {/* Sections */}
                 <div className="flex flex-col gap-10">
@@ -134,8 +134,7 @@ function PlatformSection() {
                         <div key={sectionIndex}>
 
                             {/* Category */}
-                            <div className="flex items-center gap-2 mb-4">
-
+<div className="flex items-center gap-2 mb-2 max-w-[950px] mx-auto">
                                 <span className="text-[#D1D5DB] text-[12px]">
                                     ✦
                                 </span>
@@ -154,7 +153,7 @@ function PlatformSection() {
                             </div>
 
                             {/* Cards */}
-<div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-[900px] mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[950px] mx-auto">
                                 {section.cards.map((item, index) => (
 
                                     <div
@@ -162,8 +161,8 @@ function PlatformSection() {
                                         className="relative
                                         bg-[#050505]
                                         border border-white/10
-                                        rounded-[20px]
-                                        h-[135px]
+                                        rounded-[10px]
+                                        h-[140px]
                                         px-4 py-4
                                         overflow-hidden"
                                         style={{
