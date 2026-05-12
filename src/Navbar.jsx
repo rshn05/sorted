@@ -34,14 +34,14 @@ function Navbar() {
               </span>
 
               {/* Arrow */}
-              <span className="relative top-[0px] inline-flex items-center justify-center text-[15px] leading-none transition-transform duration-300 origin-center group-hover:-scale-y-100">
+              {/* <span className="relative top-[0px] inline-flex items-center justify-center text-[15px] leading-none transition-transform duration-300 origin-center group-hover:-scale-y-100">
                 ⌵
-              </span>
+              </span> */}
 
             </button>
 
             {/* Dropdown */}
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+            {/* <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
 
               <div className="bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] py-4 px-4 min-w-[180px]">
 
@@ -64,7 +64,7 @@ function Navbar() {
 
               </div>
 
-            </div>
+            </div> */}
 
           </div>
 

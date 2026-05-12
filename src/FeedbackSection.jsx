@@ -3,96 +3,247 @@ import img2 from "./assets/images/FeedbackImg/2.avif";
 import img3 from "./assets/images/FeedbackImg/3.avif";
 import img4 from "./assets/images/FeedbackImg/4.avif";
 
+import stars from "./assets/images/stars.svg";
+import comma from "./assets/images/comma.svg";
+import smile from "./assets/images/emoji-smile.svg";
+
 function FeedbackSection() {
 
     const reviews = [
         {
             image: img1,
             name: "Michael Brown",
-            review: "With Capable, I've expanded my network and found genuine connections. The seamless interface makes socializing so much easier."
+            review:
+                "With Capable, I've expanded my network and found genuine connections. The seamless interface makes socializing so much easier."
         },
         {
             image: img2,
             name: "Emily Johnson",
-            review: "Capable’s features are fantastic for both meeting new people and staying connected with existing friends. It's a must-have app."
+            review:
+                "Capable’s features are fantastic for both meeting new people and staying connected with existing friends. It's a must-have app."
         },
         {
             image: img3,
             name: "John Doe",
-            review: "The intuitive design and smart features of Capable made it easy to find meaningful connections. It's become my go-to app."
+            review:
+                "The intuitive design and smart features of Capable made it easy to find meaningful connections. It's become my go-to app."
         },
         {
             image: img4,
-            name: "Laura Martinez",
-            review: "I’m amazed at how Capable’s advanced privacy controls and customizable features have enhanced my online social experience."
+            name: "Emma Johnson",
+            review:
+                "Capable has truly transformed my social life. I've connected with amazing people and discovered new interests. Highly recommended!"
         }
     ];
 
     return (
-        <section className="w-full bg-white py-24 px-5 overflow-hidden">
 
-            <div className="max-w-[1200px] mx-auto">
+        <section
+            id="blog"
+            className="w-full bg-white py-[95px] px-5 overflow-hidden"
+        >
 
-                <h2 className="text-3xl md:text-5xl font-bold text-center text-black mb-6">
+            {/* TOP */}
+            <div className="max-w-[1100px] mx-auto text-center">
+
+                {/* SMALL TAG */}
+               <div
+    className="
+    inline-flex
+    items-center
+    gap-2
+    px-4
+    py-1
+    rounded-full
+    border
+    border-[#D9DEE5]
+    bg-[#F8F9FB]
+    mb-5
+    "
+>
+
+    <img
+        src={smile}
+        alt="smile"
+        className="w-[14px] h-[14px]"
+    />
+
+    <span
+        className="text-[13px] leading-[24px] text-[#333]"
+        style={{
+            fontFamily:
+                '"Instrument Sans", sans-serif',
+            fontWeight: 500,
+        }}
+    >
+        Our Testimonials
+    </span>
+
+</div>
+
+                {/* HEADING */}
+                <h2
+                    className="
+                    text-[45px]
+                    leading-[70px]
+                    text-[#0C0C0C]
+                    "
+                    style={{
+                        fontFamily:
+                            'Urbanist, sans-serif',
+                        fontWeight: 700,
+                    }}
+                >
                     User Reviews and Feedback
                 </h2>
 
-                <p className="text-center text-gray-500 text-xs md:text-sm max-w-[650px] mx-auto leading-7 mb-16">
-                    See how Capable has transformed users' social experiences through their own words.
+                {/* SUBTEXT */}
+                <p
+                    className="
+                    max-w-[720px]
+                    mx-auto
+                    mt-4
+                    text-[14px]
+                    leading-[27px]
+                    text-[#666]
+                    "
+                    style={{
+                        fontFamily:
+                            'Inter, sans-serif',
+                        fontWeight: 500,
+                    }}
+                >
+                    See how Capable has transformed users' social experiences <br />
+                    through their own words.
                 </p>
 
             </div>
 
-            <div className="relative max-w-[1200px] mx-auto overflow-hidden">
+            {/* SLIDERS */}
+            <div className="relative max-w-[900px] mx-auto overflow-hidden mt-16">
 
-                <div className="absolute left-0 top-0 z-10 h-full w-20 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+                {/* LEFT FADE */}
+                <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
 
-                <div className="absolute right-0 top-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+                {/* RIGHT FADE */}
+                <div className="absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
 
-                <div className="relative flex overflow-hidden mb-6">
+                {/* TOP ROW */}
+                <div className="relative flex overflow-hidden mb-4">
 
-                    <div className="flex animate-scrollLeft gap-5 whitespace-nowrap slider-track">
+                    <div className="flex animate-scrollLeft gap-4 whitespace-nowrap slider-track">
 
                         {[...reviews, ...reviews].map((item, index) => (
 
                             <div
                                 key={index}
-                                className="min-w-[280px] max-w-[280px] bg-[#F8FAFC] border border-gray-200 rounded-[24px] p-5"
+                                className="
+                                min-w-[285px]
+                                max-w-[285px]
+                                h-[215px]
+                                rounded-[20px]
+                                border
+                                border-[#DDE5ED]
+                                bg-[#F4F7F9]
+                                relative
+                                overflow-hidden
+                                p-5
+                                shadow-[0px_8px_24px_rgba(15,23,42,0.06)]
+                                "
                             >
 
-                                <div className="flex items-start justify-between mb-4">
+                                {/* DOTTED BG */}
+                                <div
+                                    className="
+                                    absolute
+                                    bottom-0
+                                    left-0
+                                    w-full
+                                    h-[78%]
+                                    pointer-events-none
+                                    "
+                                    style={{
+                                        backgroundImage:
+                                            "radial-gradient(#C4CDD7 1px, transparent 1px)",
+                                        backgroundSize: "12px 12px",
+                                        maskImage:
+                                            "linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))",
+                                        WebkitMaskImage:
+                                            "linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))",
+                                        opacity: 0.7,
+                                    }}
+                                ></div>
 
-                                    <div className="flex items-center gap-3">
+                                {/* COMMA */}
+                                <img
+                                    src={comma}
+                                    alt="comma"
+                                    className="
+                                    absolute
+                                    top-5
+                                    right-5
+                                    w-[18px]
+                                    z-10
+                                    "
+                                />
+
+                                {/* TOP */}
+                                <div className="relative z-10 flex items-center gap-3 mb-4">
+
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="
+                                        w-[44px]
+                                        h-[44px]
+                                        rounded-full
+                                        object-cover
+                                        "
+                                    />
+
+                                    <div>
+
+                                        <h3
+                                            className="
+                                            text-[16px]
+                                            leading-[24px]
+                                            text-[#1C1C1C]
+                                            "
+                                            style={{
+                                                fontFamily:
+                                                    'Urbanist, sans-serif',
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            {item.name}
+                                        </h3>
 
                                         <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className="w-10 h-10 rounded-full object-cover"
+                                            src={stars}
+                                            alt="stars"
+                                            className="w-[78px] mt-[2px]"
                                         />
 
-                                        <div>
-
-                                            <h3 className="text-black text-sm font-semibold">
-                                                {item.name}
-                                            </h3>
-
-                                            <div className="text-yellow-400 text-sm mt-1">
-                                                ★★★★★
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="text-3xl text-black font-bold">
-                                        ”
                                     </div>
 
                                 </div>
 
-                                <div className="border-t border-gray-200 pt-4">
+                                {/* LINE */}
+                                <div className="relative z-10 border-t border-[#DDE5ED] pt-4">
 
-                                    <p className="text-gray-600 leading-7 text-xs whitespace-normal">
+                                    <p
+                                        className="
+                                        text-[15px]
+                                        leading-[24px]
+                                        text-[#333]
+                                        whitespace-normal
+                                        "
+                                        style={{
+                                            fontFamily:
+                                                'Inter, sans-serif',
+                                            fontWeight: 500,
+                                        }}
+                                    >
                                         {item.review}
                                     </p>
 
@@ -106,51 +257,122 @@ function FeedbackSection() {
 
                 </div>
 
-                {/* Bottom Slider */}
+                {/* BOTTOM ROW */}
                 <div className="relative flex overflow-hidden">
 
-                    <div className="flex animate-scrollRight gap-5 whitespace-nowrap slider-track">
+                    <div className="flex animate-scrollRight gap-4 whitespace-nowrap slider-track">
 
                         {[...reviews, ...reviews].map((item, index) => (
 
                             <div
                                 key={index}
-                                className="min-w-[280px] max-w-[280px] bg-[#F8FAFC] border border-gray-200 rounded-[24px] p-5"
+                                className="
+                                min-w-[285px]
+                                max-w-[285px]
+                                h-[215px]
+                                rounded-[20px]
+                                border
+                                border-[#DDE5ED]
+                                bg-[#F4F7F9]
+                                relative
+                                overflow-hidden
+                                p-5
+                                shadow-[0px_8px_24px_rgba(15,23,42,0.06)]
+                                "
                             >
 
-                                <div className="flex items-start justify-between mb-4">
+                                {/* DOTTED BG */}
+                                <div
+                                    className="
+                                    absolute
+                                    bottom-0
+                                    left-0
+                                    w-full
+                                    h-[78%]
+                                    pointer-events-none
+                                    "
+                                    style={{
+                                        backgroundImage:
+                                            "radial-gradient(#C4CDD7 1px, transparent 1px)",
+                                        backgroundSize: "12px 12px",
+                                        maskImage:
+                                            "linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))",
+                                        WebkitMaskImage:
+                                            "linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0))",
+                                        opacity: 0.7,
+                                    }}
+                                ></div>
 
-                                    <div className="flex items-center gap-3">
+                                {/* COMMA */}
+                                <img
+                                    src={comma}
+                                    alt="comma"
+                                    className="
+                                    absolute
+                                    top-5
+                                    right-5
+                                    w-[18px]
+                                    z-10
+                                    "
+                                />
+
+                                {/* TOP */}
+                                <div className="relative z-10 flex items-center gap-3 mb-4">
+
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="
+                                        w-[44px]
+                                        h-[44px]
+                                        rounded-full
+                                        object-cover
+                                        "
+                                    />
+
+                                    <div>
+
+                                        <h3
+                                            className="
+                                            text-[16px]
+                                            leading-[24px]
+                                            text-[#1C1C1C]
+                                            "
+                                            style={{
+                                                fontFamily:
+                                                    'Urbanist, sans-serif',
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            {item.name}
+                                        </h3>
 
                                         <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            className="w-10 h-10 rounded-full object-cover"
+                                            src={stars}
+                                            alt="stars"
+                                            className="w-[78px] mt-[2px]"
                                         />
 
-                                        <div>
-
-                                            <h3 className="text-black text-sm font-semibold">
-                                                {item.name}
-                                            </h3>
-
-                                            <div className="text-yellow-400 text-sm mt-1">
-                                                ★★★★★
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="text-3xl text-black font-bold">
-                                        ”
                                     </div>
 
                                 </div>
 
-                                <div className="border-t border-gray-200 pt-4">
+                                {/* LINE */}
+                                <div className="relative z-10 border-t border-[#DDE5ED] pt-4">
 
-                                    <p className="text-gray-600 leading-7 text-xs whitespace-normal">
+                                    <p
+                                        className="
+                                        text-[15px]
+                                        leading-[24px]
+                                        text-[#333]
+                                        whitespace-normal
+                                        "
+                                        style={{
+                                            fontFamily:
+                                                'Inter, sans-serif',
+                                            fontWeight: 500,
+                                        }}
+                                    >
                                         {item.review}
                                     </p>
 
@@ -166,7 +388,7 @@ function FeedbackSection() {
 
             </div>
 
-            {/* Animation */}
+            {/* ANIMATION */}
             <style>
                 {`
                     @keyframes scrollLeft {

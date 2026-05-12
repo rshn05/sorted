@@ -1,63 +1,84 @@
 import { useState } from "react";
 
-
 function FAQSection() {
 
-    const [openIndex, setOpenIndex] = useState(1);
+    const [openIndex, setOpenIndex] = useState(-1);
 
     const faqs = [
         {
-            question: "How do I create an account?",
-            answer: "Simply sign up with your email address and follow the onboarding process to create your account."
+            question: "What is Alter ?",
+            answer:
+                "Alter is a Framer template designed to help you build professional, enterprise-ready AI agent websites quickly and efficiently.",
         },
         {
-            question: "Can I customize my profile?",
-            answer: "Yes, Capable allows you to personalize your profile with a photo, bio, and interests to better connect with others."
+            question: "Is Alter optimized for SEO ?",
+            answer:
+                "Yes, Alter is built with SEO-friendly practices to help your website rank better on search engines.",
         },
         {
-            question: "Is Capable available on all devices?",
-            answer: "Capable is available on both iOS and Android devices, ensuring you can stay connected from your smartphone or tablet."
+            question: "Do I need coding skills to use Alter ?",
+            answer:
+                "No! Alter is built for designers and non-technical users. Framer's intuitive interface allows you to customize without writing code.",
         },
         {
-            question: "What privacy controls are available?",
-            answer: "Capable offers advanced privacy settings, allowing you to control who can view your profile and interact with you, ensuring your data is secure."
+            question: "Can I customize Alter to fit my brand ?",
+            answer:
+                "Absolutely! Alter offers flexible customization options, including fonts, colors, layouts, and more, to match your brand identity.",
         },
         {
-            question: "How does the smart matching work?",
-            answer: "Our smart matching algorithm analyzes your interests and preferences to suggest connections that are most likely to be meaningful and relevant."
+            question: "Does Alter include mobile responsiveness ?",
+            answer:
+                "Yes! Alter is fully responsive and optimized for all devices, ensuring a seamless user experience across desktops, tablets, and mobile phones.",
         },
-        {
-            question: "Can I share multimedia content?",
-            answer: "Yes, Capable supports sharing photos, videos, and other multimedia content to enhance your interactions and keep your connections engaged."
-        },
-        {
-            question: "What should I do if I encounter issues?",
-            answer: "If you experience any issues, please contact our support team through the app or website, and we'll assist you as quickly as possible."
-        }
     ];
 
-    const toggleFAQ = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
     return (
-        <section className="w-full bg-white py-24 px-5">
 
-            <div className="max-w-[900px] mx-auto">
+        <section
+            id="faq"
+            className="w-full bg-white py-[85px] px-5 overflow-hidden"
+        >
 
-                <div className="flex justify-center mb-5">
+            <div className="max-w-[760px] mx-auto">
 
-                    <div className="border border-gray-300 rounded-full px-4 py-1 text-[12px] text-gray-500">
-                        ⓘ FAQ's
-                    </div>
+                {/* HEADING */}
+                <div className="text-center">
+
+                    <h2
+                        className="
+                        text-[45px]
+                        leading-[67px]
+                        text-[rgb(70,0,99)]
+                        "
+                        style={{
+                            fontFamily:
+                                '"Plus Jakarta Sans", sans-serif',
+                            fontWeight: 400,
+                        }}
+                    >
+                        Questions? Answers!
+                    </h2>
+
+                    <p
+                        className="
+                        mt-4
+                        text-[13px]
+                        leading-[24px]
+                        text-[rgb(14,28,41)]
+                        "
+                        style={{
+                            fontFamily:
+                                'Inter, sans-serif',
+                            fontWeight: 400,
+                        }}
+                    >
+                        Find quick answers to the most common questions about our platform
+                    </p>
 
                 </div>
 
-                <h2 className="text-xl md:text-6xl font-bold text-center text-black mb-14">
-                    Frequently Asked Questions
-                </h2>
-
-                <div className="flex flex-col gap-2">
+                {/* FAQS */}
+                <div className="mt-10 space-y-3 max-w-[450px] mx-auto">
 
                     {faqs.map((faq, index) => {
 
@@ -67,37 +88,111 @@ function FAQSection() {
 
                             <div
                                 key={index}
-                                className="bg-[#F5F7FA] border border-gray-200 rounded-2xl px-5 py-4 transition-all duration-300"
+                                className="
+                                bg-[#EEF2F6]
+                                rounded-[10px]
+                                shadow-[0px_10px_30px_rgba(15,23,42,0.3)]
+                                overflow-hidden
+                                transition-all
+                                duration-300
+                                "
                             >
 
+                                {/* QUESTION */}
                                 <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="w-full flex items-center justify-between text-left"
+                                    onClick={() =>
+                                        setOpenIndex(
+                                            isOpen ? -1 : index
+                                        )
+                                    }
+                                    className="
+                                    w-full
+                                    flex
+                                    items-center
+                                    justify-between
+                                    px-5
+                                    py-[8px]
+                                    text-left
+                                    "
                                 >
 
-                                    <h3 className="text-sm md:text-base font-semibold text-black">
+                                    <span
+                                        className="
+                                        text-[12px]
+                                        leading-[22px]
+                                        text-[rgb(14,28,41)]
+                                        "
+                                        style={{
+                                            fontFamily:
+                                                'Inter, sans-serif',
+                                            fontWeight: 400,
+                                        }}
+                                    >
                                         {faq.question}
-                                    </h3>
+                                    </span>
 
-                                    <div className="w-8 h-8 rounded-full bg-[#2F2F2F] flex items-center justify-center text-white text-lg flex-shrink-0">
-
-                                        {isOpen ? "−" : "+"}
-
-                                    </div>
+                                    <span
+                                        className={`
+                                        text-[20px]
+                                        text-[#1B2430]
+                                        transition-transform
+                                        duration-300
+                                        ${
+                                            isOpen
+                                                ? "rotate-180"
+                                                : ""
+                                        }
+                                        `}
+                                    >
+                                        ⌵
+                                    </span>
 
                                 </button>
 
-                                {isOpen && (
+                                {/* ANSWER */}
+                                <div
+                                    className={`
+                                    grid
+                                    transition-all
+                                    duration-500
+                                    ease-in-out
+                                    ${
+                                        isOpen
+                                            ? "grid-rows-[1fr] opacity-100"
+                                            : "grid-rows-[0fr] opacity-0"
+                                    }
+                                    `}
+                                >
 
-                                    <div className="mt-4 pt-4 border-t border-gray-300">
+                                    <div className="overflow-hidden">
 
-                                        <p className="text-gray-500 leading-6 text-xs md:text-sm max-w-[720px]">
+                                        <p
+                                            className={`
+                                            px-5
+                                            pb-4
+                                            text-[11px]
+                                            leading-[21px]
+                                            text-[rgb(14,28,41)]
+                                            transition-all
+                                            duration-700
+                                            ${
+                                                isOpen
+                                                    ? "blur-0 translate-y-0"
+                                                    : "blur-md translate-y-2"
+                                            }
+                                            `}
+                                            style={{
+                                                fontFamily:
+                                                    'Inter, sans-serif',
+                                                fontWeight: 400,
+                                            }}
+                                        >
                                             {faq.answer}
                                         </p>
 
                                     </div>
 
-                                )}
+                                </div>
 
                             </div>
 
@@ -107,9 +202,45 @@ function FAQSection() {
 
                 </div>
 
+                {/* FOOTER */}
+                <div
+                    className="
+                    mt-10
+                    flex
+                    items-center
+                    justify-center
+                    gap-3
+                    text-center
+                    "
+                >
+
+                    <span className="text-[15px]">
+                        ✉
+                    </span>
+
+                    <p
+                        className="
+                        text-[13px]
+                        leading-[22px]
+                        text-[rgb(14,28,41)]
+                        "
+                        style={{
+                            fontFamily:
+                                'Inter, sans-serif',
+                            fontWeight: 400,
+                        }}
+                    >
+                        Feel free to mail us for any enquiries :
+                        {" "}
+                        support@sortted.com
+                    </p>
+
+                </div>
+
             </div>
 
         </section>
+
     );
 }
 
