@@ -258,14 +258,14 @@ function PricingSection() {
                 {/* CARDS */}
                 <div
                     className="
-                    mt-16
-                    max-w-[980px]
+                    mt-12
+                    max-w-[1150px]
                     mx-auto
                     grid
                     grid-cols-1
                     md:grid-cols-2
                     lg:grid-cols-3
-                    gap-4
+                    gap-8
                     "
                 >
 

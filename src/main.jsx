@@ -30,8 +30,8 @@ createRoot(document.getElementById('root')).render(
     <FeatureSection />
     <SEOSection />
     <PlatformSection />
-    <PricingSection />
     <WhyChooseUsSection />
+    <PricingSection />
     <FeedbackSection />
     <FAQSection />
     <DownloadSection />
