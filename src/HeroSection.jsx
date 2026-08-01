@@ -21,7 +21,7 @@ function HeroSection() {
 
             {/* Text */}
             <p className="relative text-white text-[14px] font-medium tracking-[0.42px] leading-[10px] font-sans">
-                AI-Powered roshan
+                AI-Powered
             </p>
 
         </div>
