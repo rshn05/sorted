@@ -3,6 +3,23 @@ import appleIcon from "./assets/images/apple.svg";
 import androidIcon from "./assets/images/android.svg";
 
 function DownloadSection() {
+    const quickLinks = [
+        { label: "Benefits", targetId: "dashboard" },
+        { label: "Features", targetId: "features" },
+        { label: "How To Use", targetId: "platform" },
+        { label: "Pricing", targetId: "pricing" },
+        { label: "Testimonials", targetId: "testimonials" },
+        { label: "Waitlist", targetId: "download" },
+    ];
+
+    const scrollToSection = (id) => {
+        if (id === "hero") {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+        }
+        const section = document.getElementById(id);
+        section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
 
     return (
         <section className="w-full bg-white pt-24 px-5 overflow-hidden">
@@ -36,7 +53,10 @@ function DownloadSection() {
                 {/* Download Buttons */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mt-12">
 
-                    <button className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition">
+                    <button
+                        onClick={() => window.open("https://play.google.com/store", "_blank", "noopener,noreferrer")}
+                        className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition"
+                    >
 
                         <img
                             src={androidIcon}
@@ -58,7 +78,10 @@ function DownloadSection() {
 
                     </button>
 
-                    <button className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition">
+                    <button
+                        onClick={() => window.open("https://www.apple.com/app-store/", "_blank", "noopener,noreferrer")}
+                        className="flex items-center gap-4 border border-gray-200 rounded-full px-7 py-4 hover:shadow-lg transition"
+                    >
 
                         <img
                             src={appleIcon}
@@ -105,19 +128,14 @@ function DownloadSection() {
                 {/* Footer Links */}
                 <div className="flex flex-wrap justify-center gap-5 mt-16">
 
-                    {[
-                        "Benefits",
-                        "Features",
-                        "How To Use",
-                        "Pricing",
-                        "Testimonials",
-                        "Waitlist"
-                    ].map((item, index) => (
+                    {quickLinks.map((item, index) => (
 
                         <button
                             key={index}
-className="border border-gray-200 rounded-full px-5 py-2 text-black text-xs hover:bg-black hover:text-white transition"                        >
-                            {item}
+                            onClick={() => scrollToSection(item.targetId)}
+                            className="border border-gray-200 rounded-full px-5 py-2 text-black text-xs hover:bg-black hover:text-white transition"
+                        >
+                            {item.label}
                         </button>
 
                     ))}

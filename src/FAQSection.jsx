@@ -6,29 +6,29 @@ function FAQSection() {
 
     const faqs = [
         {
-            question: "What is Alter ?",
+            question: "What is Sortted?",
             answer:
-                "Alter is a Framer template designed to help you build professional, enterprise-ready AI agent websites quickly and efficiently.",
+                "Sortted is an AI-powered content growth platform that helps businesses create, optimize and humanize content from one place. Instead of using multiple tools for writing, SEO keyword planning and humanising. Sortted brings everything into one connected workflow.",
         },
         {
-            question: "Is Alter optimized for SEO ?",
+            question: "How is Sortted different from other AI writing tools?",
             answer:
-                "Yes, Alter is built with SEO-friendly practices to help your website rank better on search engines.",
+                "Sortted uses SERP analysis and NLP processing to understand what already ranks on Google. It analyzes top-ranking pages, extracts important keywords, topics and search intent patterns, then creates a new optimized intent-based content designed to improve relevance, readability and ranking potential —  backed by real search data instead of generic AI output.",
         },
         {
-            question: "Do I need coding skills to use Alter ?",
+            question: "What are the SEO Keyword Planner and Humanizer features in Sortted?",
             answer:
-                "No! Alter is built for designers and non-technical users. Framer's intuitive interface allows you to customize without writing code.",
+                "The SEO Keyword Planner helps discover high-search keywords and search volume insights to create content people are actively searching for, while the Humanizer rewrites AI-generated text to sound more natural, readable and human-like without affecting SEO quality.",
         },
         {
-            question: "Can I customize Alter to fit my brand ?",
+            question: "Do I need SEO experience to use Sortted?",
             answer:
-                "Absolutely! Alter offers flexible customization options, including fonts, colors, layouts, and more, to match your brand identity.",
+                "No. Sortted simplifies SEO recommendations and content optimization so beginners can create optimized content without technical expertise.",
         },
         {
-            question: "Does Alter include mobile responsiveness ?",
+            question: "What features are planned for future updates in Sortted?",
             answer:
-                "Yes! Alter is fully responsive and optimized for all devices, ensuring a seamless user experience across desktops, tablets, and mobile phones.",
+                "Future updates include GEO optimization for AI search rankings, website Site Audit reports, Social Publishing automation and Social Listening features to help businesses create, optimize, publish and monitor content growth from one platform.",
         },
     ];
 
@@ -36,7 +36,7 @@ function FAQSection() {
 
         <section
             id="faq"
-            className="w-full bg-white py-[85px] px-5 overflow-hidden"
+            className="w-full bg-white pt-[85px] px-5 overflow-hidden"
         >
 
             <div className="max-w-[760px] mx-auto">
@@ -46,7 +46,7 @@ function FAQSection() {
 
                     <h2
                         className="
-                        text-[45px]
+                        text-[40px]
                         leading-[67px]
                         text-[rgb(70,0,99)]
                         "
@@ -62,7 +62,7 @@ function FAQSection() {
                     <p
                         className="
                         mt-4
-                        text-[13px]
+                        text-[16px]
                         leading-[24px]
                         text-[rgb(14,28,41)]
                         "
@@ -78,7 +78,7 @@ function FAQSection() {
                 </div>
 
                 {/* FAQS */}
-                <div className="mt-10 space-y-3 max-w-[450px] mx-auto">
+                <div className="mt-10 space-y-4 max-w-[570px] mx-auto">
 
                     {faqs.map((faq, index) => {
 
@@ -91,7 +91,7 @@ function FAQSection() {
                                 className="
                                 bg-[#EEF2F6]
                                 rounded-[10px]
-                                shadow-[0px_10px_30px_rgba(15,23,42,0.3)]
+                                shadow-[0_3px_5px_rgba(0,0,0,0.5)]
                                 overflow-hidden
                                 transition-all
                                 duration-300
@@ -118,7 +118,7 @@ function FAQSection() {
 
                                     <span
                                         className="
-                                        text-[12px]
+                                        text-[16px]
                                         leading-[22px]
                                         text-[rgb(14,28,41)]
                                         "
@@ -170,9 +170,9 @@ function FAQSection() {
                                             className={`
                                             px-5
                                             pb-4
-                                            text-[11px]
+                                            text-[14px]
                                             leading-[21px]
-                                            text-[rgb(14,28,41)]
+                                            text-[rgb(65, 69, 73)]
                                             transition-all
                                             duration-700
                                             ${
@@ -214,13 +214,13 @@ function FAQSection() {
                     "
                 >
 
-                    <span className="text-[15px]">
+                    <span className="text-[20px]">
                         ✉
                     </span>
 
                     <p
                         className="
-                        text-[13px]
+                        text-[17px]
                         leading-[22px]
                         text-[rgb(14,28,41)]
                         "

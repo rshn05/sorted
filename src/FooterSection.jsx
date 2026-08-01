@@ -1,4 +1,4 @@
-import logo from "./assets/images/footer/ftLogo.jpg";
+import logo from "./assets/images/footer/ftLogo.png";
 
 import facebook from "./assets/images/footer/fb.svg";
 import instagram from "./assets/images/footer/ig.svg";
@@ -6,11 +6,24 @@ import linkedin from "./assets/images/footer/ln.svg";
 
 function FooterSection() {
 
+    const scrollToSection = (id) => {
+
+        const section = document.getElementById(id);
+
+        if (section) {
+            section.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+
+    };
+
     return (
 
-        <footer className="w-full bg-[#050505] overflow-hidden">
+        <footer className="w-full bg-[#101011] overflow-hidden">
 
-            <div className="max-w-[900px] mx-auto px-8 pt-[80px] pb-6">
+            <div className="max-w-[1200px] mx-auto px-8 pt-[80px] pb-6">
 
                 {/* TOP */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
@@ -24,64 +37,120 @@ function FooterSection() {
                             <img
                                 src={logo}
                                 alt="Sortted"
-                                className="w-[92px] object-contain"
+                                className="w-[120px] object-contain"
                             />
 
                             {/* SOCIAL */}
-                            <div className="flex items-center gap-3 mt-10">
+                            <div className="flex items-center gap-4 mt-10">
 
-                                <img
-                                    src={facebook}
-                                    alt="facebook"
-                                    className="w-[10px] cursor-pointer opacity-90 hover:opacity-100 transition"
-                                />
-
-                                <div className="w-[1px] h-[18px] bg-[#2A2A2A]"></div>
-
-                                <img
-                                    src={instagram}
-                                    alt="instagram"
-                                    className="w-[15px] cursor-pointer opacity-90 hover:opacity-100 transition"
-                                />
+                                <a
+                                    href="https://facebook.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src={facebook}
+                                        alt="facebook"
+                                        className="w-[12px] cursor-pointer opacity-90 hover:opacity-100 transition"
+                                    />
+                                </a>
 
                                 <div className="w-[1px] h-[18px] bg-[#2A2A2A]"></div>
 
-                                <img
-                                    src={linkedin}
-                                    alt="linkedin"
-                                    className="w-[15px] cursor-pointer opacity-90 hover:opacity-100 transition"
-                                />
+                                <a
+                                    href="https://instagram.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src={instagram}
+                                        alt="instagram"
+                                        className="w-[22px] cursor-pointer opacity-90 hover:opacity-100 transition"
+                                    />
+                                </a>
+
+                                <div className="w-[1px] h-[18px] bg-[#2A2A2A]"></div>
+
+                                <a
+                                    href="https://www.linkedin.com/company/sorttedtechnologies/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src={linkedin}
+                                        alt="linkedin"
+                                        className="w-[22px] cursor-pointer opacity-90 hover:opacity-100 transition"
+                                    />
+                                </a>
 
                             </div>
 
                         </div>
 
                         {/* BOTTOM LINKS */}
-                        <div className="space-y-3">
+                        {/* <div className="space-y-3">
 
-                            <p
-                                className="text-[#8E8E8E] text-[13px] cursor-pointer hover:text-white transition"
+                            <a
+                                href="/terms"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="
+                                block
+                                text-[#8E8E8E]
+                                text-[16px]
+                                hover:text-white
+                                transition
+                                "
                                 style={{
                                     fontFamily:
                                         'Inter, sans-serif',
                                     fontWeight: 500,
                                 }}
                             >
-                                Terms of use
-                            </p>
+                                Terms of Service
+                            </a>
 
-                            <p
-                                className="text-[#8E8E8E] text-[13px] cursor-pointer hover:text-white transition"
+                            <a
+                                href="/privacy"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="
+                                block
+                                text-[#8E8E8E]
+                                text-[16px]
+                                hover:text-white
+                                transition
+                                "
                                 style={{
                                     fontFamily:
                                         'Inter, sans-serif',
                                     fontWeight: 500,
                                 }}
                             >
-                                Privacy policy
-                            </p>
+                                Privacy Policy
+                            </a>
 
-                        </div>
+                            <a
+                                href="/refund-policy"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="
+                                block
+                                text-[#8E8E8E]
+                                text-[16px]
+                                hover:text-white
+                                transition
+                                "
+                                style={{
+                                    fontFamily:
+                                        'Inter, sans-serif',
+                                    fontWeight: 500,
+                                }}
+                            >
+                                Refund Policy
+                            </a>
+
+                        </div> */}
 
                     </div>
 
@@ -95,7 +164,7 @@ function FooterSection() {
                         <div className="min-w-[170px]">
 
                             <h3
-                                className="text-white text-[18px] mb-3"
+                                className="text-white text-[22px] mb-3"
                                 style={{
                                     fontFamily:
                                         'Inter, sans-serif',
@@ -105,14 +174,14 @@ function FooterSection() {
                                 Features
                             </h3>
 
-                            <div className="space-y-0">
+                            <div className="space-y-2">
 
                                 {[
                                     "SEO Keyword planner",
                                     "AI Article Writer",
                                     "Content Studio",
                                     "Humanizer",
-                                    "GEO: Rank in AI",
+                                    "GEO-AEO: Rank in AI",
                                     "Site Audit",
                                     "Social Listening",
                                     "Social Auto-Publishing"
@@ -122,7 +191,7 @@ function FooterSection() {
                                         key={index}
                                         className="
                                         text-[#9A9A9A]
-                                        text-[12px]
+                                        text-[15px]
                                         leading-[24px]
                                         cursor-pointer
                                         hover:text-white
@@ -147,7 +216,7 @@ function FooterSection() {
                         <div className="min-w-[120px]">
 
                             <h3
-                                className="text-white text-[18px] mb-3"
+                                className="text-white text-[22px] mb-3"
                                 style={{
                                     fontFamily:
                                         'Inter, sans-serif',
@@ -157,37 +226,123 @@ function FooterSection() {
                                 Quick Links
                             </h3>
 
-                            <div className="space-y-0">
+                            <div className="space-y-2">
 
-                                {[
-                                    "Home",
-                                    "Features",
-                                    "Pricing",
-                                    "Blogs",
-                                    "FAQ",
-                                    "Contact us"
-                                ].map((item, index) => (
+                                <p
+                                    onClick={() => scrollToSection("home")}
+                                    className="
+                                    text-white
+                                    text-[15px]
+                                    leading-[24px]
+                                    cursor-pointer
+                                    hover:text-[#B8B8B8]
+                                    transition
+                                    "
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Home
+                                </p>
 
-                                    <p
-                                        key={index}
-                                        className="
-                                        text-white
-                                        text-[12px]
-                                        leading-[24px]
-                                        cursor-pointer
-                                        hover:text-[#B8B8B8]
-                                        transition
-                                        "
-                                        style={{
-                                            fontFamily:
-                                                'Inter, sans-serif',
-                                            fontWeight: 600,
-                                        }}
-                                    >
-                                        {item}
-                                    </p>
+                                <p
+                                    onClick={() => scrollToSection("platform")}
+                                    className="
+                                    text-white
+                                    text-[15px]
+                                    leading-[24px]
+                                    cursor-pointer
+                                    hover:text-[#B8B8B8]
+                                    transition
+                                    "
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Features
+                                </p>
 
-                                ))}
+                                <p
+                                    onClick={() => scrollToSection("pricing")}
+                                    className="
+                                    text-white
+                                    text-[15px]
+                                    leading-[24px]
+                                    cursor-pointer
+                                    hover:text-[#B8B8B8]
+                                    transition
+                                    "
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Pricing
+                                </p>
+
+                                <p><a
+    href="https://sortted.com/blog"
+    target="_blank"
+    rel="noreferrer"
+    className="
+    text-white
+    text-[15px]
+    leading-[24px]
+    cursor-pointer
+    hover:text-[#B8B8B8]
+    transition
+    "
+    style={{
+        fontFamily:
+            'Inter, sans-serif',
+        fontWeight: 600,
+    }}
+>
+    Blogs
+</a>
+</p>
+                                <p
+                                    onClick={() => scrollToSection("faq")}
+                                    className="
+                                    text-white
+                                    text-[15px]
+                                    leading-[24px]
+                                    cursor-pointer
+                                    hover:text-[#B8B8B8]
+                                    transition
+                                    "
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    FAQ
+                                </p>
+
+                                <p
+                                    onClick={() => scrollToSection("contact")}
+                                    className="
+                                    text-white
+                                    text-[15px]
+                                    leading-[24px]
+                                    cursor-pointer
+                                    hover:text-[#B8B8B8]
+                                    transition
+                                    "
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Contact us
+                                </p>
 
                             </div>
 
@@ -198,24 +353,56 @@ function FooterSection() {
                 </div>
 
                 {/* BOTTOM LINE */}
-                <div className="w-full h-[1px] bg-[#1E1E1E] mt-4 mb-4"></div>
+                {/* <div className="w-full h-[1px] bg-[#1E1E1E] mt-4 mb-4"></div> */}
 
                 {/* COPYRIGHT */}
-                <p
-                    className="
-                    text-center
-                    text-[#8B8B8B]
-                    text-[10px]
-                    font-bold
-                    "
-                    style={{
-                        fontFamily:
-                            'Inter, sans-serif',
-                        fontWeight: 500,
-                    }}
-                >
-                    © 2026 SORTTED. All Rights Reserved.
-                </p>
+{/* <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+
+    <p
+        className="
+        text-[#8B8B8B]
+        text-[14px]
+        "
+        style={{
+            fontFamily: 'Inter, sans-serif',
+            fontWeight: 500,
+        }}
+    >
+        © 2026 SORTTED. All Rights Reserved.
+    </p>
+
+    <div className="flex items-center gap-6">
+
+        <a
+            href="/terms"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#8B8B8B] text-[14px] hover:text-white transition"
+        >
+            Terms of Service
+        </a>
+
+        <a
+            href="https://sortted.com/privacy"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#8B8B8B] text-[14px] hover:text-white transition"
+        >
+            Privacy Policy
+        </a>
+
+        <a
+            href="/refund-policy"
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#8B8B8B] text-[14px] hover:text-white transition"
+        >
+            Refund Policy
+        </a>
+
+    </div>
+
+</div> */}
 
             </div>
 

@@ -59,11 +59,12 @@ function FutureSection() {
     </div>
 
     <h2
-        className="text-[57px] font-semibold leading-[62px] bg-[linear-gradient(270deg,rgb(233,48,201)_0%,rgb(120,35,177)_30%,rgb(82,35,177)_60%,rgb(56,24,199)_100%)] bg-clip-text text-transparent"
-        style={{ fontFamily: "Switzer, sans-serif" }}
-    >
-        5,000+
-    </h2>
+  className="text-[57px] font-semibold leading-[62px] bg-[linear-gradient(270deg,rgb(233,48,201)_0%,rgb(120,35,177)_30%,rgb(82,35,177)_60%,rgb(56,24,199)_100%)] bg-clip-text text-transparent"
+  style={{ fontFamily: "Switzer, sans-serif" }}
+>
+  5,000
+  <span className="text-[42px] align-top">+</span>
+</h2>
 
     <p
         className="text-[#D3D3D3] mt-4 text-[17px] font-medium leading-[24px] text-center"

@@ -43,15 +43,16 @@ function WhyChooseUsSection() {
     {/* Main Heading */}
     <h2
         className="
-        text-[46px]
+        font-inter-display
+        font-[500]
+        text-[35px]
         leading-[1.1]
-        tracking-[-2.25px]
+        tracking-[0px]
         text-black
         max-w-[900px]
+        tracking-[0px]
         "
-        style={{
-            fontFamily: 'Geist, "Geist Placeholder", sans-serif'
-        }}
+       
     >
         Sortted.com is built for modern <br /> growth teams
     </h2>
@@ -82,7 +83,7 @@ function WhyChooseUsSection() {
     relative
     overflow-hidden
     rounded-[28px]
-    border border-[rgba(41,137,255,0.2)]
+    border border-[rgba(43, 213, 57, 0.2)]
     shadow-[inset_0_0_32px_rgba(116,176,253,0.12),inset_0_3px_12px_rgba(212,232,255,0.08),inset_0_0.5px_0.5px_rgba(212,232,255,0.12)]
     p-8
     "
@@ -97,25 +98,9 @@ function WhyChooseUsSection() {
 
 <div className="flex items-center gap-3 mb-5">
 
-    <div
-        className="
-        w-[30px]
-        h-[30px]
-        flex items-center
-        justify-center
-        overflow-hidden
-        "
-    >
-        <img
-            src={logo}
-            alt="Sortted Logo"
-            className="w-[34px] h-[34px] object-contain"
-        />
-    </div>
-
     <h3
         className="
-        text-[34px]
+        text-[24px]
         font-medium
         tracking-[-0.03em]
         text-[#EBF3FE]
@@ -134,7 +119,7 @@ function WhyChooseUsSection() {
             className="
             text-[rgba(235,243,254,0.8)]
             leading-[1.5]
-            tracking-[-0.01em]
+            tracking-[1px]
             text-[17px]
             "
             style={{
@@ -183,7 +168,7 @@ function WhyChooseUsSection() {
                     bg-white/5
                     "
                 >
-                    <span className="text-[#7DD3FC] text-[14px]">
+                    <span className="text-[#22C55E] text-[14px]">
                         ✓
                     </span>
                 </div>
@@ -194,7 +179,7 @@ function WhyChooseUsSection() {
                     text-[rgba(235,243,254,0.8)]
                     text-[15px]
                     leading-[1.5]
-                    tracking-[-0.01em]
+                    tracking-[1px]
                     "
                     style={{
                         fontFamily:
@@ -255,7 +240,7 @@ function WhyChooseUsSection() {
             className="
             text-[rgba(235,243,254,0.8)]
             leading-[1.5]
-            tracking-[-0.01em]
+            tracking-[1px]
             text-[17px]
             "
             style={{
@@ -315,7 +300,7 @@ function WhyChooseUsSection() {
                     text-[rgba(235,243,254,0.8)]
                     text-[15px]
                     leading-[1.5]
-                    tracking-[-0.01em]
+                    tracking-[1px]
                     "
                     style={{
                         fontFamily:

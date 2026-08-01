@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.marketing-landing-scale {
+    zoom: 1.035;
+}
+
+@media (max-width: 1024px) {
+    .marketing-landing-scale {
+        zoom: 0.972;
+    }
+}
+
 @keyframes scroll {
 
     from {

@@ -1,38 +1,134 @@
-import img1 from "./assets/images/FeedbackImg/1.avif";
 import img2 from "./assets/images/FeedbackImg/2.avif";
-import img3 from "./assets/images/FeedbackImg/3.avif";
 import img4 from "./assets/images/FeedbackImg/4.avif";
+import img5 from "./assets/images/FeedbackImg/5.avif";
+import img6 from "./assets/images/FeedbackImg/6.png";
 
-import stars from "./assets/images/stars.svg";
+import stars5 from "./assets/images/5stars.png";
+import stars4 from "./assets/images/4stars.png";
+import stars35 from "./assets/images/3.5stars.png";
+
 import comma from "./assets/images/comma.svg";
 import smile from "./assets/images/emoji-smile.svg";
 
+function initialsFromName(name) {
+    return name
+        .trim()
+        .split(/\s+/)
+        .map((part) => part[0])
+        .join("")
+        .toUpperCase()
+        .slice(0, 2);
+}
+
+function FeedbackAvatar({ image, name }) {
+    if (image) {
+        return (
+            <img
+                src={image}
+                alt={name}
+                className="
+                w-[44px]
+                h-[44px]
+                rounded-full
+                object-cover
+                shrink-0
+                "
+            />
+        );
+    }
+    return (
+        <div
+            className="
+            w-[44px]
+            h-[44px]
+            rounded-full
+            shrink-0
+            flex
+            items-center
+            justify-center
+            bg-[#DDE5ED]
+            text-[#3D4F5F]
+            text-[14px]
+            leading-none
+            font-semibold
+            "
+            style={{ fontFamily: "Urbanist, sans-serif" }}
+            aria-label={`${name} initials`}
+        >
+            {initialsFromName(name)}
+        </div>
+    );
+}
+
 function FeedbackSection() {
 
-    const reviews = [
+    const topReviews = [
         {
-            image: img1,
-            name: "Michael Brown",
+            stars: stars5,
+            name: "Emma Johnson",
             review:
-                "With Capable, I've expanded my network and found genuine connections. The seamless interface makes socializing so much easier."
+                "The AI writer creates surprisingly high-quality articles. Saved our team hours every week."
         },
         {
-            image: img2,
-            name: "Emily Johnson",
+            stars: stars4,
+            name: "Maria Brown",
             review:
-                "Capable’s features are fantastic for both meeting new people and staying connected with existing friends. It's a must-have app."
+                "The Humanizer makes AI content sound natural and readable. Huge difference in quality."
         },
         {
-            image: img3,
-            name: "John Doe",
+            stars: stars35,
+            name: "Rohit Shinde",
             review:
-                "The intuitive design and smart features of Capable made it easy to find meaningful connections. It's become my go-to app."
+                "Our organic traffic started improving after using Sortted’s keyword insights and article optimization."
         },
         {
             image: img4,
-            name: "Emma Johnson",
+            stars: stars5,
+            name: "Martin Laura",
             review:
-                "Capable has truly transformed my social life. I've connected with amazing people and discovered new interests. Highly recommended!"
+                "Finally a platform that combines AI writing and keyword research in a simple workflow."
+        },
+        {
+            image: img5,
+            stars: stars4,
+            name: "Rose Taylor",
+            review:
+                "The SEO keyword planner helped us discover topics we were completely missing."
+        }
+    ];
+
+    const bottomReviews = [
+        {
+            image: img6,
+            stars: stars35,
+            name: "Olivia Anderson",
+            review:
+                "Content generated through Sortted feels more structured and ranking-focused than other AI tools."
+        },
+        {
+            stars: stars5,
+            name: "Ankit Verma",
+            review:
+                "The Humanizer feature removes the robotic feel from AI content almost instantly."
+        },
+        {
+            stars: stars4,
+            name: "Sophia Wilson",
+            review:
+                "We published articles from Sortted and started seeing better indexing and search visibility."
+        },
+        {
+            stars: stars35,
+            name: "Maria Garcia",
+            review:
+                "Sortted helped us scale content production without sacrificing readability or SEO quality."
+        },
+        {
+            image: img2,
+            stars: stars5,
+            name: "Amelia Jones",
+            review:
+                "The combination of SERP analysis, AI writing and humanization makes Sortted genuinely useful for content growth."
         }
     ];
 
@@ -47,44 +143,44 @@ function FeedbackSection() {
             <div className="max-w-[1100px] mx-auto text-center">
 
                 {/* SMALL TAG */}
-               <div
-    className="
-    inline-flex
-    items-center
-    gap-2
-    px-4
-    py-1
-    rounded-full
-    border
-    border-[#D9DEE5]
-    bg-[#F8F9FB]
-    mb-5
-    "
->
+                <div
+                    className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-4
+                    py-1
+                    rounded-full
+                    border
+                    border-[#D9DEE5]
+                    bg-[#F8F9FB]
+                    mb-5
+                    "
+                >
 
-    <img
-        src={smile}
-        alt="smile"
-        className="w-[14px] h-[14px]"
-    />
+                    <img
+                        src={smile}
+                        alt="smile"
+                        className="w-[17px] h-[15px]"
+                    />
 
-    <span
-        className="text-[13px] leading-[24px] text-[#333]"
-        style={{
-            fontFamily:
-                '"Instrument Sans", sans-serif',
-            fontWeight: 500,
-        }}
-    >
-        Our Testimonials
-    </span>
+                    <span
+                        className="text-[17px] leading-[24px] text-[#333]"
+                        style={{
+                            fontFamily:
+                                '"Instrument Sans", sans-serif',
+                            fontWeight: 500,
+                        }}
+                    >
+                        Our Testimonials
+                    </span>
 
-</div>
+                </div>
 
                 {/* HEADING */}
                 <h2
                     className="
-                    text-[45px]
+                    text-[40px]
                     leading-[70px]
                     text-[#0C0C0C]
                     "
@@ -103,7 +199,7 @@ function FeedbackSection() {
                     max-w-[720px]
                     mx-auto
                     mt-4
-                    text-[14px]
+                    text-[18px]
                     leading-[27px]
                     text-[#666]
                     "
@@ -113,14 +209,14 @@ function FeedbackSection() {
                         fontWeight: 500,
                     }}
                 >
-                    See how Capable has transformed users' social experiences <br />
-                    through their own words.
+                    See how Sortted has transformed users' content workflow
+                    <br />through their own words.
                 </p>
 
             </div>
 
             {/* SLIDERS */}
-            <div className="relative max-w-[900px] mx-auto overflow-hidden mt-16">
+            <div className="relative max-w-[1150px] mx-auto overflow-hidden mt-16">
 
                 {/* LEFT FADE */}
                 <div className="absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
@@ -133,14 +229,14 @@ function FeedbackSection() {
 
                     <div className="flex animate-scrollLeft gap-4 whitespace-nowrap slider-track">
 
-                        {[...reviews, ...reviews].map((item, index) => (
+                        {[...topReviews, ...topReviews].map((item, index) => (
 
                             <div
                                 key={index}
                                 className="
-                                min-w-[285px]
-                                max-w-[285px]
-                                h-[215px]
+                                min-w-[300px]
+                                max-w-[300px]
+                                h-[250px]
                                 rounded-[20px]
                                 border
                                 border-[#DDE5ED]
@@ -190,16 +286,7 @@ function FeedbackSection() {
                                 {/* TOP */}
                                 <div className="relative z-10 flex items-center gap-3 mb-4">
 
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        className="
-                                        w-[44px]
-                                        h-[44px]
-                                        rounded-full
-                                        object-cover
-                                        "
-                                    />
+                                    <FeedbackAvatar image={item.image} name={item.name} />
 
                                     <div>
 
@@ -219,10 +306,20 @@ function FeedbackSection() {
                                         </h3>
 
                                         <img
-                                            src={stars}
-                                            alt="stars"
-                                            className="w-[78px] mt-[2px]"
-                                        />
+    src={item.stars}
+    alt="stars"
+    className={`
+    mt-[2px]
+    object-contain
+    ${
+        item.stars === stars35
+            ? "w-[55px]"
+            : item.stars === stars4
+            ? "w-[65px]"
+            : "w-[78px]"
+    }
+    `}
+/>
 
                                     </div>
 
@@ -241,7 +338,7 @@ function FeedbackSection() {
                                         style={{
                                             fontFamily:
                                                 'Inter, sans-serif',
-                                            fontWeight: 500,
+                                                fontWeight: 500,
                                         }}
                                     >
                                         {item.review}
@@ -262,14 +359,14 @@ function FeedbackSection() {
 
                     <div className="flex animate-scrollRight gap-4 whitespace-nowrap slider-track">
 
-                        {[...reviews, ...reviews].map((item, index) => (
+                        {[...bottomReviews, ...bottomReviews].map((item, index) => (
 
                             <div
                                 key={index}
                                 className="
-                                min-w-[285px]
-                                max-w-[285px]
-                                h-[215px]
+                                min-w-[300px]
+                                max-w-[300px]
+                                h-[250px]
                                 rounded-[20px]
                                 border
                                 border-[#DDE5ED]
@@ -319,16 +416,7 @@ function FeedbackSection() {
                                 {/* TOP */}
                                 <div className="relative z-10 flex items-center gap-3 mb-4">
 
-                                    <img
-                                        src={item.image}
-                                        alt={item.name}
-                                        className="
-                                        w-[44px]
-                                        h-[44px]
-                                        rounded-full
-                                        object-cover
-                                        "
-                                    />
+                                    <FeedbackAvatar image={item.image} name={item.name} />
 
                                     <div>
 
@@ -348,10 +436,20 @@ function FeedbackSection() {
                                         </h3>
 
                                         <img
-                                            src={stars}
-                                            alt="stars"
-                                            className="w-[78px] mt-[2px]"
-                                        />
+    src={item.stars}
+    alt="stars"
+    className={`
+    mt-[2px]
+    object-contain
+    ${
+        item.stars === stars35
+            ? "w-[55px]"
+            : item.stars === stars4
+            ? "w-[65px]"
+            : "w-[78px]"
+    }
+    `}
+/>
 
                                     </div>
 
@@ -370,7 +468,7 @@ function FeedbackSection() {
                                         style={{
                                             fontFamily:
                                                 'Inter, sans-serif',
-                                            fontWeight: 500,
+                                                fontWeight: 500,
                                         }}
                                     >
                                         {item.review}

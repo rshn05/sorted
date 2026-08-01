@@ -6,7 +6,8 @@ import {
     ShieldCheck,
     BarChart3,
     Hash,
-    Bot
+    Bot,
+    Cpu
 } from "lucide-react";
 
 function PlatformSection() {
@@ -16,19 +17,19 @@ function PlatformSection() {
             category: "CREATE",
             cards: [
                 {
-                    icon: <PenLine size={15} strokeWidth={2} />,
+                    icon: <PenLine size={22} strokeWidth={2} />,
                     title: "AI ARTICLE WRITER",
                     desc: "NLP-powered, intent-driven content at the speed of thought",
                     color: "#A855F7"
                 },
                 {
-                    icon: <Layers3 size={15} strokeWidth={2} />,
+                    icon: <Layers3 size={22} strokeWidth={2} />,
                     title: "CONTENT STUDIO",
                     desc: "Social content, ad copy, product copy, pages, emails & all marketing content",
                     color: "#00E0B8"
                 },
                 {
-                    icon: <Wand2 size={15} strokeWidth={2} />,
+                    icon: <Wand2 size={22} strokeWidth={2} />,
                     title: "HUMANIZER",
                     desc: "Natural rewriting that sounds real, clear and human",
                     color: "#FFB800"
@@ -40,19 +41,19 @@ function PlatformSection() {
             category: "RANK",
             cards: [
                 {
-                    icon: <Search size={15} strokeWidth={2} />,
+                    icon: <Search size={22} strokeWidth={2} />,
                     title: "SEO KEYWORD PLANNER",
                     desc: "Discover high-ranking keywords with real search volume data",
                     color: "#0A84FF"
                 },
                 {
-                    icon: <Bot size={15} strokeWidth={2} />,
-                    title: "GEO: RANK IN AI",
+                    icon: <Cpu size={22} strokeWidth={2} />,
+                    title: "GEO-AEO: RANK IN AI",
                     desc: "Optimize and improve brand rankings in AI-powered search results",
                     color: "#FFFFFF"
                 },
                 {
-                    icon: <ShieldCheck size={15} strokeWidth={2} />,
+                    icon: <ShieldCheck size={22} strokeWidth={2} />,
                     title: "SITE AUDIT",
                     desc: "Audit your website for SEO, speed and technical performance",
                     color: "#22D3EE"
@@ -64,19 +65,19 @@ function PlatformSection() {
             category: "DISTRIBUTE & MEASURE",
             cards: [
                 {
-                    icon: <Wand2 size={15} strokeWidth={2} />,
+                    icon: <Wand2 size={22} strokeWidth={2} />,
                     title: "SOCIAL PUBLISHING",
                     desc: "Smart scheduling, best-time publishing and unified inbox management",
                     color: "#FF4D8D"
                 },
                 {
-                    icon: <Hash size={15} strokeWidth={2} />,
+                    icon: <Hash size={22} strokeWidth={2} />,
                     title: "SOCIAL LISTENING",
                     desc: "Track brand mentions, monitor conversations and discover trends",
                     color: "#FF7A00"
                 },
                 {
-                    icon: <BarChart3 size={15} strokeWidth={2} />,
+                    icon: <BarChart3 size={22} strokeWidth={2} />,
                     title: "ANALYTICS DASHBOARD",
                     desc: "One smart dashboard for performance, analytics and growth insights",
                     color: "#84CC16"
@@ -95,7 +96,7 @@ function PlatformSection() {
 
     <div
         className="
-        px-9 py-[7px]
+        px-9 py-[4px]
         rounded-full font-bold
         border border-[rgba(41,137,255,0.2)]
         bg-[linear-gradient(155deg,rgb(0,17,79)_23%,rgba(98,0,150,0.8)_60%)]
@@ -104,7 +105,7 @@ function PlatformSection() {
     >
 
         <p
-            className="text-[22px] font-medium tracking-[0.05em] leading-none text-[#EBF3FE]"
+            className="text-[17px] font-medium tracking-[0.05em] leading-none text-[#EBF3FE]"
             style={{ fontFamily: "Inter Tight, sans-serif" }}>
                 Features
         </p>
@@ -115,13 +116,11 @@ function PlatformSection() {
 
                 {/* Heading */}
                <h2
-    className="text-center text-white
-    text-[42px]
-    leading-[1.1]
-    tracking-[-2.25px]
-    font-normal
+    className="font-nokora text-center text-white
+    text-[35px]
+    font-[400]
+    leading-[120%]
     mb-16"
-    style={{ fontFamily: "Geist, sans-serif" }}
 >
     One Platform for Your Brand’s Growth
 </h2>
@@ -162,7 +161,7 @@ function PlatformSection() {
                                         bg-[#050505]
                                         border border-white/10
                                         rounded-[10px]
-                                        h-[140px]
+                                        h-[125px]
                                         px-4 py-4
                                         overflow-hidden"
                                         style={{
@@ -195,7 +194,7 @@ function PlatformSection() {
                                             <h3
                                                 className="text-[14px]
                                                 font-semibold
-                                                tracking-[0.2px]"
+                                                tracking-[0.3px]"
                                                 style={{
                                                     color: item.color,
                                                     fontFamily: "sans-serif"
@@ -208,15 +207,16 @@ function PlatformSection() {
 
                                         {/* Description */}
                                         <p
-                                            className="text-[#D1D1D1]
-                                            text-[14px]
-                                            leading-[1.5]
-                                            font-normal
-                                            max-w-[95%]"
-                                            style={{
-                                                fontFamily: "sans-serif"
-                                            }}
-                                        >
+    className="text-[#D1D1D1]
+    text-[14px]
+    leading-[1.5]
+    font-normal
+    max-w-[95%]"
+    style={{
+        fontFamily: "sans-serif",
+        wordSpacing: "2.5px"
+    }}
+>
 
                                             {item.desc}
 

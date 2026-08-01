@@ -1,3 +1,5 @@
+// SEOSection.jsx
+
 import seo1 from "./assets/images/SEOimg/seo1.png";
 import seo2 from "./assets/images/SEOimg/seo2.png";
 import seo3 from "./assets/images/SEOimg/seo3.png";
@@ -6,24 +8,70 @@ function SEOSection() {
     return (
         <section className="w-full bg-white py-24 px-5 overflow-hidden">
 
-            <div className="max-w-[1200px] mx-auto flex flex-col gap-28">
+            <div className="max-w-[1100px] mx-auto flex flex-col gap-28">
 
                 {/* Row 1 */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
 
-                    {/* Image */}
-                    <div className="flex justify-center">
+                    {/* IMAGE */}
+                    <div className="relative flex justify-center">
+
+                        {/* BG */}
+                        <div
+                            className="
+                            absolute
+                            inset-0
+                            rounded-[28px]
+                            border
+                            border-[#DDE5ED]
+                            bg-[#F4F7F9]
+                            overflow-hidden
+                            "
+                        >
+
+                            {/* DOTTED BG */}
+<div
+    className="
+    absolute
+    top-0
+    left-0
+    w-full
+    h-full
+    pointer-events-none
+    "
+    style={{
+        backgroundImage:
+            "radial-gradient(#C4CDD7 1px, transparent 1px)",
+        backgroundSize: "12px 12px",
+        maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        opacity: 0.7,
+    }}
+></div>
+
+                        </div>
+
+                        {/* IMAGE */}
                         <img
                             src={seo1}
                             alt="SEO Planner"
-                            className="w-full max-w-[600px] rounded-[20px]"
+                            className="
+                            relative
+                            z-10
+                            w-full
+                            max-w-[550px]
+                            rounded-[22px]
+                            "
                         />
+
                     </div>
 
                     {/* Content */}
                     <div className="w-full max-w-[560px]">
 
-                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[4px] mb-5 border border-[rgb(123,0,255)]/50">
+                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[2px] mb-8 border border-[rgb(123,0,255)]/50">
 
                             <span
                                 className="text-[14px] font-semibold leading-normal
@@ -35,7 +83,7 @@ function SEOSection() {
 
                         </div>
 
-                        <h2 className="font-['Nokora'] text-[37px] font-bold leading-[120%] text-[#0C0C0C]">
+                        <h2 className="font-nokora text-[30px] font-[700] leading-[120%] text-[#0C0C0C] mb-7">
 
                             Find the
 
@@ -51,7 +99,7 @@ function SEOSection() {
                         </h2>
 
                         <p
-                            className="mt-6 text-[#6B6B6B] text-[21px] leading-[1.6] font-normal"
+                            className="mt-6 text-[#6B6B6B] text-[20px] leading-[1.5] font-normal"
                             style={{ fontFamily: "Inter Display, sans-serif" }}
                         >
                             Easily discover high-volume keywords your audience is actually searching for, analyse what's driving traffic for top pages and build your content strategy around terms that are proven to rank.
@@ -62,12 +110,12 @@ function SEOSection() {
                 </div>
 
                 {/* Row 2 */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
 
                     {/* Content */}
                     <div className="w-full max-w-[560px] order-2 lg:order-1">
 
-                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[4px] mb-5 border border-[rgb(123,0,255)]/50">
+                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[2px] mb-8 border border-[rgb(123,0,255)]/50">
 
                             <span
                                 className="text-[14px] font-semibold leading-normal
@@ -79,7 +127,7 @@ function SEOSection() {
 
                         </div>
 
-                        <h2 className="font-['Nokora'] text-[37px] font-bold leading-[120%] text-[#0C0C0C]">
+                        <h2 className="font-nokora text-[30px] font-[700] leading-[120%] text-[#0C0C0C] mb-7">
 
                             Create content,
 
@@ -92,7 +140,7 @@ function SEOSection() {
                         </h2>
 
                         <p
-                            className="mt-6 text-[#6B6B6B] text-[21px] leading-[1.6] font-normal"
+                            className="mt-6 text-[#6B6B6B] text-[20px] leading-[1.5] font-normal"
                             style={{ fontFamily: "Inter Display, sans-serif" }}
                         >
                             Generate publish-ready content in seconds backed by real SEO data from Google's top results.
@@ -100,33 +148,126 @@ function SEOSection() {
 
                     </div>
 
-                    {/* Image */}
-                    <div className="flex justify-center order-1 lg:order-2">
+                    {/* IMAGE */}
+                    <div className="relative flex justify-center order-1 lg:order-2">
+
+                        {/* BG */}
+                        <div
+                            className="
+                            absolute
+                            inset-0
+                            rounded-[28px]
+                            border
+                            border-[#DDE5ED]
+                            bg-[#F4F7F9]
+                            overflow-hidden
+                            "
+                        >
+
+                            {/* DOTTED BG */}
+<div
+    className="
+    absolute
+    top-0
+    left-0
+    w-full
+    h-full
+    pointer-events-none
+    "
+    style={{
+        backgroundImage:
+            "radial-gradient(#C4CDD7 1px, transparent 1px)",
+        backgroundSize: "12px 12px",
+        maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        opacity: 0.7,
+    }}
+></div>
+
+                        </div>
+
+                        {/* IMAGE */}
                         <img
                             src={seo2}
                             alt="AI Writer"
-                            className="w-full max-w-[600px] rounded-[20px]"
+                            className="
+                            relative
+                            z-10
+                            w-full
+                            max-w-[550px]
+                            rounded-[22px]
+                            "
                         />
+
                     </div>
 
                 </div>
 
                 {/* Row 3 */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
 
-                    {/* Image */}
-                    <div className="flex justify-center">
+                    {/* IMAGE */}
+                    <div className="relative flex justify-center">
+
+                        {/* BG */}
+                        <div
+                            className="
+                            absolute
+                            inset-0
+                            rounded-[28px]
+                            border
+                            border-[#DDE5ED]
+                            bg-[#F4F7F9]
+                            overflow-hidden
+                            "
+                        >
+
+                            {/* DOTTED BG */}
+                            {/* DOTTED BG */}
+<div
+    className="
+    absolute
+    top-0
+    left-0
+    w-full
+    h-full
+    pointer-events-none
+    "
+    style={{
+        backgroundImage:
+            "radial-gradient(#C4CDD7 1px, transparent 1px)",
+        backgroundSize: "12px 12px",
+        maskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        WebkitMaskImage:
+            "linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))",
+        opacity: 0.7,
+    }}
+></div>
+
+                        </div>
+
+                        {/* IMAGE */}
                         <img
                             src={seo3}
                             alt="Humanizer"
-                            className="w-full max-w-[600px] rounded-[20px]"
+                            className="
+                            relative
+                            z-10
+                            w-full
+                            max-w-[550px]
+                            rounded-[22px]
+                            "
                         />
+
                     </div>
 
                     {/* Content */}
                     <div className="w-full max-w-[560px]">
 
-                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[4px] mb-5 border border-[rgb(123,0,255)]/50">
+                        <div className="inline-flex items-center justify-center rounded-full px-8 py-[2px] mb-8 border border-[rgb(123,0,255)]/50">
 
                             <span
                                 className="text-[14px] font-semibold leading-normal
@@ -138,7 +279,7 @@ function SEOSection() {
 
                         </div>
 
-                        <h2 className="font-['Nokora'] text-[37px] font-bold leading-[120%] text-[#0C0C0C]">
+                        <h2 className="font-nokora text-[30px] font-[700] leading-[120%] text-[#0C0C0C] mb-7">
 
                             Write like a
 
@@ -151,7 +292,7 @@ function SEOSection() {
                         </h2>
 
                         <p
-                            className="mt-6 text-[#6B6B6B] text-[21px] leading-[1.6] font-normal"
+                            className="mt-6 text-[#6B6B6B] text-[20px] leading-[1.5] font-normal"
                             style={{ fontFamily: "Inter Display, sans-serif" }}
                         >
                             Instantly transform robotic AI text into clear, natural copy your audience actually connects with while keeping your message intact.

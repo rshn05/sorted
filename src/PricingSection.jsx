@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import cloudImg from "./assets/images/cloude.avif";
+import fireIcon from "./assets/images/fire.png";
+import crownIcon from "./assets/images/crown.png";
 
 function PricingSection() {
 
     const [billing, setBilling] = useState("monthly");
+    const navigate = useNavigate();
 
     const monthlyPlans = [
         {
@@ -156,7 +161,7 @@ function PricingSection() {
                     <h2
                         className="
                         text-white
-                        text-[56px]
+                        text-[40px]
                         leading-[67px]
                         font-normal
                         "
@@ -203,16 +208,14 @@ function PricingSection() {
                             onClick={() => setBilling("monthly")}
                             className={`
                             px-7 py-2 rounded-[6px]
-                            text-[12px]
+                            text-[15px]
+                            transition-all duration-300
                             ${
                                 billing === "monthly"
                                     ? "bg-[#CDB7FF]"
                                     : "bg-transparent"
                             }
                             `}
-                            style={{
-                                fontFamily: "sans-serif",
-                            }}
                         >
                             Monthly
                         </button>
@@ -222,16 +225,14 @@ function PricingSection() {
                             className={`
                             flex items-center gap-2
                             px-4 py-2 rounded-[6px]
-                            text-[12px]
+                            text-[15px]
+                            transition-all duration-300
                             ${
                                 billing === "yearly"
                                     ? "bg-[#CDB7FF]"
                                     : "bg-transparent"
                             }
                             `}
-                            style={{
-                                fontFamily: "sans-serif",
-                            }}
                         >
                             Annual
 
@@ -240,7 +241,7 @@ function PricingSection() {
                                 px-2 py-[2px]
                                 rounded-full
                                 text-white
-                                text-[10px]
+                                text-[15px]
                                 bg-gradient-to-r
                                 from-[#0F7BFF]
                                 to-[#D100D1]
@@ -259,13 +260,14 @@ function PricingSection() {
                 <div
                     className="
                     mt-12
-                    max-w-[1150px]
+                    max-w-[1100px]
                     mx-auto
                     grid
                     grid-cols-1
                     md:grid-cols-2
                     lg:grid-cols-3
                     gap-8
+                    items-start
                     "
                 >
 
@@ -273,13 +275,18 @@ function PricingSection() {
 
                         <div
                             key={index}
-                            className="
+                            className={`
                             bg-[#F4F7FB]
                             rounded-[16px]
                             px-5
-                            py-5
                             shadow-[0_20px_40px_rgba(0,0,0,0.18)]
-                            "
+                            transition-all duration-300
+                            ${
+                                plan.popular
+                                    ? "py-5 pb-8"
+                                    : "py-5"
+                            }
+                            `}
                         >
 
                             {/* TOP */}
@@ -290,12 +297,8 @@ function PricingSection() {
                                     text-[16px]
                                     leading-[24px]
                                     text-[#0E1C29]
+                                    font-semibold
                                     "
-                                    style={{
-                                        fontFamily:
-                                            'Inter, sans-serif',
-                                        fontWeight: 400,
-                                    }}
                                 >
                                     {plan.name}
                                 </p>
@@ -304,16 +307,21 @@ function PricingSection() {
 
                                     <div
                                         className="
-                                        flex items-center gap-1
-                                        bg-[#7B4DFF]
+                                        flex items-center gap-1.5
+                                        bg-[#774BE5]
                                         text-white
-                                        text-[11px]
-                                        px-3 py-[5px]
+                                        text-[15px]
+                                        px-3 py-[3px]
                                         rounded-full
+                                        border border-white/30
                                         "
                                     >
 
-                                        <span>✦</span>
+                                        <img
+                                            src={fireIcon}
+                                            alt="fire"
+                                            className="w-[16px] h-[16px] object-contain"
+                                        />
 
                                         <span>Popular</span>
 
@@ -334,11 +342,6 @@ function PricingSection() {
                                         leading-[36px]
                                         text-[#0E1C29]
                                         "
-                                        style={{
-                                            fontFamily:
-                                                'Inter, sans-serif',
-                                            fontWeight: 500,
-                                        }}
                                     >
                                         {plan.price}
                                     </h3>
@@ -350,11 +353,6 @@ function PricingSection() {
                                         text-[#0E1C29]
                                         mb-[2px]
                                         "
-                                        style={{
-                                            fontFamily:
-                                                'Inter, sans-serif',
-                                            fontWeight: 400,
-                                        }}
                                     >
                                         {plan.sub}
                                     </p>
@@ -365,34 +363,58 @@ function PricingSection() {
 
                             {/* BUTTON */}
                             <button
-                                className={`
-                                mt-5
-                                w-full
-                                h-[54px]
-                                rounded-[12px]
-                                flex items-center justify-center gap-2
-                                ${
-                                    plan.popular
-                                        ? "bg-gradient-to-r from-[#0088FF] to-[#C400D6] text-white shadow-[0_10px_25px_rgba(0,0,0,0.2)]"
-                                        : "bg-[#DDE5ED] text-[#0E1C29]"
-                                }
-                                `}
-                            >
+    onClick={() => navigate("/signup")}
+    className={`
+    group
+    mt-5
+    w-full
+    h-[45px]
+    rounded-[12px]
+    flex items-center justify-center gap-2
+    shadow-[0_2px_10px_rgba(0,0,0,0.3)]
+    hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)]
+    transition-all duration-300
+    ${
+        plan.popular
+            ? `
+            bg-gradient-to-r
+            from-[#0088FF]
+            to-[#C400D6]
+            text-white
+            hover:bg-none
+            hover:bg-[#1F2937]
+            `
+            : `
+            bg-[#DDE5ED]
+            text-[#0E1C29]
+            hover:bg-gradient-to-r
+            hover:from-[#0088FF]
+            hover:to-[#C400D6]
+            hover:text-white
+            `
+    }
+    `}
+>
 
-                                <span className="text-[15px]">
-                                    ♕
-                                </span>
+                                <img
+                                    src={crownIcon}
+                                    alt="crown"
+                                    className="
+                                    w-[18px]
+                                    h-[18px]
+                                    object-contain
+                                    transition-all duration-300
+                                    group-hover:brightness-0
+                                    group-hover:invert
+                                    "
+                                />
 
                                 <span
                                     className="
                                     text-[14px]
                                     leading-[22px]
+                                    font-medium
                                     "
-                                    style={{
-                                        fontFamily:
-                                            'Inter, sans-serif',
-                                        fontWeight: 500,
-                                    }}
                                 >
                                     Get Started
                                 </span>
@@ -417,11 +439,6 @@ function PricingSection() {
                                 text-[#0E1C29]
                                 mb-5
                                 "
-                                style={{
-                                    fontFamily:
-                                        'Inter, sans-serif',
-                                    fontWeight: 400,
-                                }}
                             >
 
                                 {plan.name === "Scale"
@@ -468,13 +485,8 @@ function PricingSection() {
                                             className="
                                             text-[14px]
                                             leading-[22px]
-                                            text-[#0E1C29]
+                                            text-[#6B7280]
                                             "
-                                            style={{
-                                                fontFamily:
-                                                    'Inter, sans-serif',
-                                                fontWeight: 400,
-                                            }}
                                         >
                                             {item}
                                         </p>
