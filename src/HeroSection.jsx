@@ -1,18 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  getHeroParticleSpacing,
+  shouldRunHeroParticles,
+} from "./heroParticleRuntime";
 
 
 /* =========================================
    HERO EMOJI IMAGES
 ========================================= */
 
-import heroImage1 from "./assets/images/emoji/1.png";
-import heroImage2 from "./assets/images/emoji/2.png";
-import heroImage3 from "./assets/images/emoji/3.png";
-import heroImage4 from "./assets/images/emoji/4.png";
-import heroImage5 from "./assets/images/emoji/5.png";
-import heroImage6 from "./assets/images/emoji/6.png";
-import heroImage7 from "./assets/images/emoji/7.png";
+import heroImage1 from "./assets/images/emoji/1.webp";
+import heroImage2 from "./assets/images/emoji/2.webp";
+import heroImage3 from "./assets/images/emoji/3.webp";
+import heroImage4 from "./assets/images/emoji/4.webp";
+import heroImage5 from "./assets/images/emoji/5.webp";
+import heroImage6 from "./assets/images/emoji/6.webp";
+import heroImage7 from "./assets/images/emoji/7.webp";
 
 
 /* =========================================
@@ -98,12 +102,24 @@ function HeroDots() {
     if (!ctx) return undefined;
 
 
+    const motionQuery =
+      typeof window.matchMedia === "function"
+        ? window.matchMedia("(prefers-reduced-motion: reduce)")
+        : null;
+
+    let prefersReducedMotion = Boolean(motionQuery?.matches);
+    let isVisible = true;
+    let loopRunning = false;
+
+
     /* =========================================
        PARTICLE SETTINGS
     ========================================= */
 
     const config = {
-      spacing: 12,
+      spacing: getHeroParticleSpacing({
+        viewportWidth: window.innerWidth || 1200,
+      }),
 
       dotRadius: 0.7,
 
@@ -132,6 +148,10 @@ function HeroDots() {
 
     let resizeObserver = null;
 
+    let intersectionObserver = null;
+
+    let onWindowResize = null;
+
 
     const mouse = {
       x: -1000,
@@ -143,6 +163,13 @@ function HeroDots() {
       active: false,
     };
 
+    const canRunLoop = () =>
+      shouldRunHeroParticles({
+        prefersReducedMotion,
+        isVisible,
+        isDocumentHidden: Boolean(document.hidden),
+      });
+
 
     /* =========================================
        CREATE PARTICLES
@@ -151,6 +178,14 @@ function HeroDots() {
     const createParticles = () => {
       particles = [];
 
+      if (
+        !Number.isFinite(config.spacing) ||
+        config.spacing <= 0 ||
+        width <= 0 ||
+        height <= 0
+      ) {
+        return;
+      }
 
       const startX =
         config.spacing / 2;
@@ -202,6 +237,10 @@ function HeroDots() {
 
       height =
         rect.height;
+
+      config.spacing = getHeroParticleSpacing({
+        viewportWidth: window.innerWidth || width || 1200,
+      });
 
 
       const dpr =
@@ -439,7 +478,26 @@ function HeroDots() {
        ANIMATION LOOP
     ========================================= */
 
+    const paintStaticFrame = () => {
+      ctx.clearRect(0, 0, width, height);
+      for (let i = 0; i < particles.length; i += 1) {
+        drawParticle(particles[i]);
+      }
+    };
+
+    const stopLoop = () => {
+      loopRunning = false;
+      if (animationFrameId !== null) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    };
+
     const animate = () => {
+      if (!canRunLoop()) {
+        stopLoop();
+        return;
+      }
 
       ctx.clearRect(
         0,
@@ -497,6 +555,24 @@ function HeroDots() {
         );
     };
 
+    const startLoop = () => {
+      if (loopRunning || !canRunLoop()) return;
+      loopRunning = true;
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const syncAnimationState = () => {
+      if (canRunLoop()) {
+        startLoop();
+        return;
+      }
+      stopLoop();
+      // Reduced motion: keep a static grid, no continuous RAF.
+      if (prefersReducedMotion) {
+        paintStaticFrame();
+      }
+    };
+
 
     /* =========================================
        HERO
@@ -524,6 +600,7 @@ function HeroDots() {
         new ResizeObserver(() => {
 
           resizeCanvas();
+          syncAnimationState();
 
         });
 
@@ -540,11 +617,48 @@ function HeroDots() {
 
     } else {
 
-      window.addEventListener(
-        "resize",
-        resizeCanvas
-      );
+      onWindowResize = () => {
+        resizeCanvas();
+        syncAnimationState();
+      };
+      window.addEventListener("resize", onWindowResize);
 
+    }
+
+
+    const onVisibilityChange = () => {
+      syncAnimationState();
+    };
+
+    const onMotionChange = (event) => {
+      prefersReducedMotion = Boolean(event?.matches ?? motionQuery?.matches);
+      config.spacing = getHeroParticleSpacing({
+        viewportWidth: window.innerWidth || width || 1200,
+      });
+      createParticles();
+      syncAnimationState();
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    if (motionQuery) {
+      if (typeof motionQuery.addEventListener === "function") {
+        motionQuery.addEventListener("change", onMotionChange);
+      } else if (typeof motionQuery.addListener === "function") {
+        motionQuery.addListener(onMotionChange);
+      }
+    }
+
+    if (typeof IntersectionObserver !== "undefined") {
+      intersectionObserver = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          isVisible = Boolean(entry?.isIntersecting);
+          syncAnimationState();
+        },
+        { threshold: 0.05 }
+      );
+      intersectionObserver.observe(canvas);
     }
 
 
@@ -560,7 +674,7 @@ function HeroDots() {
     );
 
 
-    animate();
+    syncAnimationState();
 
 
     /* =========================================
@@ -569,24 +683,26 @@ function HeroDots() {
 
     return () => {
 
-      if (
-        animationFrameId !== null
-      ) {
-
-        cancelAnimationFrame(
-          animationFrameId
-        );
-
-      }
+      stopLoop();
 
 
       resizeObserver?.disconnect();
+      intersectionObserver?.disconnect();
 
 
-      window.removeEventListener(
-        "resize",
-        resizeCanvas
-      );
+      if (onWindowResize) {
+        window.removeEventListener("resize", onWindowResize);
+      }
+
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+
+      if (motionQuery) {
+        if (typeof motionQuery.removeEventListener === "function") {
+          motionQuery.removeEventListener("change", onMotionChange);
+        } else if (typeof motionQuery.removeListener === "function") {
+          motionQuery.removeListener(onMotionChange);
+        }
+      }
 
 
       hero?.removeEventListener(
@@ -643,7 +759,7 @@ function HeroImageRow() {
 
             <div
               key={`hero-image-${index}`}
-              className="hero-character relative shrink-0 w-[50px] h-[50px] sm:w-[58px] sm:h-[58px] md:w-[66px] md:h-[66px] lg:w-[72px] lg:h-[72px] rounded-full"
+              className="hero-character relative shrink-0 w-[50px] h-[50px] sm:w-[58px] sm:h-[58px] md:w-[66px] md:h-[66px] lg:w-[65px] lg:h-[65px] rounded-full"
               style={{
                 zIndex:
                   index + 1,
@@ -656,9 +772,12 @@ function HeroImageRow() {
               <img
                 src={image}
                 alt=""
+                width={144}
+                height={144}
                 draggable="false"
                 loading="eager"
                 decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
                 className="block w-full h-full rounded-full object-cover select-none pointer-events-none"
               />
 
@@ -834,10 +953,9 @@ function HeroSection() {
               HEADING
           ====================================== */}
 
-          <h1 className="hero-reveal hero-reveal-heading mt-7 md:mt-8 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[80px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
-
-            at the speed of thought.
-
+          <h1 class="hero-reveal hero-reveal-heading mt-7 md:mt-8 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[76px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
+            
+            <span className="block">at the speed of thought.</span>
           </h1>
 
 
@@ -846,9 +964,7 @@ function HeroSection() {
           ====================================== */}
 
           <p className="hero-reveal hero-reveal-description mt-6 md:mt-7 text-[#515970] font-sans font-medium text-[16px] sm:text-[18px] md:text-[20px] leading-[1.5] tracking-[-0.025em] max-w-[800px]">
-
             Built for marketers, agencies, startups and growing teams.
-
           </p>
 
 
