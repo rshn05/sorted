@@ -1,512 +1,550 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-import cloudImg from "./assets/images/cloude.avif";
-import fireIcon from "./assets/images/fire.png";
-import crownIcon from "./assets/images/crown.png";
+import {
+    Gift,
+    Send,
+    TrendingUp,
+    Crown,
+    Check,
+} from "lucide-react";
 
 function PricingSection() {
-
     const [billing, setBilling] = useState("monthly");
     const navigate = useNavigate();
 
-    const monthlyPlans = [
+    const plans = [
+        {
+            name: "Free",
+            monthlyPrice: "$0",
+            yearlyPrice: "$0",
+            description: "Get started with basic features.",
+            icon: Gift,
+            iconBg: "bg-[#EDEDED]",
+            iconColor: "text-[#111]",
+            nameColor: "text-[#111]",
+            priceColor: "text-[#111]",
+            buttonStyle:
+                "border-[1px] border-[#8B91A2] bg-white text-[#101A3A] hover:bg-[#111] hover:border-[#111] hover:text-white",
+        },
         {
             name: "Starter",
-            price: "$9",
-            sub: "month",
-            features: [
-                "1 Projects",
-                "5 AI Articles per month",
-                "upto 1000 Word Length",
-                "20 SEO Keyword Insights",
-                "5 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-Score",
-                "Dashboard + Content Manager",
-                "Email Support",
-            ],
+            monthlyPrice: "$9",
+            yearlyPrice: "$81",
+            description: "Perfect for individuals getting started.",
+            icon: Send,
+            iconBg: "bg-[#EDEDED]",
+            iconColor: "text-[#111]",
+            nameColor: "text-[#111]",
+            priceColor: "text-[#111]",
+            buttonStyle:
+                "bg-[#111] text-white hover:bg-[#101F4A]",
         },
         {
             name: "Growth",
-            price: "$49",
-            sub: "month",
+            monthlyPrice: "$29",
+            yearlyPrice: "$261",
+            description: "Everything you need to grow faster.",
+            icon: TrendingUp,
+            iconBg: "bg-[#E8F1FF]",
+            iconColor: "text-[#0C89E8]",
+            nameColor: "text-[#0C89E8]",
+            priceColor: "text-[#0C89E8]",
             popular: true,
-            features: [
-                "2 Projects",
-                "50 AI Articles per month",
-                "upto 2000 Word Length",
-                "100 SEO Keyword Insights",
-                "50 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-score",
-                "Dashboard + Content Manager",
-                "Priority Email Support",
+            buttonStyle:
+                "bg-[#0C89E8] text-white hover:bg-[#0757DE]",
+        },
+        {
+            name: "Pro",
+            monthlyPrice: "$149",
+            yearlyPrice: "$1341",
+            description: "For agencies and power users.",
+            icon: Crown,
+            iconBg: "bg-[#E7F6EF]",
+            iconColor: "text-[#12834A]",
+            nameColor: "text-[#12834A]",
+            priceColor: "text-[#12834A]",
+            buttonStyle:
+                "bg-[#087B47] text-white hover:bg-[#066A3D]",
+        },
+    ];
+
+    const comparisonRows = [
+        {
+            feature: "Multi-Client Workspaces",
+            values: ["1", "2", "5", "Unlimited"],
+        },
+        {
+            feature: "Brand Voices",
+            values: ["1", "2", "5", "Unlimited"],
+        },
+        {
+            feature: "SEO Article Writer",
+            note: "(Top-Ranking Insights, SEO Keywords & Score)",
+            values: [
+                <>
+                    1 Article
+                    <br />
+                    ~upto 500 words
+                </>,
+                <>
+                    5 Articles
+                    <br />
+                    ~upto 1000 words
+                </>,
+                <>
+                    15 Articles
+                    <br />
+                    ~upto 2500 words
+                </>,
+                <>
+                    Unlimited
+                    <br />
+                    ~upto 2500+ words
+                </>,
             ],
         },
         {
-            name: "Scale",
-            price: "$99",
-            sub: "month",
-            features: [
-                "10 Projects",
-                "120 AI Articles per month",
-                "upto 4000 Word Length",
-                "250 SEO Keyword Insights",
-                "120 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-Score",
-                "Dashboard + Content Manager",
-                "Priority Email Support",
+            feature: "SEO Keyword Analysis",
+            note: "(Volume, CPC, competition, keywords, bid)",
+            values: ["10", "50", "150", "Unlimited"],
+        },
+        {
+            feature: "Content Studio",
+            note: "(copy, posts, emails, CTA, newsletter, scripts etc)",
+            values: [
+                "10 generations",
+                "50 generations",
+                "150 generations",
+                "Unlimited",
+            ],
+        },
+        {
+            feature: "Save Your Files",
+            values: [
+                { check: true },
+                { check: true },
+                { check: true },
+                { check: true },
+            ],
+        },
+        {
+            feature: "Export",
+            values: [
+                { check: true },
+                { check: true },
+                { check: true },
+                { check: true },
+            ],
+        },
+        {
+            feature: "Support",
+            values: [
+                "",
+                "Email",
+                "Email",
+                "Priority Support",
             ],
         },
     ];
 
-    const yearlyPlans = [
-        {
-            name: "Starter",
-            price: "$108",
-            sub: "Annually + Extra 3 months",
-            features: [
-                "1 Projects",
-                "5 AI Articles per month",
-                "upto 1000 Word Length",
-                "20 SEO Keyword Insights",
-                "5 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-Score",
-                "Dashboard + Content Manager",
-                "Email Support",
-            ],
-        },
-        {
-            name: "Growth",
-            price: "$588",
-            sub: "Annually + Extra 3 months",
-            popular: true,
-            features: [
-                "2 Projects",
-                "50 AI Articles per month",
-                "upto 2000 Word Length",
-                "100 SEO Keyword Insights",
-                "50 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-score",
-                "Dashboard + Content Manager",
-                "Priority Email Support",
-            ],
-        },
-        {
-            name: "Scale",
-            price: "$1188",
-            sub: "Annually + Extra 3 months",
-            features: [
-                "10 Projects",
-                "120 AI Articles per month",
-                "upto 4000 Word Length",
-                "250 SEO Keyword Insights",
-                "120 AI-Text Humanizations",
-                "Free Article Images",
-                "SERP top-rank page analysis",
-                "Content ranking-Score",
-                "Dashboard + Content Manager",
-                "Priority Email Support",
-            ],
-        },
-    ];
+    const getPrice = (plan) => {
+        return billing === "monthly"
+            ? plan.monthlyPrice
+            : plan.yearlyPrice;
+    };
 
-    const plans =
-        billing === "monthly"
-            ? monthlyPlans
-            : yearlyPlans;
+    /* SECTION ANIMATION */
+    const sectionVariants = {
+        hidden: {
+            opacity: 0,
+            y: 45,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        },
+    };
+
+    /* HEADER ANIMATION */
+    const headerVariants = {
+        hidden: {
+            opacity: 0,
+            y: 25,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        },
+    };
+
+    /* CARDS CONTAINER ANIMATION */
+    const cardsContainerVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                delayChildren: 0.15,
+                staggerChildren: 0.12,
+            },
+        },
+    };
+
+    /* CARD ANIMATION */
+    const cardVariants = {
+        hidden: {
+            opacity: 0,
+            y: 30,
+            scale: 0.97,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: {
+                duration: 0.55,
+                ease: [0.22, 1, 0.36, 1],
+            },
+        },
+    };
+
+    /* TABLE ANIMATION */
+    const tableVariants = {
+        hidden: {
+            opacity: 0,
+            y: 25,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                delay: 0.3,
+                ease: "easeOut",
+            },
+        },
+    };
 
     return (
-
-        <section
-            className="relative w-full overflow-hidden py-[100px] px-5"
-            style={{
-                background:
-                    "linear-gradient(180deg,#4B0082 0%,#4B0082 100%)",
+        <motion.section
+            className="w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-12"
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{
+                once: true,
+                amount: 0.12,
             }}
         >
+            <div className="mx-auto w-full max-w-[1100px]">
 
-            {/* CLOUD */}
-            <img
-                src={cloudImg}
-                alt="cloud"
-                className="
-                absolute
-                bottom-[-120px]
-                left-1/2
-                -translate-x-1/2
-                w-[1700px]
-                max-w-none
-                opacity-45
-                pointer-events-none
-                select-none
-                z-0
-                "
-            />
-
-            <div className="relative z-20 max-w-[1200px] mx-auto">
-
-                {/* HEADING */}
-                <div className="text-center">
-
-                    <h2
-                        className="
-                        text-white
-                        text-[40px]
-                        leading-[67px]
-                        font-normal
-                        "
-                        style={{
-                            fontFamily:
-                                '"Plus Jakarta Sans", sans-serif',
-                        }}
-                    >
-                        Plans & Pricing
+                {/* HEADER */}
+                <motion.div
+                    className="flex flex-col items-center"
+                    variants={headerVariants}
+                >
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-center text-[#071535] font-bold leading-tight">
+                        Pricing Plans
                     </h2>
 
-                    <p
-                        className="
-                        mt-2
-                        text-[#D0D5D9]
-                        text-[16px]
-                        leading-[24px]
-                        "
-                        style={{
-                            fontFamily:
-                                'Inter, sans-serif',
-                        }}
-                    >
-                        Choose a plan that fits your goals and scale as you grow
+                    <p className="mt-2 max-w-[700px] text-xs sm:text-sm md:text-base text-center text-[#65708A] leading-5 sm:leading-6">
+                        Everything you need to create, optimize and grow your content.
                     </p>
 
-                </div>
-
-                {/* TOGGLE */}
-                <div className="flex justify-center mt-14">
-
-                    <div
-                        className="
-                        flex
-                        items-center
-                        gap-1
-                        bg-[#F4F7FB]
-                        rounded-[10px]
-                        p-[5px]
-                        "
-                    >
+                    {/* BILLING TOGGLE */}
+                    <div className="mt-5 flex items-center rounded-full bg-[#EEF1F9] p-1">
 
                         <button
+                            type="button"
                             onClick={() => setBilling("monthly")}
-                            className={`
-                            px-7 py-2 rounded-[6px]
-                            text-[15px]
-                            transition-all duration-300
-                            ${
+                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
                                 billing === "monthly"
-                                    ? "bg-[#CDB7FF]"
-                                    : "bg-transparent"
-                            }
-                            `}
+                                    ? "bg-[#E2E6F2] text-[#4D5673] shadow-sm"
+                                    : "bg-transparent text-[#737A94]"
+                            }`}
                         >
                             Monthly
                         </button>
 
                         <button
+                            type="button"
                             onClick={() => setBilling("yearly")}
-                            className={`
-                            flex items-center gap-2
-                            px-4 py-2 rounded-[6px]
-                            text-[15px]
-                            transition-all duration-300
-                            ${
+                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
                                 billing === "yearly"
-                                    ? "bg-[#CDB7FF]"
-                                    : "bg-transparent"
-                            }
-                            `}
+                                    ? "bg-white text-[#4D5673] shadow-sm"
+                                    : "bg-transparent text-[#737A94]"
+                            }`}
                         >
-                            Annual
+                            <span>Yearly</span>
 
-                            <span
-                                className="
-                                px-2 py-[2px]
-                                rounded-full
-                                text-white
-                                text-[15px]
-                                bg-gradient-to-r
-                                from-[#0F7BFF]
-                                to-[#D100D1]
-                                "
-                            >
-                                Extra 3 months
+                            <span className="rounded-full bg-[#E5F4D9] px-1.5 py-1 sm:px-2 text-[8px] sm:text-[10px] md:text-xs text-[#28720D] font-semibold leading-none">
+                                Save 10%
                             </span>
-
                         </button>
 
                     </div>
+                </motion.div>
 
-                </div>
+                {/* PRICING TABLE */}
+                <div className="mt-8 sm:mt-10 w-full">
 
-                {/* CARDS */}
-                <div
-                    className="
-                    mt-12
-                    max-w-[1100px]
-                    mx-auto
-                    grid
-                    grid-cols-1
-                    md:grid-cols-2
-                    lg:grid-cols-3
-                    gap-8
-                    items-start
-                    "
-                >
+                    {/* DESKTOP / TABLET WRAPPER */}
+                    <div className="mx-auto w-full">
 
-                    {plans.map((plan, index) => (
-
-                        <div
-                            key={index}
-                            className={`
-                            bg-[#F4F7FB]
-                            rounded-[16px]
-                            px-5
-                            shadow-[0_20px_40px_rgba(0,0,0,0.18)]
-                            transition-all duration-300
-                            ${
-                                plan.popular
-                                    ? "py-5 pb-8"
-                                    : "py-5"
-                            }
-                            `}
+                        {/* PRICING CARDS */}
+                        <motion.div
+                            className="relative overflow-visible"
+                            variants={cardsContainerVariants}
                         >
+                            <div className="overflow-visible rounded-[8px] border-[1px] border-[#D7DCE6]">
 
-                            {/* TOP */}
-                            <div className="flex items-center gap-2">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[185px_repeat(4,minmax(0,1fr))]">
 
-                                <p
-                                    className="
-                                    text-[16px]
-                                    leading-[24px]
-                                    text-[#0E1C29]
-                                    font-semibold
-                                    "
-                                >
-                                    {plan.name}
-                                </p>
-
-                                {plan.popular && (
-
-                                    <div
-                                        className="
-                                        flex items-center gap-1.5
-                                        bg-[#774BE5]
-                                        text-white
-                                        text-[15px]
-                                        px-3 py-[3px]
-                                        rounded-full
-                                        border border-white/30
-                                        "
+                                    {/* CHOOSE YOUR PLAN */}
+                                    <motion.div
+                                        variants={cardVariants}
+                                        className="hidden min-h-[250px] items-center rounded-l-[7px] bg-white px-7 lg:flex"
                                     >
+                                        <h3 className="text-xl md:text-2xl text-[#071535] font-bold leading-[1.25]">
+                                            Choose
+                                            <br />
+                                            your plan
+                                        </h3>
+                                    </motion.div>
 
-                                        <img
-                                            src={fireIcon}
-                                            alt="fire"
-                                            className="w-[16px] h-[16px] object-contain"
-                                        />
+                                    {/* PLAN CARDS */}
+                                    {plans.map((plan) => {
+                                        const Icon = plan.icon;
 
-                                        <span>Popular</span>
+                                        return (
+                                            <motion.div
+                                                key={plan.name}
+                                                variants={cardVariants}
+                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${
+                                                    plan.popular
+                                                        ? "bg-[#F4FAFF]"
+                                                        : "bg-white"
+                                                }`}
+                                            >
 
-                                    </div>
+                                                {/* MOST POPULAR */}
+                                                {plan.popular && (
+                                                    <motion.div
+                                                        initial={{
+                                                            opacity: 0,
+                                                            scaleY: 0.7,
+                                                        }}
+                                                        animate={{
+                                                            opacity: 1,
+                                                            scaleY: 1,
+                                                        }}
+                                                        transition={{
+                                                            delay: 0.6,
+                                                            duration: 0.4,
+                                                            ease: [
+                                                                0.22,
+                                                                1,
+                                                                0.36,
+                                                                1,
+                                                            ],
+                                                        }}
+                                                        className="absolute left-0 right-0 top-[-10px] z-[999] flex h-[24px] origin-bottom items-center justify-center rounded-t-[8px] bg-[#0C89E8]"
+                                                    >
+                                                        <span className="text-[9px] sm:text-[10px] md:text-[11px] text-white font-semibold uppercase leading-none tracking-wide">
+                                                            Most Popular
+                                                        </span>
+                                                    </motion.div>
+                                                )}
 
-                                )}
+                                                {/* ICON */}
+                                                <motion.div
+                                                    className={`mt-3 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
+                                                    whileHover={{
+                                                        scale: 1.1,
+                                                        rotate: 4,
+                                                    }}
+                                                    transition={{
+                                                        duration: 0.25,
+                                                    }}
+                                                >
+                                                    <Icon
+                                                        className={`h-6 w-6 ${plan.iconColor}`}
+                                                        strokeWidth={1.8}
+                                                    />
+                                                </motion.div>
 
-                            </div>
+                                                {/* PLAN NAME */}
+                                                <h4
+                                                    className={`mt-5 text-base sm:text-lg font-bold leading-5 ${plan.nameColor}`}
+                                                >
+                                                    {plan.name}
+                                                </h4>
 
-                            {/* PRICE */}
-                            <div className="mt-5">
+                                                {/* PRICE */}
+                                                <div className="mt-1 flex items-baseline justify-center gap-1.5">
+                                                    <span
+                                                        className={`text-3xl sm:text-[34px] font-bold leading-9 ${plan.priceColor}`}
+                                                    >
+                                                        {getPrice(plan)}
+                                                    </span>
 
-                                <div className="flex items-end gap-2">
+                                                    <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
+                                                        /user/mo
+                                                    </span>
+                                                </div>
 
-                                    <h3
-                                        className="
-                                        text-[36px]
-                                        leading-[36px]
-                                        text-[#0E1C29]
-                                        "
-                                    >
-                                        {plan.price}
-                                    </h3>
+                                                {/* DESCRIPTION */}
+                                                <p className="mt-2 min-h-[40px] max-w-[190px] px-2 text-[10px] sm:text-[11px] md:text-xs text-center text-[#596278] leading-4">
+                                                    {plan.description}
+                                                </p>
 
-                                    <p
-                                        className="
-                                        text-[14px]
-                                        leading-[22px]
-                                        text-[#0E1C29]
-                                        mb-[2px]
-                                        "
-                                    >
-                                        {plan.sub}
-                                    </p>
+                                                {/* BUTTON */}
+                                                <motion.button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        navigate("/signup")
+                                                    }
+                                                    whileHover={{
+                                                        scale: 1.04,
+                                                    }}
+                                                    whileTap={{
+                                                        scale: 0.97,
+                                                    }}
+                                                    className={`mt-4 flex h-[38px] w-[140px] max-w-full items-center justify-center rounded-[4px] text-[11px] sm:text-xs font-medium leading-4 shadow-sm transition-all duration-300 ${plan.buttonStyle}`}
+                                                >
+                                                    Get Started
+                                                </motion.button>
+
+                                            </motion.div>
+                                        );
+                                    })}
 
                                 </div>
 
                             </div>
+                        </motion.div>
 
-                            {/* BUTTON */}
-                            <button
-    onClick={() => navigate("/signup")}
-    className={`
-    group
-    mt-5
-    w-full
-    h-[45px]
-    rounded-[12px]
-    flex items-center justify-center gap-2
-    shadow-[0_2px_10px_rgba(0,0,0,0.3)]
-    hover:shadow-[0_12px_28px_rgba(0,0,0,0.22)]
-    transition-all duration-300
-    ${
-        plan.popular
-            ? `
-            bg-gradient-to-r
-            from-[#0088FF]
-            to-[#C400D6]
-            text-white
-            hover:bg-none
-            hover:bg-[#1F2937]
-            `
-            : `
-            bg-[#DDE5ED]
-            text-[#0E1C29]
-            hover:bg-gradient-to-r
-            hover:from-[#0088FF]
-            hover:to-[#C400D6]
-            hover:text-white
-            `
-    }
-    `}
->
+                        {/* SPACE BETWEEN PRICING AND DETAILS */}
+                        <div className="h-4" />
 
-                                <img
-                                    src={crownIcon}
-                                    alt="crown"
-                                    className="
-                                    w-[18px]
-                                    h-[18px]
-                                    object-contain
-                                    transition-all duration-300
-                                    group-hover:brightness-0
-                                    group-hover:invert
-                                    "
-                                />
+                        {/* DETAILS TABLE */}
+                        <motion.div
+                            className="w-full overflow-x-auto rounded-[8px] border-[1px] border-[#D7DCE6] bg-white"
+                            variants={tableVariants}
+                        >
+                            <div className="min-w-[900px]">
 
-                                <span
-                                    className="
-                                    text-[14px]
-                                    leading-[22px]
-                                    font-medium
-                                    "
-                                >
-                                    Get Started
-                                </span>
-
-                            </button>
-
-                            {/* DIVIDER */}
-                            <div
-                                className="
-                                my-5
-                                border-t
-                                border-dashed
-                                border-[#BCC7D4]
-                                "
-                            />
-
-                            {/* PLAN TEXT */}
-                            <p
-                                className="
-                                text-[16px]
-                                leading-[24px]
-                                text-[#0E1C29]
-                                mb-5
-                                "
-                            >
-
-                                {plan.name === "Scale"
-                                    ? "Dedicated account manager"
-                                    : plan.name === "Growth"
-                                    ? "Everything in Pro plan"
-                                    : "Everything in starter plan"}
-
-                            </p>
-
-                            {/* FEATURES */}
-                            <div className="space-y-4">
-
-                                {plan.features.map((item, i) => (
-
-                                    <div
-                                        key={i}
-                                        className="
-                                        flex items-center gap-3
-                                        "
+                                {comparisonRows.map((row, rowIndex) => (
+                                    <motion.div
+                                        key={row.feature}
+                                        initial={{
+                                            opacity: 0,
+                                            y: 10,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            y: 0,
+                                        }}
+                                        viewport={{
+                                            once: true,
+                                            amount: 0.2,
+                                        }}
+                                        transition={{
+                                            duration: 0.35,
+                                            delay: rowIndex * 0.04,
+                                        }}
+                                        className={`grid grid-cols-[185px_repeat(4,minmax(0,1fr))] min-h-[42px] ${
+                                            rowIndex !==
+                                            comparisonRows.length - 1
+                                                ? "border-b-[1px] border-[#E3E6EC]"
+                                                : ""
+                                        }`}
                                     >
 
-                                        {/* CHECK */}
-                                        <div
-                                            className="
-                                            w-[16px]
-                                            h-[16px]
-                                            rounded-full
-                                            border
-                                            border-[#00B81F]
-                                            flex
-                                            items-center
-                                            justify-center
-                                            text-[#00B81F]
-                                            text-[10px]
-                                            shrink-0
-                                            "
-                                        >
-                                            ✓
+                                        {/* FEATURE */}
+                                        <div className="flex flex-col justify-center border-r-[1px] border-[#E3E6EC] px-3">
+
+                                            <span className="text-[10px] md:text-[11px] text-[#18213A] font-semibold leading-4">
+                                                {row.feature}
+                                            </span>
+
+                                            {row.note && (
+                                                <span className="text-[6px] md:text-[7px] text-[#667085] leading-[9px]">
+                                                    {row.note}
+                                                </span>
+                                            )}
+
                                         </div>
 
-                                        {/* TEXT */}
-                                        <p
-                                            className="
-                                            text-[14px]
-                                            leading-[22px]
-                                            text-[#6B7280]
-                                            "
-                                        >
-                                            {item}
-                                        </p>
+                                        {/* VALUES */}
+                                        {row.values.map((value, valueIndex) => {
+                                            const isCheck =
+                                                typeof value === "object" &&
+                                                value?.check;
 
-                                    </div>
+                                            const isLastColumn =
+                                                valueIndex ===
+                                                row.values.length - 1;
 
+                                            return (
+                                                <div
+                                                    key={`${row.feature}-${valueIndex}`}
+                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${
+                                                        !isLastColumn
+                                                            ? "border-r-[1px] border-[#E3E6EC]"
+                                                            : ""
+                                                    } ${
+                                                        valueIndex === 3
+                                                            ? "text-[#16814D]"
+                                                            : "text-[#1C2338]"
+                                                    }`}
+                                                >
+
+                                                    {isCheck ? (
+                                                        <span
+                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${
+                                                                valueIndex === 3
+                                                                    ? "bg-[#16814D]"
+                                                                    : valueIndex === 2
+                                                                    ? "bg-[#0C89E8]"
+                                                                    : valueIndex === 1
+                                                                    ? "bg-[#111]"
+                                                                    : "bg-[#626B82]"
+                                                            }`}
+                                                        >
+                                                            <Check
+                                                                className="h-[10px] w-[10px] text-white"
+                                                                strokeWidth={3}
+                                                            />
+                                                        </span>
+                                                    ) : (
+                                                        <span className="text-[10px] md:text-[11px] leading-4">
+                                                            {value}
+                                                        </span>
+                                                    )}
+
+                                                </div>
+                                            );
+                                        })}
+
+                                    </motion.div>
                                 ))}
 
                             </div>
+                        </motion.div>
 
-                        </div>
-
-                    ))}
-
+                    </div>
                 </div>
 
             </div>
-
-        </section>
-
+        </motion.section>
     );
 }
 

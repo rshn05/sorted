@@ -133,86 +133,16 @@ function FeedbackSection() {
     ];
 
     return (
-
         <section
             id="blog"
             className="w-full bg-white py-[95px] px-5 overflow-hidden"
         >
 
-            {/* TOP */}
-            <div className="max-w-[1100px] mx-auto text-center">
-
-                {/* SMALL TAG */}
-                <div
-                    className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    px-4
-                    py-1
-                    rounded-full
-                    border
-                    border-[#D9DEE5]
-                    bg-[#F8F9FB]
-                    mb-5
-                    "
-                >
-
-                    <img
-                        src={smile}
-                        alt="smile"
-                        className="w-[17px] h-[15px]"
-                    />
-
-                    <span
-                        className="text-[17px] leading-[24px] text-[#333]"
-                        style={{
-                            fontFamily:
-                                '"Instrument Sans", sans-serif',
-                            fontWeight: 500,
-                        }}
-                    >
-                        Our Testimonials
-                    </span>
-
-                </div>
-
-                {/* HEADING */}
-                <h2
-                    className="
-                    text-[40px]
-                    leading-[70px]
-                    text-[#0C0C0C]
-                    "
-                    style={{
-                        fontFamily:
-                            'Urbanist, sans-serif',
-                        fontWeight: 700,
-                    }}
-                >
-                    User Reviews and Feedback
-                </h2>
-
-                {/* SUBTEXT */}
-                <p
-                    className="
-                    max-w-[720px]
-                    mx-auto
-                    mt-4
-                    text-[18px]
-                    leading-[27px]
-                    text-[#666]
-                    "
-                    style={{
-                        fontFamily:
-                            'Inter, sans-serif',
-                        fontWeight: 500,
-                    }}
-                >
-                    See how Sortted has transformed users' content workflow
-                    <br />through their own words.
-                </p>
-
+            {/* NEXT SECTION PREVIEW */}                 
+            <div className="w-full bg-white py-8 sm:py-10 md:py-2">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-center text-black font-bold leading-tight tracking-[-1.5px] px-5">
+                    Built to Simplify Work for Millions
+                </h3>
             </div>
 
             {/* SLIDERS */}

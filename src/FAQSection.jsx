@@ -1,19 +1,18 @@
 import { useState } from "react";
 
 function FAQSection() {
-
-    const [openIndex, setOpenIndex] = useState(-1);
+    const [openIndex, setOpenIndex] = useState(null);
 
     const faqs = [
         {
             question: "What is Sortted?",
             answer:
-                "Sortted is an AI-powered content growth platform that helps businesses create, optimize and humanize content from one place. Instead of using multiple tools for writing, SEO keyword planning and humanising. Sortted brings everything into one connected workflow.",
+                "Sortted is an AI-powered content growth platform that helps businesses create, optimize and humanize content from one place. Instead of using multiple tools for writing, SEO keyword planning and humanising, Sortted brings everything into one connected workflow.",
         },
         {
             question: "How is Sortted different from other AI writing tools?",
             answer:
-                "Sortted uses SERP analysis and NLP processing to understand what already ranks on Google. It analyzes top-ranking pages, extracts important keywords, topics and search intent patterns, then creates a new optimized intent-based content designed to improve relevance, readability and ranking potential —  backed by real search data instead of generic AI output.",
+                "Sortted uses SERP analysis and NLP processing to understand what already ranks on Google. It analyzes top-ranking pages, extracts important keywords, topics and search intent patterns, then creates optimized intent-based content designed to improve relevance, readability and ranking potential.",
         },
         {
             question: "What are the SEO Keyword Planner and Humanizer features in Sortted?",
@@ -30,217 +29,107 @@ function FAQSection() {
             answer:
                 "Future updates include GEO optimization for AI search rankings, website Site Audit reports, Social Publishing automation and Social Listening features to help businesses create, optimize, publish and monitor content growth from one platform.",
         },
+        {
+            question: "Can I use Sortted for my business?",
+            answer:
+                "Yes. Sortted is designed to help businesses plan, create, optimize and improve their content workflow from a single platform.",
+        },
     ];
 
-    return (
+    const toggleFAQ = (index) => {
+        setOpenIndex((currentIndex) =>
+            currentIndex === index ? null : index
+        );
+    };
 
+    return (
         <section
             id="faq"
-            className="w-full bg-white pt-[85px] px-5 overflow-hidden"
+            className="w-full bg-white overflow-hidden"
         >
+            {/* FAQ SECTION */}
+            <div className="w-full py-14 sm:py-16 md:py-20 lg:py-[100px]">
+                <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 md:px-10 lg:px-12">
 
-            <div className="max-w-[760px] mx-auto">
+                    {/* HEADING */}
+                    <div className="text-center">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-black font-semibold leading-tight tracking-[-1.5px]">
+                            Your Questions, Answered
+                        </h2>
 
-                {/* HEADING */}
-                <div className="text-center">
+                        <p className="text-xs sm:text-sm md:text-[14px] text-[#555555] leading-5 mt-4">
+                            Helping you understand our process
+                        </p>
+                    </div>
 
-                    <h2
-                        className="
-                        text-[40px]
-                        leading-[67px]
-                        text-[rgb(70,0,99)]
-                        "
-                        style={{
-                            fontFamily:
-                                '"Plus Jakarta Sans", sans-serif',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Questions? Answers!
-                    </h2>
+                    {/* FAQ GRID */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5 mt-10 sm:mt-12 md:mt-14 max-w-[900px] mx-auto">
+                        {faqs.map((faq, index) => {
+                            const isOpen = openIndex === index;
 
-                    <p
-                        className="
-                        mt-4
-                        text-[16px]
-                        leading-[24px]
-                        text-[rgb(14,28,41)]
-                        "
-                        style={{
-                            fontFamily:
-                                'Inter, sans-serif',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Find quick answers to the most common questions about our platform
-                    </p>
-
-                </div>
-
-                {/* FAQS */}
-                <div className="mt-10 space-y-4 max-w-[570px] mx-auto">
-
-                    {faqs.map((faq, index) => {
-
-                        const isOpen = openIndex === index;
-
-                        return (
-
-                            <div
-                                key={index}
-                                className="
-                                bg-[#EEF2F6]
-                                rounded-[10px]
-                                shadow-[0_3px_5px_rgba(0,0,0,0.5)]
-                                overflow-hidden
-                                transition-all
-                                duration-300
-                                "
-                            >
-
-                                {/* QUESTION */}
-                                <button
-                                    onClick={() =>
-                                        setOpenIndex(
-                                            isOpen ? -1 : index
-                                        )
-                                    }
-                                    className="
-                                    w-full
-                                    flex
-                                    items-center
-                                    justify-between
-                                    px-5
-                                    py-[8px]
-                                    text-left
-                                    "
-                                >
-
-                                    <span
-                                        className="
-                                        text-[16px]
-                                        leading-[22px]
-                                        text-[rgb(14,28,41)]
-                                        "
-                                        style={{
-                                            fontFamily:
-                                                'Inter, sans-serif',
-                                            fontWeight: 400,
-                                        }}
-                                    >
-                                        {faq.question}
-                                    </span>
-
-                                    <span
-                                        className={`
-                                        text-[20px]
-                                        text-[#1B2430]
-                                        transition-transform
-                                        duration-300
-                                        ${
-                                            isOpen
-                                                ? "rotate-180"
-                                                : ""
-                                        }
-                                        `}
-                                    >
-                                        ⌵
-                                    </span>
-
-                                </button>
-
-                                {/* ANSWER */}
+                            return (
                                 <div
-                                    className={`
-                                    grid
-                                    transition-all
-                                    duration-500
-                                    ease-in-out
-                                    ${
+                                    key={faq.question}
+                                    className={`w-full bg-white rounded-[16px] overflow-hidden transition-all duration-300 ${
                                         isOpen
-                                            ? "grid-rows-[1fr] opacity-100"
-                                            : "grid-rows-[0fr] opacity-0"
-                                    }
-                                    `}
+                                            ? "shadow-[0_8px_25px_rgba(0,0,0,0.08)]"
+                                            : "shadow-none"
+                                    }`}
                                 >
+                                    {/* QUESTION BUTTON */}
+                                    <button
+                                        type="button"
+                                        onClick={() => toggleFAQ(index)}
+                                        aria-expanded={isOpen}
+                                        aria-controls={`faq-answer-${index}`}
+                                        className="w-full min-h-[58px] sm:min-h-[60px] flex items-center justify-between gap-4 px-5 sm:px-6 py-4 text-left bg-[#E7E7E7]"
+                                    >
+                                        <span className="text-[13px] sm:text-[14px] md:text-[15px] text-[#252525] font-medium leading-5">
+                                            {faq.question}
+                                        </span>
 
-                                    <div className="overflow-hidden">
-
-                                        <p
-                                            className={`
-                                            px-5
-                                            pb-4
-                                            text-[14px]
-                                            leading-[21px]
-                                            text-[rgb(65, 69, 73)]
-                                            transition-all
-                                            duration-700
-                                            ${
+                                        {/* PLUS ICON */}
+                                        <span
+                                            className={`shrink-0 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full bg-[#1D1D1D] flex items-center justify-center transition-transform duration-300 ${
                                                 isOpen
-                                                    ? "blur-0 translate-y-0"
-                                                    : "blur-md translate-y-2"
-                                            }
-                                            `}
-                                            style={{
-                                                fontFamily:
-                                                    'Inter, sans-serif',
-                                                fontWeight: 400,
-                                            }}
+                                                    ? "rotate-45"
+                                                    : "rotate-0"
+                                            }`}
+                                            aria-hidden="true"
                                         >
-                                            {faq.answer}
-                                        </p>
+                                            <span className="relative block w-[8px] h-[8px]">
+                                                <span className="absolute left-1/2 top-0 w-[1.5px] h-[8px] bg-white -translate-x-1/2" />
+                                                <span className="absolute left-0 top-1/2 w-[8px] h-[1.5px] bg-white -translate-y-1/2" />
+                                            </span>
+                                        </span>
+                                    </button>
 
+                                    {/* ANSWER */}
+                                    <div
+                                        id={`faq-answer-${index}`}
+                                        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out  bg-[#E7E7E7] ${
+                                            isOpen
+                                                ? "grid-rows-[1fr] opacity-100"
+                                                : "grid-rows-[0fr] opacity-0"
+                                        }`}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="px-5 sm:px-6 pb-5">
+                                                <p className="text-[12px] sm:text-[13px] md:text-[14px] text-[#555555] leading-5">
+                                                    {faq.answer}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
-
                                 </div>
-
-                            </div>
-
-                        );
-
-                    })}
-
+                            );
+                        })}
+                    </div>
                 </div>
-
-                {/* FOOTER */}
-                <div
-                    className="
-                    mt-10
-                    flex
-                    items-center
-                    justify-center
-                    gap-3
-                    text-center
-                    "
-                >
-
-                    <span className="text-[20px]">
-                        ✉
-                    </span>
-
-                    <p
-                        className="
-                        text-[17px]
-                        leading-[22px]
-                        text-[rgb(14,28,41)]
-                        "
-                        style={{
-                            fontFamily:
-                                'Inter, sans-serif',
-                            fontWeight: 400,
-                        }}
-                    >
-                        Feel free to mail us for any enquiries :
-                        {" "}
-                        support@sortted.com
-                    </p>
-
-                </div>
-
             </div>
 
+           
         </section>
-
     );
 }
 

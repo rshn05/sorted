@@ -898,7 +898,7 @@ function HeroSection() {
               INNER = ANIMATION
           ====================================== */}
 
-          <div className="relative translate-y-[35px]">
+          <div className="relative translate-y-[40px]">
 
 
             {/* ENTRANCE ANIMATION WRAPPER */}
@@ -953,7 +953,7 @@ function HeroSection() {
               HEADING
           ====================================== */}
 
-          <h1 class="hero-reveal hero-reveal-heading mt-7 md:mt-8 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[76px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
+          <h1 class="hero-reveal hero-reveal-heading mt-7 md:mt-11 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[76px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
             
             <span className="block">at the speed of thought.</span>
           </h1>

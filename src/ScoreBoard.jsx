@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ScoreBoardPage() {
   return (
@@ -11,58 +11,19 @@ function ScoreBoardPage() {
 function ScoreBoard() {
   const [score, setScore] = useState(0);
 
+  const startAnimation = () => {
+    let current = 0;
 
-  // Api ScoreBoard
-  const [loading, setLoading] = useState(true);
+    const timer = setInterval(() => {
+      current++;
 
-// startAnimation
-  // const startAnimation = () => {
-  //   let current = 0;
+      setScore(current);
 
-  //   const timer = setInterval(() => {
-  //     current++;
-
-  //     setScore(current);
-
-  //     if (current >= 100) {
-  //       clearInterval(timer);
-  //     }
-  //   }, 20);
-  // };
-
-  const animateScore = (targetScore) => {
-  let current = 0;
-
-  const timer = setInterval(() => {
-    current++;
-
-    setScore(current);
-
-    if (current >= targetScore) {
-      clearInterval(timer);
-    }
-  }, 20);
-};
-
-
-
-useEffect(() => {
-  fetch("http://localhost:8000/api/gauge-score")
-    .then((res) => res.json())
-    .then((data) => {
-      animateScore(data.seo_score);
-      setLoading(false);
-    })
-    .catch((err) => {
-      console.error("Gauge API Error:", err);
-      setLoading(false);
-    });
-}, []);
-
-
-
-
-
+      if (current >= 100) {
+        clearInterval(timer);
+      }
+    }, 20);
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -171,13 +132,13 @@ useEffect(() => {
         {/* Score */}
         <div className="absolute inset-0 flex items-center justify-center pt-10">
           <span className="text-[56px] font-semibold text-white">
-            {loading ? "..." : score}
+            {score}
           </span>
         </div>
 
       </div>
 
-      {/* <button
+      <button
         onClick={startAnimation}
         className="
           mt-6
@@ -191,7 +152,7 @@ useEffect(() => {
         "
       >
         Start Score
-      </button> */}
+      </button>
 
     </div>
   );

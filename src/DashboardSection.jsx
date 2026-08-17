@@ -1,33 +1,17 @@
-import dashboardImg from "./assets/images/img.avif";
+import dashboardImg from "./assets/images/Dashboard.png";
 
 function DashboardSection() {
-
-    return (
-
-        <section className="relative w-full overflow-hidden bg-white">
-
-            {/* Gradient Background */}
-            {/* <div className="absolute inset-0 bg-[linear-gradient(#43008a_0%,#ffffff_95%)]"></div> */}
-                        {/* <div className="absolute inset-0 bg-[#ffffff_100%)]"></div> */}
-
-
-            {/* Content */}
-            <div className="relative z-10 flex justify-center px-4 sm:px-5 pt-16 sm:pt-24 md:pt-6 pb-16">
-
-                <div className="w-full max-w-[1150px]">
-
-                    <img
-                        src={dashboardImg}
-                        alt="dashboard"
-                        className="w-full h-auto object-contain block shadow-[0_10px_30px_rgba(0,0,0,0.18)]"
-                    />
-
-                </div>
-
-            </div>
-
-        </section>
-    );
+  return (
+    <section className="relative w-full overflow-hidden bg-black">
+      <div className="mx-auto flex w-full max-w-[1400px] justify-center px-4 pt-[110px] pb-[50px] sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <img
+          src={dashboardImg}
+          alt="Dashboard"
+          className="block h-auto w-full max-w-[950px] object-contain"
+        />
+      </div>
+    </section>
+  );
 }
 
 export default DashboardSection;
