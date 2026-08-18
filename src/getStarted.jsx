@@ -22,7 +22,7 @@ export default function GetStarted() {
         <img
           src={girlImg}
           alt="Sortted Platform Graphic"
-          className="h-64 sm:h-80 md:h-[340px] w-auto object-bottom object-contain align-bottom block"
+          className="h-64 sm:h-80 md:h-[450px] w-auto object-bottom object-contain align-bottom block"
         />
       </div>
     </section>
