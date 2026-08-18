@@ -329,7 +329,7 @@ function PricingSection() {
                                             <motion.div
                                                 key={plan.name}
                                                 variants={cardVariants}
-                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
+                                                className={`relative z-10 flex min-h-[280px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
                                                         ? "bg-[#F4FAFF]"
                                                         : "bg-white"
                                                     } ${plan.name === "Free"
