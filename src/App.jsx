@@ -9,6 +9,7 @@ import PlatformSection from "./PlatformSection";
 import WhyChooseUsSection from "./WhyChooseUsSection";
 import PricingSection from "./PricingSection";
 import FeedbackSection from "./FeedbackSection";
+import GetStarted from "./getStarted";
 import FooterSection from "./FooterSection";
 import FooterBottom from "./FooterBottom";
 import FooterTNC from "./FooterTNC";
@@ -58,6 +59,10 @@ function App() {
 
         <div id="testimonials">
           <FeedbackSection />
+        </div>
+
+        <div id="get-started">
+          <GetStarted />
         </div>
 
         <FooterSection />
