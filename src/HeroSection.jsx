@@ -10,13 +10,13 @@ import {
    HERO EMOJI IMAGES
 ========================================= */
 
-import heroImage1 from "./assets/images/emoji/1.webp";
-import heroImage2 from "./assets/images/emoji/2.webp";
-import heroImage3 from "./assets/images/emoji/3.webp";
-import heroImage4 from "./assets/images/emoji/4.webp";
-import heroImage5 from "./assets/images/emoji/5.webp";
-import heroImage6 from "./assets/images/emoji/6.webp";
-import heroImage7 from "./assets/images/emoji/7.webp";
+import heroImage1 from "./assets/images/emoji/1.png";
+// import heroImage2 from "./assets/images/emoji/2.webp";
+// import heroImage3 from "./assets/images/emoji/3.webp";
+// import heroImage4 from "./assets/images/emoji/4.webp";
+// import heroImage5 from "./assets/images/emoji/5.webp";
+// import heroImage6 from "./assets/images/emoji/6.webp";
+// import heroImage7 from "./assets/images/emoji/7.webp";
 
 
 /* =========================================
@@ -60,12 +60,12 @@ const rotatingContent = [
 
 const heroImages = [
   heroImage1,
-  heroImage2,
-  heroImage3,
-  heroImage4,
-  heroImage5,
-  heroImage6,
-  heroImage7,
+  // heroImage2,
+  // heroImage3,
+  // heroImage4,
+  // heroImage5,
+  // heroImage6,
+  // heroImage7,
 ];
 
 
@@ -138,7 +138,6 @@ function HeroDots() {
       mouseSmoothness: 0.22,
     };
 
-
     let width = 0;
     let height = 0;
 
@@ -193,19 +192,16 @@ function HeroDots() {
       const startY =
         config.spacing / 2;
 
-
       for (
         let y = startY;
         y < height;
         y += config.spacing
       ) {
-
         for (
           let x = startX;
           x < width;
           x += config.spacing
         ) {
-
           particles.push({
             x,
             y,
@@ -216,9 +212,7 @@ function HeroDots() {
             vx: 0,
             vy: 0,
           });
-
         }
-
       }
     };
 
@@ -270,11 +264,18 @@ function HeroDots() {
         `${height}px`;
 
 
+      const scaleX =
+        width > 0 ? canvas.width / width : dpr;
+
+      const scaleY =
+        height > 0 ? canvas.height / height : dpr;
+
+
       ctx.setTransform(
-        dpr,
+        scaleX,
         0,
         0,
-        dpr,
+        scaleY,
         0,
         0
       );
@@ -285,166 +286,106 @@ function HeroDots() {
 
 
     /* =========================================
-       MOUSE MOVE
-    ========================================= */
-
-    const handleMouseMove = (event) => {
-      const rect =
-        canvas.getBoundingClientRect();
-
-
-      mouse.targetX =
-        event.clientX -
-        rect.left;
-
-
-      mouse.targetY =
-        event.clientY -
-        rect.top;
-
-
-      if (!mouse.active) {
-
-        mouse.x =
-          mouse.targetX;
-
-
-        mouse.y =
-          mouse.targetY;
-
-      }
-
-
-      mouse.active = true;
-    };
-
-
-    /* =========================================
-       MOUSE LEAVE
-    ========================================= */
-
-    const handleMouseLeave = () => {
-      mouse.active = false;
-
-
-      mouse.targetX = -1000;
-      mouse.targetY = -1000;
-    };
-
-
-    /* =========================================
        UPDATE PARTICLE
     ========================================= */
 
     const updateParticle = (particle) => {
+      /* =========================================
+         MOUSE REPULSION
+      ========================================= */
 
       if (mouse.active) {
+        const dx = particle.x - mouse.x;
+        const dy = particle.y - mouse.y;
 
-        const dx =
-          particle.x -
-          mouse.x;
-
-
-        const dy =
-          particle.y -
-          mouse.y;
-
-
-        const distanceSquared =
-          dx * dx +
-          dy * dy;
-
+        const distanceSquared = dx * dx + dy * dy;
 
         const interactionRadiusSquared =
           config.interactionRadius *
           config.interactionRadius;
 
-
         if (
-          distanceSquared <
-            interactionRadiusSquared &&
+          distanceSquared < interactionRadiusSquared &&
           distanceSquared > 0
         ) {
-
-          const distance =
-            Math.sqrt(
-              distanceSquared
-            );
-
+          const distance = Math.sqrt(distanceSquared);
 
           const normalized =
             1 -
             distance /
-            config.interactionRadius;
-
+              config.interactionRadius;
 
           const strength =
             normalized *
             normalized;
 
-
           const angle =
-            Math.atan2(
-              dy,
-              dx
-            );
-
+            Math.atan2(dy, dx);
 
           const force =
             config.force *
             strength;
 
-
           particle.vx +=
             Math.cos(angle) *
             force;
 
-
           particle.vy +=
             Math.sin(angle) *
             force;
-
         }
-
       }
 
 
-      /* DRAG */
+      /* =========================================
+         DRAG
+      ========================================= */
 
-      particle.vx *=
-        config.drag;
-
-
-      particle.vy *=
-        config.drag;
+      particle.vx *= config.drag;
+      particle.vy *= config.drag;
 
 
-      /* RETURN TO ORIGINAL GRID */
+      /* =========================================
+         RETURN TO ORIGINAL GRID
+      ========================================= */
+
+      const returnX =
+        particle.originalX -
+        particle.x;
+
+      const returnY =
+        particle.originalY -
+        particle.y;
 
       particle.vx +=
-        (
-          particle.originalX -
-          particle.x
-        ) *
+        returnX *
         config.ease;
-
 
       particle.vy +=
-        (
-          particle.originalY -
-          particle.y
-        ) *
+        returnY *
         config.ease;
 
 
-      /* UPDATE POSITION */
+      /* =========================================
+         LIMIT VELOCITY
+      ========================================= */
 
-      particle.x +=
-        particle.vx;
+      const maxVelocity = 6;
+      const speedSquared = particle.vx * particle.vx + particle.vy * particle.vy;
+
+      if (speedSquared > maxVelocity * maxVelocity) {
+        const speed = Math.sqrt(speedSquared);
+        particle.vx = (particle.vx / speed) * maxVelocity;
+        particle.vy = (particle.vy / speed) * maxVelocity;
+      }
 
 
-      particle.y +=
-        particle.vy;
+      /* =========================================
+         UPDATE POSITION
+      ========================================= */
+
+      particle.x += particle.vx;
+      particle.y += particle.vy;
     };
 
 
@@ -567,7 +508,6 @@ function HeroDots() {
         return;
       }
       stopLoop();
-      // Reduced motion: keep a static grid, no continuous RAF.
       if (prefersReducedMotion) {
         paintStaticFrame();
       }
@@ -575,54 +515,27 @@ function HeroDots() {
 
 
     /* =========================================
-       HERO
-    ========================================= */
-
-    const hero =
-      canvas.closest(
-        ".hero-section"
-      );
-
-
-    /* =========================================
-       START
+       START & GLOBAL EVENT LISTENERS
     ========================================= */
 
     resizeCanvas();
 
 
-    if (
-      typeof ResizeObserver !==
-      "undefined"
-    ) {
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserver = new ResizeObserver(() => {
+        resizeCanvas();
+        syncAnimationState();
+      });
 
-      resizeObserver =
-        new ResizeObserver(() => {
-
-          resizeCanvas();
-          syncAnimationState();
-
-        });
-
-
-      if (
-        canvas.parentElement
-      ) {
-
-        resizeObserver.observe(
-          canvas.parentElement
-        );
-
+      if (canvas.parentElement) {
+        resizeObserver.observe(canvas.parentElement);
       }
-
     } else {
-
       onWindowResize = () => {
         resizeCanvas();
         syncAnimationState();
       };
       window.addEventListener("resize", onWindowResize);
-
     }
 
 
@@ -662,16 +575,40 @@ function HeroDots() {
     }
 
 
-    hero?.addEventListener(
-      "mousemove",
-      handleMouseMove
-    );
+    /* ACCURATE POSITION COMPUTATION ACROSS SCREEN RIGHT & BOTTOM EDGES */
+    const handlePointerMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
 
+      const rawX = e.clientX - rect.left;
+      const rawY = e.clientY - rect.top;
 
-    hero?.addEventListener(
-      "mouseleave",
-      handleMouseLeave
-    );
+      // Scale factor mapping CSS layout space to exact canvas pixel coordinate grid
+      const calculatedX = (rawX / rect.width) * width;
+      const calculatedY = (rawY / rect.height) * height;
+
+      if (
+        rawX >= 0 &&
+        rawX <= rect.width &&
+        rawY >= 0 &&
+        rawY <= rect.height
+      ) {
+        mouse.targetX = calculatedX;
+        mouse.targetY = calculatedY;
+
+        if (!mouse.active) {
+          mouse.x = calculatedX;
+          mouse.y = calculatedY;
+          mouse.active = true;
+        }
+      } else {
+        mouse.active = false;
+        mouse.targetX = -1000;
+        mouse.targetY = -1000;
+      }
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
 
 
     syncAnimationState();
@@ -682,13 +619,10 @@ function HeroDots() {
     ========================================= */
 
     return () => {
-
       stopLoop();
-
 
       resizeObserver?.disconnect();
       intersectionObserver?.disconnect();
-
 
       if (onWindowResize) {
         window.removeEventListener("resize", onWindowResize);
@@ -704,27 +638,14 @@ function HeroDots() {
         }
       }
 
-
-      hero?.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      );
-
-
-      hero?.removeEventListener(
-        "mouseleave",
-        handleMouseLeave
-      );
-
+      window.removeEventListener("pointermove", handlePointerMove);
     };
 
   }, []);
 
 
   return (
-
-    <div className="pointer-events-none absolute inset-0 z-0">
-
+    <div className="pointer-events-none absolute inset-0 z-0 w-full h-full">
       <canvas
         ref={canvasRef}
         className="block w-full h-full"
@@ -734,9 +655,7 @@ function HeroDots() {
           willChange: "transform",
         }}
       />
-
     </div>
-
   );
 }
 
@@ -746,51 +665,33 @@ function HeroDots() {
 ========================================= */
 
 function HeroImageRow() {
-
   return (
-
     <div className="relative flex items-center justify-center mb-7 md:mb-9">
-
-      <div className="flex items-center justify-center -space-x-[8px] sm:-space-x-[9px] md:-space-x-[10px] lg:-space-x-[11px]">
-
-
-        {heroImages.map(
-          (image, index) => (
-
-            <div
-              key={`hero-image-${index}`}
-              className="hero-character relative shrink-0 w-[50px] h-[50px] sm:w-[58px] sm:h-[58px] md:w-[66px] md:h-[66px] lg:w-[65px] lg:h-[65px] rounded-full"
-              style={{
-                zIndex:
-                  index + 1,
-
-                animationDelay:
-                  `${100 + index * 110}ms`,
-              }}
-            >
-
-              <img
-                src={image}
-                alt=""
-                width={144}
-                height={144}
-                draggable="false"
-                loading="eager"
-                decoding="async"
-                fetchPriority={index === 0 ? "high" : "auto"}
-                className="block w-full h-full rounded-full object-cover select-none pointer-events-none"
-              />
-
-            </div>
-
-          )
-        )}
-
-
+      <div className="flex items-center justify-center">
+        {heroImages.map((image, index) => (
+          <div
+            key={`hero-image-${index}`}
+            className="hero-character relative shrink-0 w-[130px] h-[130px] sm:w-[150px] sm:h-[150px] md:w-[170px] md:h-[170px] lg:w-[190px] lg:h-[100px]"
+            style={{
+              zIndex: index + 1,
+              animationDelay: `${100 + index * 110}ms`,
+            }}
+          >
+            <img
+              src={image}
+              alt=""
+              width={300}
+              height={300}
+              draggable="false"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+              className="block w-full h-full object-contain select-none pointer-events-none scale-[2.5]"
+            />
+          </div>
+        ))}
       </div>
-
     </div>
-
   );
 }
 
@@ -892,10 +793,6 @@ function HeroSection() {
 
           {/* =====================================
               ROTATING BADGE
-
-              IMPORTANT:
-              OUTER = POSITION
-              INNER = ANIMATION
           ====================================== */}
 
           <div className="relative translate-y-[40px]">
@@ -953,8 +850,8 @@ function HeroSection() {
               HEADING
           ====================================== */}
 
-          <h1 class="hero-reveal hero-reveal-heading mt-7 md:mt-11 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[76px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
-            
+          <h1 className="hero-reveal hero-reveal-heading mt-7 md:mt-11 text-black font-sans font-semibold text-[43px] sm:text-[54px] md:text-[66px] lg:text-[76px] leading-[0.98] tracking-[-0.055em] max-w-[1100px]">
+
             <span className="block">at the speed of thought.</span>
           </h1>
 
@@ -984,7 +881,7 @@ function HeroSection() {
                   "/signup"
                 )
               }
-              className="w-full sm:w-auto min-w-[235px] bg-[#0C89E8] hover:bg-[#087DD8] text-white font-sans font-medium text-[17px] sm:text-[18px] px-7 py-[14px] rounded-[9px] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_7px_18px_rgba(12,137,232,0.24)] active:translate-y-0"
+              className="w-full sm:w-auto min-w-[235px] bg-[#0B8DE3] hover:bg-[#087DD8] text-white font-sans font-medium text-[17px] sm:text-[18px] px-7 py-[14px] rounded-[9px] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_7px_18px_rgba(12,137,232,0.24)] active:translate-y-0"
             >
 
               Get started for free
@@ -1142,8 +1039,7 @@ function HeroSection() {
         {`
 
           /* =================================
-             7 IMAGE ENTRANCE
-             BIG → NORMAL
+              7 IMAGE ENTRANCE
           ================================= */
 
           @keyframes heroImageZoomOut {
@@ -1177,8 +1073,7 @@ function HeroSection() {
 
 
           /* =================================
-             IMAGE OUTER WRAPPER
-             ENTRANCE ONLY
+              IMAGE OUTER WRAPPER
           ================================= */
 
           .hero-character {
@@ -1206,48 +1101,22 @@ function HeroSection() {
 
 
           /* =================================
-             IMAGE ITSELF
-             HOVER TILT ONLY
+              IMAGE ITSELF
           ================================= */
 
           .hero-character img {
             display: block;
-
-            transform:
-              rotate(0deg)
-              translateZ(0);
-
-            transform-origin:
-              center center;
-
-            transition:
-              transform
-              260ms
-              cubic-bezier(0.22, 1, 0.36, 1);
-
-            will-change: transform;
-
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             backface-visibility: hidden;
-
             -webkit-backface-visibility: hidden;
-
             image-rendering: auto;
           }
 
 
           /* =================================
-             TILT ON HOVER
-          ================================= */
-
-          .hero-character:hover img {
-            transform:
-              rotate(12deg)
-              translateZ(0);
-          }
-
-
-          /* =================================
-             BADGE CHANGE ANIMATION
+              BADGE CHANGE ANIMATION
           ================================= */
 
           @keyframes badgeEnter {
@@ -1287,7 +1156,7 @@ function HeroSection() {
 
 
           /* =================================
-             HERO CONTENT REVEAL
+              HERO CONTENT REVEAL
           ================================= */
 
           @keyframes heroContentReveal {
@@ -1334,7 +1203,7 @@ function HeroSection() {
 
 
           /* =================================
-             CONTENT STAGGER
+              CONTENT STAGGER
           ================================= */
 
           .hero-reveal-badge {
@@ -1368,7 +1237,7 @@ function HeroSection() {
 
 
           /* =================================
-             LOGO SLIDER
+              LOGO SLIDER
           ================================= */
 
           @keyframes logoScroll {
@@ -1396,7 +1265,7 @@ function HeroSection() {
 
 
           /* =================================
-             MOBILE
+              MOBILE
           ================================= */
 
           @media (max-width: 640px) {
@@ -1409,7 +1278,7 @@ function HeroSection() {
 
 
           /* =================================
-             REDUCED MOTION
+              REDUCED MOTION
           ================================= */
 
           @media (

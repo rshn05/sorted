@@ -1,4 +1,4 @@
-import saveImage from "./assets/images/Save.png";
+import saveImage from "./assets/images/boy.png";
 
 function BrandIcon({ type }) {
     const common = {
@@ -10,6 +10,16 @@ function BrandIcon({ type }) {
     };
 
     switch (type) {
+        case "content-note":
+            return (
+                <svg {...common}>
+                    <rect x="8" y="6" width="24" height="28" rx="3" fill="#4A3AFF" />
+                    <path d="M13 12H27M13 17H27M13 22H21" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="25" cy="24" r="3" fill="#FFC700" />
+                    <path d="M24 25L27 22" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+            );
+
         case "google-docs":
             return (
                 <svg {...common}>
@@ -160,142 +170,43 @@ function BrandIcon({ type }) {
 
 function WhyChooseUsSection() {
     const tools = [
-        {
-            id: "google-docs",
-            type: "google-docs",
-            position: "left-[18%] top-[14%]",
-            delay: "0s"
-        },
-        {
-            id: "reddit",
-            type: "reddit",
-            position: "left-[47%] top-[10%]",
-            delay: "0.8s"
-        },
-        {
-            id: "linkedin",
-            type: "linkedin",
-            position: "left-[65%] top-[14%]",
-            delay: "1.4s"
-        },
-        {
-            id: "drive",
-            type: "drive",
-            position: "right-[14%] top-[18%]",
-            delay: "0.5s"
-        },
-        {
-            id: "facebook",
-            type: "facebook",
-            position: "left-[9%] top-[34%]",
-            delay: "1.1s"
-        },
-        {
-            id: "instagram",
-            type: "instagram",
-            position: "right-[8%] top-[34%]",
-            delay: "1.8s"
-        },
-        {
-            id: "sheets",
-            type: "sheets",
-            position: "left-[27%] top-[46%]",
-            delay: "0.3s"
-        },
-        {
-            id: "whatsapp",
-            type: "whatsapp",
-            position: "right-[22%] top-[45%]",
-            delay: "1.6s"
-        },
-        {
-            id: "gmail",
-            type: "gmail",
-            position: "left-[10%] top-[61%]",
-            delay: "0.7s"
-        },
-        {
-            id: "x",
-            type: "x",
-            position: "right-[9%] top-[60%]",
-            delay: "1.3s"
-        },
-        {
-            id: "powerpoint",
-            type: "powerpoint",
-            position: "left-[18%] top-[77%]",
-            delay: "1.9s"
-        },
-        {
-            id: "youtube",
-            type: "youtube",
-            position: "left-[33%] top-[83%]",
-            delay: "0.9s"
-        },
-        {
-            id: "forms",
-            type: "forms",
-            position: "left-[49%] top-[81%]",
-            delay: "1.5s"
-        },
-        {
-            id: "slides",
-            type: "slides",
-            position: "left-[68%] top-[78%]",
-            delay: "0.4s"
-        },
-        {
-            id: "video",
-            type: "video",
-            position: "right-[14%] top-[75%]",
-            delay: "1.2s"
-        }
+        { id: "content-note", type: "content-note", position: "left-[23.5%] top-[22.5%]", delay: "0.2s" },
+        { id: "google-docs", type: "google-docs", position: "left-[36.5%] top-[21.5%]", delay: "0s" },
+        { id: "reddit", type: "reddit", position: "left-[51.5%] top-[20.5%]", delay: "0.8s" },
+        { id: "linkedin", type: "linkedin", position: "left-[64%] top-[22.5%]", delay: "1.4s" },
+        { id: "drive", type: "drive", position: "left-[79.5%] top-[24.5%]", delay: "0.5s" },
+        { id: "facebook", type: "facebook", position: "left-[15.5%] top-[39.5%]", delay: "1.1s" },
+        { id: "instagram", type: "instagram", position: "left-[84.5%] top-[38.5%]", delay: "1.8s" },
+        { id: "sheets", type: "sheets", position: "left-[30.5%] top-[49.5%]", delay: "0.3s" },
+        { id: "whatsapp", type: "whatsapp", position: "left-[73.5%] top-[51.5%]", delay: "1.6s" },
+        { id: "gmail", type: "gmail", position: "left-[16.5%] top-[61.5%]", delay: "0.7s" },
+        { id: "x", type: "x", position: "left-[83.5%] top-[61.5%]", delay: "1.3s" },
+        { id: "powerpoint", type: "powerpoint", position: "left-[23.5%] top-[78.5%]", delay: "1.9s" },
+        { id: "youtube", type: "youtube", position: "left-[35%] top-[82.5%]", delay: "0.9s" },
+        { id: "forms", type: "forms", position: "left-[49%] top-[83.5%]", delay: "1.5s" },
+        { id: "slides", type: "slides", position: "left-[67.5%] top-[82.5%]", delay: "0.4s" },
+        { id: "video", type: "video", position: "left-[80.5%] top-[80.5%]", delay: "1.2s" }
     ];
 
     return (
         <section className="w-full overflow-hidden bg-white px-3 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10 lg:px-10 lg:py-12">
-
             <style>
                 {`
                     @keyframes sorttedFloat {
-                        0%,
-                        100% {
-                            transform: translate3d(0, 0, 0);
-                        }
-
-                        25% {
-                            transform: translate3d(0, -5px, 0);
-                        }
-
-                        50% {
-                            transform: translate3d(0, 2px, 0);
-                        }
-
-                        75% {
-                            transform: translate3d(0, -3px, 0);
-                        }
+                        0%, 100% { transform: translate3d(0, 0, 0); }
+                        25% { transform: translate3d(0, -5px, 0); }
+                        50% { transform: translate3d(0, 2px, 0); }
+                        75% { transform: translate3d(0, -3px, 0); }
                     }
 
                     @keyframes sorttedStar {
-                        0%,
-                        100% {
-                            transform: rotate(0deg) scale(1);
-                        }
-
-                        50% {
-                            transform: rotate(18deg) scale(1.12);
-                        }
+                        0%, 100% { transform: rotate(0deg) scale(1); }
+                        50% { transform: rotate(18deg) scale(1.12); }
                     }
 
                     @keyframes sorttedDot {
-                        0%,
-                        100% {
-                            transform: scale(1);
-                        }
-
-                        50% {
-                            transform: scale(1.35);
-                        }
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.35); }
                     }
 
                     .sortted-floating-icon {
@@ -326,190 +237,54 @@ function WhyChooseUsSection() {
             </style>
 
             <div className="mx-auto w-full max-w-[1200px]">
-
                 {/* Heading */}
                 <div className="relative z-20 flex flex-col items-center text-center">
-
                     <h2 className="text-xl font-semibold leading-tight tracking-[-0.03em] text-[#101828] sm:text-2xl md:text-3xl lg:text-[38px]">
                         Save 50+ Hrs &amp; $800+ Monthly
                     </h2>
-
                 </div>
 
-                {/* Main Visual */}
-                <div className="relative mx-auto mt-3 h-[380px] w-full max-w-[1200px] sm:mt-4 sm:h-[420px] md:h-[460px] lg:mt-1 lg:h-[500px]">
+                {/* Main Visual Frame - Expanded max width */}
+                <div className="relative mx-auto mt-4 aspect-[16/9] w-full max-w-[1100px]">
+                    {/* Background Graphic containing native paths and character */}
+                    <img
+                        src={saveImage}
+                        alt="Person using multiple marketing and productivity tools"
+                        className="h-full w-full object-contain"
+                    />
 
-                    {/* Dotted paths */}
-                    <svg
-                        className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-                        viewBox="0 0 1000 610"
-                        fill="none"
-                        preserveAspectRatio="none"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M75 120 C150 85 205 145 285 110 C350 80 370 90 410 120"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M500 120 C560 85 610 105 670 135 C735 165 820 115 910 130"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M65 215 C145 185 200 220 225 270 C245 305 205 330 170 330"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M760 215 C825 190 895 215 930 255 C950 285 930 325 870 330"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M75 400 C135 380 195 405 220 455 C245 500 210 525 165 540"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M775 400 C840 380 900 405 925 455 C945 490 920 525 870 540"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-
-                        <path
-                            d="M165 540 C280 570 360 550 415 525 C460 505 540 505 585 525 C650 555 740 570 870 540"
-                            stroke="#C9C4FF"
-                            strokeWidth="1.5"
-                            strokeDasharray="4 7"
-                            strokeLinecap="round"
-                        />
-                    </svg>
-
-                    {/* Floating brand icons */}
+                    {/* Animated Icons Floating on Image Nodes */}
                     {tools.map((tool) => (
-    <div
-        key={tool.id}
-        className={`absolute z-10 ${tool.position}`}
-        style={{
-            animationDelay: tool.delay
-        }}
-    >
-        <div className="sortted-floating-icon flex h-11 w-11 items-center justify-center rounded-[11px] border border-[#E8E8F0] bg-white p-2 shadow-[0_6px_18px_rgba(16,24,40,0.12)] sm:h-12 sm:w-12 sm:p-[9px] md:h-14 md:w-14 md:p-[10px]">
-
-            <BrandIcon type={tool.type} />
-
-        </div>
-    </div>
-))}
-
-                    {/* Top star */}
-                    <div className="sortted-star absolute left-[46%] top-[7%] z-10">
-                        <svg
-                            className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-                            viewBox="0 0 24 24"
-                            fill="#6338F5"
-                            aria-hidden="true"
+                        <div
+                            key={tool.id}
+                            className={`absolute z-20 -translate-x-1/2 -translate-y-1/2 ${tool.position}`}
+                            style={{ animationDelay: tool.delay }}
                         >
+                            <div className="sortted-floating-icon flex h-9 w-9 items-center justify-center rounded-[10px] border border-[#E8E8F0] bg-white p-1 shadow-[0_6px_18px_rgba(16,24,40,0.12)] sm:h-11 sm:w-11 md:h-12 md:w-12 md:p-1.5">
+                                <BrandIcon type={tool.type} />
+                            </div>
+                        </div>
+                    ))}
+
+                    {/* Decorative Stars and Dots */}
+                    <div className="sortted-star absolute left-[45%] top-[10%] z-10">
+                        <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="#6338F5">
                             <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
                         </svg>
                     </div>
 
-                    {/* Right star */}
-                    <div className="sortted-star absolute right-[27%] top-[29%] z-10">
-                        <svg
-                            className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-                            viewBox="0 0 24 24"
-                            fill="#6338F5"
-                            aria-hidden="true"
-                        >
+                    <div className="sortted-star absolute right-[32%] top-[30%] z-10">
+                        <svg className="h-3.5 w-3.5 sm:h-4 sm:w-4" viewBox="0 0 24 24" fill="#6338F5">
                             <path d="M12 2L14.2 9.8L22 12L14.2 14.2L12 22L9.8 14.2L2 12L9.8 9.8L12 2Z" />
                         </svg>
                     </div>
 
-                    {/* Left lightning */}
-                    <div className="absolute left-[23%] top-[31%] z-10 rotate-[-15deg]">
-                        <svg
-                            className="h-5 w-5 sm:h-6 sm:w-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M6 13L11 12L9 19L18 9L13 10L15 4L6 13Z"
-                                stroke="#6338F5"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </div>
-
-                    {/* Right lightning */}
-                    <div className="absolute right-[26%] top-[54%] z-10 rotate-[15deg]">
-                        <svg
-                            className="h-5 w-5 sm:h-6 sm:w-6"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M6 13L11 12L9 19L18 9L13 10L15 4L6 13Z"
-                                stroke="#6338F5"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </div>
-
-                    {/* Pink dot */}
-                    <span className="sortted-dot absolute left-[7%] top-[22%] z-10 h-2 w-2 rounded-full bg-[#F04DA8] sm:h-2.5 sm:w-2.5" />
-
-                    {/* Orange dots */}
-                    <span className="sortted-dot absolute left-[4%] top-[66%] z-10 h-1.5 w-1.5 rounded-full bg-[#FFB13B] sm:h-2 sm:w-2" />
-
-                    <span className="sortted-dot absolute right-[5%] top-[70%] z-10 h-1.5 w-1.5 rounded-full bg-[#FFB13B] sm:h-2 sm:w-2" />
-
-                    {/* Purple dot */}
-                    <span className="sortted-dot absolute right-[3%] top-[31%] z-10 h-1.5 w-1.5 rounded-full bg-[#6338F5] sm:h-2 sm:w-2" />
-
-                    {/* Center glow */}
-                    <div className="pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[160px] w-[160px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-200/20 blur-[45px] sm:h-[210px] sm:w-[210px] md:h-[260px] md:w-[260px]" />
-
-                    {/* Center boy */}
-                    <div className="absolute left-1/2 top-1/2 z-20 flex w-[170px] -translate-x-1/2 -translate-y-1/2 items-center justify-center sm:w-[230px] md:w-[290px] lg:w-[350px] xl:w-[380px]">
-
-                        <img
-                            src={saveImage}
-                            alt="Person using multiple marketing and productivity tools"
-                            className="h-auto w-full object-contain"
-                        />
-
-                    </div>
-
+                    <span className="sortted-dot absolute left-[10%] top-[25%] z-10 h-2 w-2 rounded-full bg-[#F04DA8]" />
+                    <span className="sortted-dot absolute left-[6%] top-[68%] z-10 h-2 w-2 rounded-full bg-[#FFB13B]" />
+                    <span className="sortted-dot absolute right-[8%] top-[72%] z-10 h-2 w-2 rounded-full bg-[#FFB13B]" />
+                    <span className="sortted-dot absolute right-[5%] top-[33%] z-10 h-2 w-2 rounded-full bg-[#6338F5]" />
                 </div>
-
             </div>
-
         </section>
     );
 }

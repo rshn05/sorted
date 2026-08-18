@@ -21,43 +21,46 @@ function PricingSection() {
             description: "Get started with basic features.",
             icon: Gift,
             iconBg: "bg-[#EDEDED]",
-            iconColor: "text-[#111]",
-            nameColor: "text-[#111]",
-            priceColor: "text-[#111]",
+            iconColor: "text-[#000]",
+            nameColor: "text-[#000]",
+            priceColor: "text-[#000]",
             buttonStyle:
                 "border-[1px] border-[#8B91A2] bg-white text-[#101A3A] hover:bg-[#111] hover:border-[#111] hover:text-white",
         },
         {
             name: "Starter",
             monthlyPrice: "$9",
-            yearlyPrice: "$81",
+            fullyearlyPrice: "$108",
+            yearlyPrice: "$97",
             description: "Perfect for individuals getting started.",
             icon: Send,
             iconBg: "bg-[#EDEDED]",
-            iconColor: "text-[#111]",
-            nameColor: "text-[#111]",
-            priceColor: "text-[#111]",
+            iconColor: "text-[#000]",
+            nameColor: "text-[#000]",
+            priceColor: "text-[#000]",
             buttonStyle:
-                "bg-[#111] text-white hover:bg-[#101F4A]",
+                "bg-[#111] text-white hover:bg-[#000]",
         },
         {
             name: "Growth",
             monthlyPrice: "$29",
-            yearlyPrice: "$261",
+            fullyearlyPrice: "$348",
+            yearlyPrice: "$313",
             description: "Everything you need to grow faster.",
             icon: TrendingUp,
             iconBg: "bg-[#E8F1FF]",
-            iconColor: "text-[#0C89E8]",
-            nameColor: "text-[#0C89E8]",
-            priceColor: "text-[#0C89E8]",
+            iconColor: "text-[#0B8DE3]",
+            nameColor: "text-[#0B8DE3]",
+            priceColor: "text-[#0B8DE3]",
             popular: true,
             buttonStyle:
-                "bg-[#0C89E8] text-white hover:bg-[#0757DE]",
+                "bg-[#0B8DE3] text-white hover:bg-[#087DD8]",
         },
         {
             name: "Pro",
             monthlyPrice: "$149",
-            yearlyPrice: "$1341",
+            fullyearlyPrice: "$1788",
+            yearlyPrice: "$1609",
             description: "For agencies and power users.",
             icon: Crown,
             iconBg: "bg-[#E7F6EF]",
@@ -264,11 +267,10 @@ function PricingSection() {
                         <button
                             type="button"
                             onClick={() => setBilling("monthly")}
-                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
-                                billing === "monthly"
-                                    ? "bg-[#E2E6F2] text-[#4D5673] shadow-sm"
-                                    : "bg-transparent text-[#737A94]"
-                            }`}
+                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${billing === "monthly"
+                                ? "bg-[#E2E6F2] text-[#4D5673] shadow-sm"
+                                : "bg-transparent text-[#737A94]"
+                                }`}
                         >
                             Monthly
                         </button>
@@ -276,11 +278,10 @@ function PricingSection() {
                         <button
                             type="button"
                             onClick={() => setBilling("yearly")}
-                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
-                                billing === "yearly"
-                                    ? "bg-white text-[#4D5673] shadow-sm"
-                                    : "bg-transparent text-[#737A94]"
-                            }`}
+                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${billing === "yearly"
+                                ? "bg-white text-[#4D5673] shadow-sm"
+                                : "bg-transparent text-[#737A94]"
+                                }`}
                         >
                             <span>Yearly</span>
 
@@ -303,14 +304,15 @@ function PricingSection() {
                             className="relative overflow-visible"
                             variants={cardsContainerVariants}
                         >
-                            <div className="overflow-visible rounded-[8px] border-[1px] border-[#D7DCE6]">
-
+                            <div className="relative rounded-[8px] border-[1px] border-[#D7DCE6]">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[185px_repeat(4,minmax(0,1fr))]">
+
+
 
                                     {/* CHOOSE YOUR PLAN */}
                                     <motion.div
                                         variants={cardVariants}
-                                        className="hidden min-h-[250px] items-center rounded-l-[7px] bg-white px-7 lg:flex"
+                                        className="hidden min-h-[270px] items-center rounded-l-[7px] bg-white px-7 lg:flex"
                                     >
                                         <h3 className="text-xl md:text-2xl text-[#071535] font-bold leading-[1.25]">
                                             Choose
@@ -327,11 +329,15 @@ function PricingSection() {
                                             <motion.div
                                                 key={plan.name}
                                                 variants={cardVariants}
-                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${
-                                                    plan.popular
+                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
                                                         ? "bg-[#F4FAFF]"
                                                         : "bg-white"
-                                                }`}
+                                                    } ${plan.name === "Free"
+                                                        ? "lg:rounded-l-[7px]"
+                                                        : plan.name === "Pro"
+                                                            ? "lg:rounded-r-[7px]"
+                                                            : ""
+                                                    }`}
                                             >
 
                                                 {/* MOST POPULAR */}
@@ -388,16 +394,30 @@ function PricingSection() {
                                                 </h4>
 
                                                 {/* PRICE */}
-                                                <div className="mt-1 flex items-baseline justify-center gap-1.5">
-                                                    <span
-                                                        className={`text-3xl sm:text-[34px] font-bold leading-9 ${plan.priceColor}`}
-                                                    >
-                                                        {getPrice(plan)}
-                                                    </span>
+                                                <div className="mt-1 flex flex-col items-start">
 
-                                                    <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
-                                                        /user/mo
-                                                    </span>
+                                                    {/* YEARLY STRIKE PRICE */}
+                                                    <div className="h-[16px] flex items-center">
+                                                        {billing === "yearly" && plan.fullyearlyPrice && (
+                                                            <span className="text-left text-[12px] sm:text-[13px] font-medium leading-4 text-[#98A0AF] line-through">
+                                                                {plan.fullyearlyPrice}
+                                                            </span>
+                                                        )}
+                                                    </div>
+
+                                                    {/* CURRENT PRICE + PERIOD */}
+                                                    <div className="flex items-baseline justify-center gap-1.5">
+                                                        <span
+                                                            className={`text-3xl sm:text-[34px] font-bold leading-9 ${plan.priceColor}`}
+                                                        >
+                                                            {getPrice(plan)}
+                                                        </span>
+
+                                                        <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
+                                                            /user/{billing === "monthly" ? "mo" : "yr"}
+                                                        </span>
+                                                    </div>
+
                                                 </div>
 
                                                 {/* DESCRIPTION */}
@@ -460,18 +480,17 @@ function PricingSection() {
                                             duration: 0.35,
                                             delay: rowIndex * 0.04,
                                         }}
-                                        className={`grid grid-cols-[185px_repeat(4,minmax(0,1fr))] min-h-[42px] ${
-                                            rowIndex !==
+                                        className={`grid grid-cols-[185px_repeat(4,minmax(0,1fr))] min-h-[42px] ${rowIndex !==
                                             comparisonRows.length - 1
-                                                ? "border-b-[1px] border-[#E3E6EC]"
-                                                : ""
-                                        }`}
+                                            ? "border-b-[1px] border-[#E3E6EC]"
+                                            : ""
+                                            }`}
                                     >
 
                                         {/* FEATURE */}
                                         <div className="flex flex-col justify-center border-r-[1px] border-[#E3E6EC] px-3">
 
-                                            <span className="text-[10px] md:text-[11px] text-[#18213A] font-semibold leading-4">
+                                            <span className="text-[12px] md:text-[13px] text-[#18213A] font-semibold leading-4">
                                                 {row.feature}
                                             </span>
 
@@ -496,28 +515,25 @@ function PricingSection() {
                                             return (
                                                 <div
                                                     key={`${row.feature}-${valueIndex}`}
-                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${
-                                                        !isLastColumn
-                                                            ? "border-r-[1px] border-[#E3E6EC]"
-                                                            : ""
-                                                    } ${
-                                                        valueIndex === 3
+                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${!isLastColumn
+                                                        ? "border-r-[1px] border-[#E3E6EC]"
+                                                        : ""
+                                                        } ${valueIndex === 3
                                                             ? "text-[#16814D]"
                                                             : "text-[#1C2338]"
-                                                    }`}
+                                                        }`}
                                                 >
 
                                                     {isCheck ? (
                                                         <span
-                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${
-                                                                valueIndex === 3
-                                                                    ? "bg-[#16814D]"
-                                                                    : valueIndex === 2
+                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${valueIndex === 3
+                                                                ? "bg-[#16814D]"
+                                                                : valueIndex === 2
                                                                     ? "bg-[#0C89E8]"
                                                                     : valueIndex === 1
-                                                                    ? "bg-[#111]"
-                                                                    : "bg-[#626B82]"
-                                                            }`}
+                                                                        ? "bg-[#111]"
+                                                                        : "bg-[#626B82]"
+                                                                }`}
                                                         >
                                                             <Check
                                                                 className="h-[10px] w-[10px] text-white"

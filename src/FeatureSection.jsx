@@ -1,5 +1,5 @@
-import keywords1 from "./assets/images/Keywords1.webp";
-import keywords2 from "./assets/images/Keywords2.webp";
+import keywords1 from "./assets/images/Keywords1.png";
+import keywords2 from "./assets/images/Keywords2.png";
 
 function FutureSection() {
     return (
@@ -11,10 +11,12 @@ function FutureSection() {
                     Keywords to Content, Your Way.
                 </h2>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-20">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
 
                     {/* KEYWORD PLANNER */}
                     <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-40 sm:p-5 md:p-6 lg:pt-[70px]">
+                        <h2 className="text-2xl text-center font-semibold sm:text-3xl md:text-4xl lg:text-[25px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
+                            Plan keywords that actually drive traffic</h2>
 
                         <div className="w-full bg-white rounded-[24px] overflow-hidden px-3 sm:px-4 md:px-5 lg:px-4 pt-6 sm:pt-8 md:pt-9 pb-5 sm:pb-6">
 
@@ -23,9 +25,8 @@ function FutureSection() {
                                 <img
                                     src={keywords1}
                                     alt="Keyword Planner"
-                                    className="w-[96%] sm:w-[94%] md:w-[92%] lg:w-[96%] h-auto object-contain"
+                                    className="w-[96%] sm:w-[94%] h-[430px] md:w-[92%] lg:w-[96%] h-auto object-contain"
                                 />
-
                             </div>
 
                         </div>
@@ -34,8 +35,10 @@ function FutureSection() {
 
                     {/* CONTENT CREATION */}
                     <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-40 sm:p-5 md:p-6 lg:pt-[70px]">
+                        <h2 className="text-2xl text-center font-semibold sm:text-3xl md:text-4xl lg:text-[25px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
+                            Create content for every marketing channel</h2>
 
-                        <div className="w-full bg-white rounded-[24px] overflow-hidden px-3 sm:px-4 md:px-5 lg:px-4 pt-6 sm:pt-8 md:pt-9 pb-5 sm:pb-6">
+                        <div className="w-full bg-white rounded-[24px] overflow-hidden px-3 sm:px-4 md:px-5 lg:px-4 pt-4 sm:pt-8 md:pt-9 pb-5 sm:pb-6">
 
                             <div className="w-full flex items-center justify-center translate-y-4 sm:translate-y-6">
 

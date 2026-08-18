@@ -12,7 +12,7 @@ function FAQSection() {
         {
             question: "How is Sortted different from other AI writing tools?",
             answer:
-                "Sortted uses SERP analysis and NLP processing to understand what already ranks on Google. It analyzes top-ranking pages, extracts important keywords, topics and search intent patterns, then creates optimized intent-based content designed to improve relevance, readability and ranking potential.",
+                "Sortted uses SERP analysis and NLP processing to understand what already ranks on Google. It analyzes top-ranking pages, extracts important keywords, topics and search intent patterns, then creates optimized intent-based content designed to improve relevance, readability and ranking potential - backed by real search data instead of generic AI output..",
         },
         {
             question: "What are the SEO Keyword Planner and Humanizer features in Sortted?",
@@ -70,11 +70,10 @@ function FAQSection() {
                             return (
                                 <div
                                     key={faq.question}
-                                    className={`w-full bg-white rounded-[16px] overflow-hidden transition-all duration-300 ${
-                                        isOpen
-                                            ? "shadow-[0_8px_25px_rgba(0,0,0,0.08)]"
-                                            : "shadow-none"
-                                    }`}
+                                    className={`w-full bg-white rounded-[16px] overflow-hidden transition-all duration-300 ${isOpen
+                                        ? "shadow-[0_8px_25px_rgba(0,0,0,0.08)]"
+                                        : "shadow-none"
+                                        }`}
                                 >
                                     {/* QUESTION BUTTON */}
                                     <button
@@ -82,19 +81,20 @@ function FAQSection() {
                                         onClick={() => toggleFAQ(index)}
                                         aria-expanded={isOpen}
                                         aria-controls={`faq-answer-${index}`}
-                                        className="w-full min-h-[58px] sm:min-h-[60px] flex items-center justify-between gap-4 px-5 sm:px-6 py-4 text-left bg-[#E7E7E7]"
+                                        className={`w-full min-h-[58px] sm:min-h-[60px] flex items-center justify-between gap-4 px-5 sm:px-6 py-4 text-left bg-[#E7E7E7] ${isOpen
+                                                ? "rounded-t-[16px]"
+                                                : "rounded-[16px]"
+                                            }`}
                                     >
                                         <span className="text-[13px] sm:text-[14px] md:text-[15px] text-[#252525] font-medium leading-5">
                                             {faq.question}
                                         </span>
 
-                                        {/* PLUS ICON */}
                                         <span
-                                            className={`shrink-0 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full bg-[#1D1D1D] flex items-center justify-center transition-transform duration-300 ${
-                                                isOpen
+                                            className={`shrink-0 w-[18px] h-[18px] sm:w-[20px] sm:h-[20px] rounded-full bg-[#1D1D1D] flex items-center justify-center transition-transform duration-300 ${isOpen
                                                     ? "rotate-45"
                                                     : "rotate-0"
-                                            }`}
+                                                }`}
                                             aria-hidden="true"
                                         >
                                             <span className="relative block w-[8px] h-[8px]">
@@ -107,11 +107,10 @@ function FAQSection() {
                                     {/* ANSWER */}
                                     <div
                                         id={`faq-answer-${index}`}
-                                        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out  bg-[#E7E7E7] ${
-                                            isOpen
+                                        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-in-out bg-[#E7E7E7] rounded-b-[16px] ${isOpen
                                                 ? "grid-rows-[1fr] opacity-100"
                                                 : "grid-rows-[0fr] opacity-0"
-                                        }`}
+                                            }`}
                                     >
                                         <div className="overflow-hidden">
                                             <div className="px-5 sm:px-6 pb-5">
@@ -128,7 +127,7 @@ function FAQSection() {
                 </div>
             </div>
 
-           
+
         </section>
     );
 }
