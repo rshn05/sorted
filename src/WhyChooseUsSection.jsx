@@ -239,8 +239,8 @@ function WhyChooseUsSection() {
             <div className="mx-auto w-full max-w-[1200px]">
                 {/* Heading */}
                 <div className="relative z-20 flex flex-col items-center text-center">
-                    <h2 className="text-xl font-semibold leading-tight tracking-[-0.03em] text-[#101828] sm:text-2xl md:text-3xl lg:text-[38px]">
-                        Save 50+ Hrs &amp; $800+ Monthly
+                    <h2 className="text-[26px] sm:text-[28px] md:text-[30px] lg:text-[30px] xl:text-[45px] font-bold text-[#17161F] leading-tight tracking-[-0.03em] whitespace-normal lg:whitespace-nowrap">
+                        Save 50+ Hrs and <span className="text-[#00C264]">$800+</span> Monthly
                     </h2>
                 </div>
 
