@@ -45,7 +45,7 @@ function FutureSection() {
                                 <img
                                     src={keywords2}
                                     alt="Content creation for every marketing channel"
-                                    className="w-[96%] sm:w-[94%] md:w-[92%] lg:w-[88.5%] h-auto object-contain"
+                                    className="w-[96%] sm:w-[94%] md:w-[92%] lg:w-[96%] h-auto object-contain"
                                 />
 
                             </div>
