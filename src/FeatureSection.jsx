@@ -14,8 +14,8 @@ function FutureSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8">
 
                     {/* KEYWORD PLANNER */}
-                    <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-30 sm:p-5 md:p-6 lg:pt-[30px]">
-                        <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl lg:text-[25px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
+                    <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-30 sm:p-5 md:p-6 lg:pt-[20px]">
+                        <h2 className="text-2xl ml-4 font-semibold sm:text-3xl md:text-4xl lg:text-[20px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
                             Plan keywords that actually drive traffic</h2>
 
                         <div className="w-full bg-white rounded-[24px] overflow-hidden px-3 sm:px-4 md:px-5 lg:px-4 pt-6 sm:pt-8 md:pt-9 pb-5 sm:pb-6">
@@ -34,8 +34,8 @@ function FutureSection() {
                     </div>
 
                     {/* CONTENT CREATION */}
-                    <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-30 sm:p-5 md:p-6 lg:pt-[30px]">
-                        <h2 className="text-2xl font-semibold sm:text-3xl md:text-4xl lg:text-[25px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
+                    <div className="w-full bg-[#F3F3F1] rounded-[30px] overflow-hidden p-30 sm:p-5 md:p-6 lg:pt-[20px]">
+                        <h2 className="text-2xl ml-4 font-semibold sm:text-3xl md:text-4xl lg:text-[20px] text-black leading-tight tracking-[-1px] sm:mb-6 relative z-10">
                             Create content for every marketing channel</h2>
 
                         <div className="w-full bg-white rounded-[24px] overflow-hidden px-3 sm:px-4 md:px-5 lg:px-4 pt-4 sm:pt-8 md:pt-9 pb-5 sm:pb-6">
