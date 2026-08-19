@@ -525,7 +525,7 @@ function PricingSection() {
                                             </span>
 
                                             {row.note && (
-                                                <span className="text-[6px] lg:text-[8.5px] md:text-[6px] text-[#667085]">
+                                                <span className="text-[6px] lg:text-[8.5px] md:text-[2px] text-[#667085]">
                                                     {row.note}
                                                 </span>
                                             )}
