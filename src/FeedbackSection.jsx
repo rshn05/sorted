@@ -135,10 +135,10 @@ function FeedbackSection() {
     return (
         <section
             id="blog"
-            className="w-full bg-white pt-[30px] mb-[170px] px-5 overflow-hidden"
+            className="w-full bg-white pt-[30px] mb-[130px] px-5 overflow-hidden"
         >
 
-            {/* NEXT SECTION PREVIEW */}                 
+            {/* NEXT SECTION PREVIEW */}
             <div className="w-full bg-white py-2 sm:py-10 md:py-2 ">
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-center text-black font-bold leading-tight tracking-[-1.5px] px-5">
                     Built to Simplify Work for Millions
@@ -236,20 +236,19 @@ function FeedbackSection() {
                                         </h3>
 
                                         <img
-    src={item.stars}
-    alt="stars"
-    className={`
+                                            src={item.stars}
+                                            alt="stars"
+                                            className={`
     mt-[2px]
     object-contain
-    ${
-        item.stars === stars35
-            ? "w-[55px]"
-            : item.stars === stars4
-            ? "w-[65px]"
-            : "w-[78px]"
-    }
+    ${item.stars === stars35
+                                                    ? "w-[55px]"
+                                                    : item.stars === stars4
+                                                        ? "w-[65px]"
+                                                        : "w-[78px]"
+                                                }
     `}
-/>
+                                        />
 
                                     </div>
 
@@ -268,7 +267,7 @@ function FeedbackSection() {
                                         style={{
                                             fontFamily:
                                                 'Inter, sans-serif',
-                                                fontWeight: 500,
+                                            fontWeight: 500,
                                         }}
                                     >
                                         {item.review}
@@ -366,20 +365,19 @@ function FeedbackSection() {
                                         </h3>
 
                                         <img
-    src={item.stars}
-    alt="stars"
-    className={`
+                                            src={item.stars}
+                                            alt="stars"
+                                            className={`
     mt-[2px]
     object-contain
-    ${
-        item.stars === stars35
-            ? "w-[55px]"
-            : item.stars === stars4
-            ? "w-[65px]"
-            : "w-[78px]"
-    }
+    ${item.stars === stars35
+                                                    ? "w-[55px]"
+                                                    : item.stars === stars4
+                                                        ? "w-[65px]"
+                                                        : "w-[78px]"
+                                                }
     `}
-/>
+                                        />
 
                                     </div>
 
@@ -398,7 +396,7 @@ function FeedbackSection() {
                                         style={{
                                             fontFamily:
                                                 'Inter, sans-serif',
-                                                fontWeight: 500,
+                                            fontWeight: 500,
                                         }}
                                     >
                                         {item.review}
