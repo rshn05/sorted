@@ -70,14 +70,14 @@ function FeedbackSection() {
                 "The AI writer creates surprisingly high-quality articles. Saved our team hours every week."
         },
         {
-            stars: stars4,
+            stars: stars5,
             name: "Maria Brown",
             review:
                 "The Humanizer makes AI content sound natural and readable. Huge difference in quality."
         },
         {
-            stars: stars35,
-            name: "Rohit Shinde",
+            stars: stars5,
+            name: "Rohit",
             review:
                 "Our organic traffic started improving after using Sortted’s keyword insights and article optimization."
         },
@@ -90,7 +90,7 @@ function FeedbackSection() {
         },
         {
             image: img5,
-            stars: stars4,
+            stars: stars5,
             name: "Rose Taylor",
             review:
                 "The SEO keyword planner helped us discover topics we were completely missing."
@@ -100,25 +100,25 @@ function FeedbackSection() {
     const bottomReviews = [
         {
             image: img6,
-            stars: stars35,
+            stars: stars5,
             name: "Olivia Anderson",
             review:
                 "Content generated through Sortted feels more structured and ranking-focused than other AI tools."
         },
         {
             stars: stars5,
-            name: "Ankit Verma",
+            name: "Ankit",
             review:
                 "The Humanizer feature removes the robotic feel from AI content almost instantly."
         },
         {
-            stars: stars4,
+            stars: stars5,
             name: "Sophia Wilson",
             review:
                 "We published articles from Sortted and started seeing better indexing and search visibility."
         },
         {
-            stars: stars35,
+            stars: stars5,
             name: "Maria Garcia",
             review:
                 "Sortted helped us scale content production without sacrificing readability or SEO quality."
@@ -164,9 +164,9 @@ function FeedbackSection() {
                             <div
                                 key={index}
                                 className="
-                                min-w-[300px]
-                                max-w-[300px]
-                                h-[250px]
+                                min-w-[270px]
+                                max-w-[270px]
+                                h-[230px]
                                 rounded-[20px]
                                 border
                                 border-[#DDE5ED]
@@ -294,9 +294,9 @@ function FeedbackSection() {
                             <div
                                 key={index}
                                 className="
-                                min-w-[300px]
-                                max-w-[300px]
-                                h-[250px]
+                                min-w-[270px]
+                                max-w-[270px]
+                                h-[230px]
                                 rounded-[20px]
                                 border
                                 border-[#DDE5ED]

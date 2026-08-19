@@ -232,6 +232,8 @@ function PlatformSection() {
                 {/* Section Label */}
                 <p className="mb-4 animate-[sectionFade_1s_ease-out_forwards] text-[27px] font-bold leading-5 text-[#545454] opacity-0">
                     See what Sortted can do
+
+                    
                 </p>
 
                 {/* Feature Cards */}
