@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import girlImg from "./assets/images/girl.png";
+import girlImg from "./assets/images/girl.webp";
 
 export default function GetStarted() {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-black text-white pt-16 px-8 md:px-16 rounded-3xl max-w-[1300px] mx-auto my-12 
+    <section className="bg-black text-white pt-16 px-8 md:px-16 rounded-3xl max-w-[1200px] mx-auto my-12 
 relative overflow-hidden flex flex-col md:flex-row justify-between min-h-[340px]">
 
       {/* Left Content */}
@@ -16,13 +16,23 @@ relative overflow-hidden flex flex-col md:flex-row justify-between min-h-[340px]
         <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
           Get a demo and discover how content and marketing teams <br /> use Sortted to make their workflow smarter and more efficient.
         </p>
-        <button
+        
+        
+        
+        <a
+            href="https://calendly.com/manoj-sortted/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black font-semibold px-6 py-1 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
+          ><button
           type="button"
-          onClick={() => navigate("/contact")}
+          // onClick={() => navigate("/contact")}
           className="bg-white text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
         >
-          Get a demo <span>→</span>
-        </button>
+          
+            Book a demo <span>→</span>
+          
+        </button></a>
       </div>
 
       {/* Bottom-Right Aligned Image */}
@@ -30,19 +40,10 @@ relative overflow-hidden flex flex-col md:flex-row justify-between min-h-[340px]
         <img
           src={girlImg}
           alt="Sortted Platform Graphic"
-          className="h-64 sm:h-80 md:h-[400px] w-auto object-contain object-bottom block scale-[1]"
+          className="h-64 sm:h-80 md:h-[370px] w-auto object-contain object-bottom block"
         />
       </div>
 
-
-
-      {/* <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 pointer-events-none">
-        <img
-          src={girlImg}
-          alt="Sortted Platform Graphic"
-          className="h-64 sm:h-80 md:h-[300px] w-auto object-contain block"
-        />
-      </div> */}
 
 
 

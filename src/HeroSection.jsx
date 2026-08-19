@@ -10,13 +10,7 @@ import {
    HERO EMOJI IMAGES
 ========================================= */
 
-import heroImage1 from "./assets/images/emoji/1.png";
-// import heroImage2 from "./assets/images/emoji/2.webp";
-// import heroImage3 from "./assets/images/emoji/3.webp";
-// import heroImage4 from "./assets/images/emoji/4.webp";
-// import heroImage5 from "./assets/images/emoji/5.webp";
-// import heroImage6 from "./assets/images/emoji/6.webp";
-// import heroImage7 from "./assets/images/emoji/7.webp";
+import heroImage1 from "./assets/images/emoji/1.webp";
 
 
 /* =========================================
@@ -60,12 +54,6 @@ const rotatingContent = [
 
 const heroImages = [
   heroImage1,
-  // heroImage2,
-  // heroImage3,
-  // heroImage4,
-  // heroImage5,
-  // heroImage6,
-  // heroImage7,
 ];
 
 
@@ -313,7 +301,7 @@ function HeroDots() {
           const normalized =
             1 -
             distance /
-              config.interactionRadius;
+            config.interactionRadius;
 
           const strength =
             normalized *
@@ -686,7 +674,7 @@ function HeroImageRow() {
               loading="eager"
               decoding="async"
               fetchPriority="high"
-              className="block w-full h-full object-contain select-none pointer-events-none scale-[2.5]"
+              className="block w-full h-full object-contain select-none pointer-events-none scale-[2.2]"
             />
           </div>
         ))}
@@ -747,7 +735,7 @@ function HeroSection() {
 
   const activeContent =
     rotatingContent[
-      activeIndex
+    activeIndex
     ];
 
 
@@ -884,26 +872,33 @@ function HeroSection() {
               className="w-full sm:w-auto min-w-[235px] bg-[#0B8DE3] hover:bg-[#087DD8] text-white font-sans font-medium text-[17px] sm:text-[18px] px-7 py-[14px] rounded-[9px] shadow-[0_2px_6px_rgba(0,0,0,0.08)] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_7px_18px_rgba(12,137,232,0.24)] active:translate-y-0"
             >
 
-              Get started for free
+              Start Free Trial
 
             </button>
 
 
             {/* REQUEST DEMO */}
 
+            
+            
+            
+            <a
+                href="https://calendly.com/manoj-sortted/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black font-semibold"
+              >
             <button
               type="button"
-              onClick={() =>
-                navigate(
-                  "/contact"
-                )
-              }
+              // onClick={() =>navigate("/contact")}
               className="w-full sm:w-auto min-w-[235px] bg-white hover:bg-[#F7F7F7] text-black border-[1.5px] border-black font-sans font-medium text-[17px] sm:text-[18px] px-7 py-[12.5px] rounded-[9px] transition-all duration-300 ease-out hover:-translate-y-[2px] hover:shadow-[0_7px_18px_rgba(0,0,0,0.1)] active:translate-y-0"
             >
 
-              Request a demo
+              
+                Book a demo
+              
 
-            </button>
+            </button></a>
 
 
           </div>

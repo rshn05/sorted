@@ -1,4 +1,4 @@
-import dashboardImg from "./assets/images/Dashboard.png";
+import dashboardImg from "./assets/images/Dashboard.webp";
 
 function DashboardSection() {
   return (

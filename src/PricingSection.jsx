@@ -58,9 +58,9 @@ function PricingSection() {
         },
         {
             name: "Pro",
-            monthlyPrice: "$149",
-            fullyearlyPrice: "$1788",
-            yearlyPrice: "$1609",
+            monthlyPrice: "$199",
+            fullyearlyPrice: "$2388",
+            yearlyPrice: "$1999",
             description: "For agencies and power users.",
             icon: Crown,
             iconBg: "bg-[#E7F6EF]",
@@ -72,7 +72,12 @@ function PricingSection() {
         },
     ];
 
+
+
+
     const comparisonRows = [
+
+
         {
             feature: "Multi-Client Workspaces",
             values: ["1", "2", "5", "Unlimited"],
@@ -83,7 +88,7 @@ function PricingSection() {
         },
         {
             feature: "SEO Article Writer",
-            note: "(Top-Ranking Insights, SEO Keywords & Score)",
+            note: "(Images, Ranking Insights & Keywords)",
             values: [
                 <>
                     1 Article
@@ -109,16 +114,25 @@ function PricingSection() {
         },
         {
             feature: "SEO Keyword Analysis",
-            note: "(Volume, CPC, competition, keywords, bid)",
+            note: "(Volume, CPC, competition, keywords)",
             values: ["10", "50", "150", "Unlimited"],
         },
         {
             feature: "Content Studio",
-            note: "(copy, posts, emails, CTA, newsletter, scripts etc)",
+            note: "(Copy, posts, emails, CTA, Scripts etc)",
             values: [
                 "10 generations",
                 "50 generations",
                 "150 generations",
+                "Unlimited",
+            ],
+        },
+        {
+            feature: "Plagiarism Remover",
+            values: [
+                "10 checks",
+                "50 checks",
+                "150 checks",
                 "Unlimited",
             ],
         },
@@ -132,7 +146,7 @@ function PricingSection() {
             ],
         },
         {
-            feature: "Export",
+            feature: "Export Files",
             values: [
                 { check: true },
                 { check: true },
@@ -237,7 +251,7 @@ function PricingSection() {
 
     return (
         <motion.section
-            className="w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-12"
+            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-12"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -253,6 +267,7 @@ function PricingSection() {
                     className="flex flex-col items-center"
                     variants={headerVariants}
                 >
+
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-center text-[#071535] font-bold leading-tight">
                         Pricing Plans
                     </h2>
@@ -268,7 +283,7 @@ function PricingSection() {
                             type="button"
                             onClick={() => setBilling("monthly")}
                             className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${billing === "monthly"
-                                ? "bg-[#E2E6F2] text-[#4D5673] shadow-sm"
+                                ? "bg-[#ffffff] text-[#4D5673] shadow-sm"
                                 : "bg-transparent text-[#737A94]"
                                 }`}
                         >
@@ -286,7 +301,7 @@ function PricingSection() {
                             <span>Yearly</span>
 
                             <span className="rounded-full bg-[#E5F4D9] px-1.5 py-1 sm:px-2 text-[8px] sm:text-[10px] md:text-xs text-[#28720D] font-semibold leading-none">
-                                Save 10%
+                                Saver
                             </span>
                         </button>
 
@@ -329,9 +344,9 @@ function PricingSection() {
                                             <motion.div
                                                 key={plan.name}
                                                 variants={cardVariants}
-                                                className={`relative z-10 flex min-h-[280px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
-                                                        ? "bg-[#F4FAFF]"
-                                                        : "bg-white"
+                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
+                                                    ? "bg-[#F4FAFF]"
+                                                    : "bg-white"
                                                     } ${plan.name === "Free"
                                                         ? "lg:rounded-l-[7px]"
                                                         : plan.name === "Pro"
@@ -394,16 +409,26 @@ function PricingSection() {
                                                 </h4>
 
                                                 {/* PRICE */}
-                                                <div className="mt-1 flex flex-col items-start">
+                                                <div className="mt-0 flex flex-col items-start">
 
                                                     {/* YEARLY STRIKE PRICE */}
-                                                    <div className="h-[16px] flex items-center">
+                                                    <div className="h-[16px] mb-2 flex items-center">
+
+
                                                         {billing === "yearly" && plan.fullyearlyPrice && (
-                                                            <span className="text-left text-[12px] sm:text-[13px] font-medium leading-4 text-[#98A0AF] line-through">
-                                                                {plan.fullyearlyPrice}
-                                                            </span>
+                                                            <div className="flex items-center gap-1.5">
+                                                                <span className="text-left ml-4 text-[12px] lg:text-[15px] sm:text-[13px] font-medium leading-4 text-[#737373] line-through">
+                                                                    {plan.fullyearlyPrice}
+                                                                </span>
+
+                                                                <span className="rounded-full bg-[#E5F4D9] ml-4 px-2 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-semibold leading-none text-[#28720D]">
+                                                                    {plan.name === "Pro" ? "-16%" : "-10%"}
+                                                                </span>
+                                                            </div>
                                                         )}
                                                     </div>
+
+
 
                                                     {/* CURRENT PRICE + PERIOD */}
                                                     <div className="flex items-baseline justify-center gap-1.5">
@@ -452,7 +477,10 @@ function PricingSection() {
                         </motion.div>
 
                         {/* SPACE BETWEEN PRICING AND DETAILS */}
-                        <div className="h-4" />
+                        {/* <div className="h-4" /> */}
+                        <p className="sm:text-4xl pt-4 pb-0.5 ml-[10px] md:text-5xl lg:text-[13px] text-[#737373] font-normal leading-tight">
+                            Limit renews monthly
+                        </p>
 
                         {/* DETAILS TABLE */}
                         <motion.div
@@ -487,6 +515,8 @@ function PricingSection() {
                                             }`}
                                     >
 
+
+
                                         {/* FEATURE */}
                                         <div className="flex flex-col justify-center border-r-[1px] border-[#E3E6EC] px-3">
 
@@ -495,7 +525,7 @@ function PricingSection() {
                                             </span>
 
                                             {row.note && (
-                                                <span className="text-[6px] md:text-[7px] text-[#667085] leading-[9px]">
+                                                <span className="text-[6px] lg:text-[8.5px] md:text-[7px] text-[#667085]">
                                                     {row.note}
                                                 </span>
                                             )}
@@ -541,7 +571,7 @@ function PricingSection() {
                                                             />
                                                         </span>
                                                     ) : (
-                                                        <span className="text-[10px] md:text-[11px] leading-4">
+                                                        <span className="text-[10px] lg:text-[11.5px] md:text-[11px] leading-4">
                                                             {value}
                                                         </span>
                                                     )}
