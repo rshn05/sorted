@@ -251,7 +251,7 @@ function PricingSection() {
 
     return (
         <motion.section
-            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-16 xl:px-12"
+            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-2 xl:px-12"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -376,7 +376,7 @@ function PricingSection() {
                                                                 1,
                                                             ],
                                                         }}
-                                                        className="absolute left-0 right-0 top-[-10px] z-[999] flex h-[24px] origin-bottom items-center justify-center rounded-t-[8px] bg-[#0C89E8]"
+                                                        className="absolute left-0 right-0 top-[-11px] z-[999] flex h-[24px] origin-bottom items-center justify-center rounded-t-[8px] bg-[#0C89E8]"
                                                     >
                                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] text-white font-semibold uppercase leading-none tracking-wide">
                                                             Most Popular
@@ -386,7 +386,7 @@ function PricingSection() {
 
                                                 {/* ICON */}
                                                 <motion.div
-                                                    className={`mt-3 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
+                                                    className={`mt-4 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
                                                     whileHover={{
                                                         scale: 1.1,
                                                         rotate: 4,

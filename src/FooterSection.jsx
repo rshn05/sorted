@@ -180,11 +180,11 @@ function FooterSection() {
                                     "SEO Keyword planner",
                                     "AI Article Writer",
                                     "Content Studio",
-                                    "Humanizer",
-                                    "GEO-AEO: Rank in AI",
-                                    "Site Audit",
-                                    "Social Listening",
-                                    "Social Auto-Publishing"
+                                    // "Humanizer",
+                                    // "GEO-AEO: Rank in AI",
+                                    // "Site Audit",
+                                    // "Social Listening",
+                                    // "Social Auto-Publishing"
                                 ].map((item, index) => (
 
                                     <p
@@ -286,10 +286,10 @@ function FooterSection() {
                                 </p>
 
                                 <p><a
-    href="https://sortted.com/blog"
-    target="_blank"
-    rel="noreferrer"
-    className="
+                                    href="https://sortted.com/blog"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="
     text-white
     text-[15px]
     leading-[24px]
@@ -297,15 +297,15 @@ function FooterSection() {
     hover:text-[#B8B8B8]
     transition
     "
-    style={{
-        fontFamily:
-            'Inter, sans-serif',
-        fontWeight: 600,
-    }}
->
-    Blogs
-</a>
-</p>
+                                    style={{
+                                        fontFamily:
+                                            'Inter, sans-serif',
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    Blogs
+                                </a>
+                                </p>
                                 <p
                                     onClick={() => scrollToSection("faq")}
                                     className="
@@ -356,7 +356,7 @@ function FooterSection() {
                 {/* <div className="w-full h-[1px] bg-[#1E1E1E] mt-4 mb-4"></div> */}
 
                 {/* COPYRIGHT */}
-{/* <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                {/* <div className="flex flex-col md:flex-row items-center justify-between gap-4">
 
     <p
         className="

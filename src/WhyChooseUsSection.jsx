@@ -211,7 +211,7 @@ function WhyChooseUsSection() {
         { id: "content-note", type: "content-note", position: "left-[19.5%] top-[12%]", delay: "0.2s" },
         { id: "google-docs", type: "google-docs", position: "left-[35.5%] top-[7.5%]", delay: "0s" },
         { id: "reddit", type: "reddit", position: "left-[58.5%] top-[8.5%]", delay: "0.8s" },
-        { id: "linkedin", type: "linkedin", position: "left-[67.5%] top-[10.5%]", delay: "1.4s" },
+        { id: "linkedin", type: "linkedin", position: "left-[68%] top-[10.5%]", delay: "1.4s" },
         { id: "drive", type: "drive", position: "left-[85.5%] top-[9.5%]", delay: "0.5s" },
         { id: "facebook", type: "facebook", position: "left-[8%] top-[30.5%]", delay: "1.1s" },
         { id: "instagram", type: "instagram", position: "left-[93.5%] top-[27%]", delay: "1.8s" },

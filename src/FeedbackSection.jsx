@@ -135,11 +135,11 @@ function FeedbackSection() {
     return (
         <section
             id="blog"
-            className="w-full bg-white py-[95px] px-5 overflow-hidden"
+            className="w-full bg-white py-[10px] px-5 overflow-hidden"
         >
 
             {/* NEXT SECTION PREVIEW */}                 
-            <div className="w-full bg-white py-8 sm:py-10 md:py-2">
+            <div className="w-full bg-white py-2 sm:py-10 md:py-2">
                 <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] text-center text-black font-bold leading-tight tracking-[-1.5px] px-5">
                     Built to Simplify Work for Millions
                 </h3>

@@ -2,15 +2,20 @@ import authenticImg from "./assets/images/Authentic.webp";
 
 function Authentic() {
   return (
-    <section className="relative w-full overflow-hidden bg-white">
-      <h2 className="text-2xl -mt-[25px] ml-[201px] sm:text-3xl md:text-4xl lg:text-[52px] font-bold text-black leading-tight tracking-[-1px] sm:mb-6 relative top-[170px] z-10">
-        Authentic</h2>
-      <div className="mx-auto flex w-full max-w-[1400px] justify-center px-4 pt-[70px] pb-[70px] sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <img
-          src={authenticImg}
-          alt="Authentic"
-          className="block h-auto w-full max-w-[1200px] object-contain"
-        />
+    <section className="relative w-full overflow-hidden bg-white py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto w-full max-w-[1300px]">
+        {/* Adjusted top and left values down to shift slightly up and left */}
+        <h2 className="absolute top-6 left-8 sm:top-10 sm:left-16 md:top-12 md:left-20 lg:top-19 lg:left-20 z-10 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black tracking-tight pointer-events-none">
+          Authentic
+        </h2>
+
+        <div className="flex w-full justify-center pt-8 sm:pt-12">
+          <img
+            src={authenticImg}
+            alt="Authentic dashboard preview"
+            className="h-auto w-full object-contain"
+          />
+        </div>
       </div>
     </section>
   );
