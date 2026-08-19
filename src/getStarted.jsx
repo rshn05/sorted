@@ -16,23 +16,20 @@ relative overflow-hidden flex flex-col md:flex-row justify-between min-h-[340px]
         <p className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
           Get a demo and discover how content and marketing teams <br /> use Sortted to make their workflow smarter and more efficient.
         </p>
-        
-        
-        
-        <a
-            href="https://calendly.com/manoj-sortted/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-black font-semibold px-6 py-1 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
-          ><button
+        <button
           type="button"
           // onClick={() => navigate("/contact")}
           className="bg-white text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
         >
-          
+          <a
+            href="https://calendly.com/manoj-sortted/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black font-semibold px-6 py-1 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
+          >
             Book a demo <span>→</span>
-          
-        </button></a>
+          </a>
+        </button>
       </div>
 
       {/* Bottom-Right Aligned Image */}
