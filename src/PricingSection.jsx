@@ -251,7 +251,7 @@ function PricingSection() {
 
     return (
         <motion.section
-            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-[30px] xl:px-12"
+            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-[15px] xl:px-12"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -386,7 +386,7 @@ function PricingSection() {
 
                                                 {/* ICON */}
                                                 <motion.div
-                                                    className={`mt-4 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
+                                                    className={`mt-5 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
                                                     whileHover={{
                                                         scale: 1.1,
                                                         rotate: 4,
@@ -462,7 +462,7 @@ function PricingSection() {
                                                     whileTap={{
                                                         scale: 0.97,
                                                     }}
-                                                    className={`mt-4 flex h-[38px] w-[140px] max-w-full items-center justify-center rounded-[4px] text-[11px] sm:text-xs font-medium leading-4 shadow-sm transition-all duration-300 ${plan.buttonStyle}`}
+                                                    className={`mt-4 mb-3 flex h-[38px] w-[140px] max-w-full items-center justify-center rounded-[4px] text-[11px] sm:text-xs font-medium leading-4 shadow-sm transition-all duration-300 ${plan.buttonStyle}`}
                                                 >
                                                     Get Started
                                                 </motion.button>
