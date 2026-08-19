@@ -251,7 +251,7 @@ function PricingSection() {
 
     return (
         <motion.section
-            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-2 xl:px-12"
+            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-[30px] xl:px-12"
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -320,7 +320,7 @@ function PricingSection() {
                             variants={cardsContainerVariants}
                         >
                             <div className="relative rounded-[8px] border-[1px] border-[#D7DCE6]">
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[185px_repeat(4,minmax(0,1fr))]">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[210px_repeat(4,minmax(0,1fr))]">
 
 
 
@@ -508,7 +508,7 @@ function PricingSection() {
                                             duration: 0.35,
                                             delay: rowIndex * 0.04,
                                         }}
-                                        className={`grid grid-cols-[185px_repeat(4,minmax(0,1fr))] min-h-[42px] ${rowIndex !==
+                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${rowIndex !==
                                             comparisonRows.length - 1
                                             ? "border-b-[1px] border-[#E3E6EC]"
                                             : ""
@@ -525,7 +525,7 @@ function PricingSection() {
                                             </span>
 
                                             {row.note && (
-                                                <span className="text-[6px] lg:text-[8px] md:text-[6px] text-[#667085]">
+                                                <span className="text-[6px] lg:text-[8.5px] md:text-[6px] text-[#667085]">
                                                     {row.note}
                                                 </span>
                                             )}

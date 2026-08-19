@@ -50,7 +50,7 @@ function FAQSection() {
             className="w-full bg-white overflow-hidden"
         >
             {/* FAQ SECTION */}
-            <div className="w-full py-10 sm:py-16 md:py-20 lg:py-[90px]">
+            <div className="w-full py-10 sm:py-16 md:py-20 lg:py-[100px]">
                 <div className="w-full max-w-[1100px] mx-auto px-5 sm:px-8 md:px-10 lg:px-12">
 
                     {/* HEADING */}
