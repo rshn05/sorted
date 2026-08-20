@@ -464,7 +464,7 @@ function PricingSection() {
                                                     }}
                                                     className={`mt-4 mb-3 flex h-[38px] w-[140px] max-w-full items-center justify-center rounded-[4px] text-[11px] sm:text-xs font-medium leading-4 shadow-sm transition-all duration-300 ${plan.buttonStyle}`}
                                                 >
-                                                    Start Free Trial
+                                                    Get Started
                                                 </motion.button>
 
                                             </motion.div>
