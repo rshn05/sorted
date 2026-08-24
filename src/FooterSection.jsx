@@ -152,7 +152,7 @@ function FooterSection() {
                                         />
                                     </div>
 
-                                    <p className="w-fit text-left text-[12px] leading-[1.3] tracking-[-0.01em] text-[#f4eee7] uppercase">
+                                    <div className="mt-2 flex w-full max-w-[145px] flex-1 items-center rounded-[12px] border border-white px-1 py-0.5">
                                         <span className="block">GDPR</span>
                                         <span className="block">COMPLIANT</span>
                                     </p>
