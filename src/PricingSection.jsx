@@ -88,7 +88,7 @@ function PricingSection() {
         },
         {
             feature: "SEO Article Writer",
-            note: "(Images, Ranking Insights & Keywords)",
+            note: "(Images, Ranking Insights & Optimize)",
             values: [
                 <>
                     1 Article
