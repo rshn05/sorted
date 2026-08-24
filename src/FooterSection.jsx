@@ -257,9 +257,9 @@ function FooterSection() {
                             </div>
 
                             {/* GDPR */}
-                            <div className="mt-2 flex w-full max-w-[157px] flex-1 items-center rounded-[12px] border border-white px-1 py-0.5">
-                                <div className="mx-auto flex w-fit items-center gap-2 sm:gap-3">
-                                    <div className="relative h-12 w-12 shrink-0 sm:h-14 sm:w-14">
+                            <div className="mt-2 flex w-fit items-center rounded-[12px] border border-white px-2 py-0.5">
+                                <div className="flex items-center gap-2">
+                                    <div className="relative h-11 w-11 shrink-0">
                                         <img
                                             src={gdpr}
                                             alt="GDPR COMPLIANT"
@@ -267,7 +267,7 @@ function FooterSection() {
                                         />
                                     </div>
 
-                                    <p className="w-fit text-left text-[11px] uppercase leading-[1.3] tracking-[-0.01em] text-[#f4eee7] sm:text-[12px] sm:text-[12px]">
+                                    <p className="text-left text-[9px] uppercase leading-[1.2] tracking-[-0.01em] text-[#f4eee7]">
                                         <span className="block">GDPR</span>
                                         <span className="block">COMPLIANT</span>
                                     </p>
