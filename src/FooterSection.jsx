@@ -252,12 +252,12 @@ function FooterSection() {
                             </div>
 
                             {/* SECURITY & COMPLIANCE */}
-                            <div className="mt-4 mb-3 text-[20px] font-bold text-white sm:text-[22px]">
+                            <div className="mt-6 mb-4 text-[17px] font-bold text-white sm:text-[22px]">
                                 <p>Security &amp; Compliance</p>
                             </div>
 
                             {/* GDPR */}
-                            <div className="mt-2 flex w-full max-w-[145px] flex-1 items-center rounded-[12px] border border-white px-1 py-0.5">
+                            <div className="mt-2 flex w-full max-w-[157px] flex-1 items-center rounded-[12px] border border-white px-1 py-0.5">
                                 <div className="mx-auto flex w-fit items-center gap-2 sm:gap-3">
                                     <div className="relative h-12 w-12 shrink-0 sm:h-14 sm:w-14">
                                         <img
@@ -267,7 +267,7 @@ function FooterSection() {
                                         />
                                     </div>
 
-                                    <p className="w-fit text-left text-[11px] uppercase leading-[1.3] tracking-[-0.01em] text-[#f4eee7] sm:text-[12px]">
+                                    <p className="w-fit text-left text-[11px] uppercase leading-[1.3] tracking-[-0.01em] text-[#f4eee7] sm:text-[12px] sm:text-[12px]">
                                         <span className="block">GDPR</span>
                                         <span className="block">COMPLIANT</span>
                                     </p>
