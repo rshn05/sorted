@@ -275,7 +275,7 @@ function FooterSection() {
                             </div>
 
                             {/* HOSTED ON AWS */}
-                            <div className="mt-2 flex w-full max-w-[250px] flex-1 items-center px-1 py-1">
+                            <div className="flex w-full max-w-[250px] flex-1 items-center px-1 py-1">
                                 <div className="flex items-center gap-3">
                                     <p className="text-left text-[15px] leading-[1.3] tracking-[-0.01em] text-[#f4eee7] sm:text-[17px]">
                                         <span className="block">
