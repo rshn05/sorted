@@ -223,7 +223,7 @@ function Navbar() {
           <button
             type="button"
             onClick={() => navigateTo("/signup")}
-            className="group bg-[#0B8DE3] hover:bg-[#087CC8] text-white text-[14px] font-semibold px-6 py-2.5 rounded-[10px] flex items-center overflow-hidden shadow-[0_2px_5px_rgba(0,0,0,0.12)] transition-all duration-300"
+            className="group bg-[#0B8DE3] hover:bg-[#087CC8] text-white text-[14px] font-semibold px-5 py-2 rounded-[10px] flex items-center overflow-hidden shadow-[0_2px_5px_rgba(0,0,0,0.12)] transition-all duration-300"
           >
             <div className="relative h-[22px] overflow-hidden">
               <div className="flex flex-col transition-transform duration-300 group-hover:-translate-y-[22px]">
