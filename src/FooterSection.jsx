@@ -283,7 +283,7 @@ function FooterSection() {
                                         </span>
                                     </p>
 
-                                    <div className="relative mt-2 h-12 w-12 shrink-0 sm:h-14 sm:w-14">
+                                    <div className="relative mt-3 h-12 w-12 shrink-0 sm:h-14 sm:w-14">
                                         <svg
                                             width="50px"
                                             height="50px"
