@@ -34,11 +34,11 @@ function FooterSection() {
                             <img
                                 src={logo}
                                 alt="Sortted"
-                                className="w-[120px] object-contain sm:w-[140px]"
+                                className="w-[120px] object-contain sm:w-[130px]"
                             />
 
                             {/* SOCIAL */}
-                            <div className="mt-5 mb-8 ml-1 flex flex-wrap items-center gap-3 sm:mt-6">
+                            <div className="mt-5 mb-8 ml-1 flex flex-wrap items-center gap-3 sm:mt-5">
 
                                 {/* FACEBOOK */}
                                 <a
