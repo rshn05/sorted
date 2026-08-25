@@ -1,5 +1,6 @@
 import logo from "./assets/images/footer/ftLogo.png";
 import gdpr from "./assets/images/gdpr.png";
+import { Link } from "react-router-dom";
 
 // import aws from "./assets/images/aws.svg";
 // import facebook from "./assets/images/footer/fb.svg";
@@ -527,23 +528,18 @@ function FooterSection() {
                                 </p>
 
                                 {/* CONTACT */}
-                                <p
-                                    onClick={() => scrollToSection("contact")}
-                                    className="
-                                        cursor-pointer
-                                        text-[14px]
-                                        leading-[24px]
-                                        text-white
-                                        transition
-                                        hover:text-[#B8B8B8]
-                                        sm:text-[15px]
-                                    "
-                                    style={{
-                                        fontFamily: "Inter, sans-serif",
-                                        fontWeight: 600,
-                                    }}
-                                >
-                                    Contact us
+                                <p>
+                                    <a
+                                        href="/contact-us"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="cursor-pointer text-[14px] leading-[24px] text-white transition hover:text-[#B8B8B8] sm:text-[15px]"                                        style={{
+                                            fontFamily: "Inter, sans-serif",
+                                            fontWeight: 600,
+                                        }}
+                                    >
+                                        Contact us
+                                    </a>
                                 </p>
                             </div>
                         </div>
