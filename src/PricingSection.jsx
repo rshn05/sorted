@@ -274,35 +274,54 @@ function PricingSection() {
                     </p>
 
                     {/* BILLING TOGGLE */}
-                    <div className="mt-5 flex items-center rounded-full bg-[#EEF1F9] p-1">
-                        <button
-                            type="button"
-                            onClick={() => setBilling("monthly")}
-                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
-                                billing === "monthly"
-                                    ? "bg-[#ffffff] text-[#4D5673] shadow-sm"
-                                    : "bg-transparent text-[#737A94]"
-                            }`}
-                        >
-                            Monthly
-                        </button>
+                    <div className="mt-5 relative flex items-center rounded-full bg-[#DDE3EE] p-1">
 
-                        <button
-                            type="button"
-                            onClick={() => setBilling("yearly")}
-                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
-                                billing === "yearly"
-                                    ? "bg-white text-[#4D5673] shadow-sm"
-                                    : "bg-transparent text-[#737A94]"
-                            }`}
-                        >
-                            <span>Yearly</span>
+                        
+    {/* Animated active background */}
+    <motion.div
+        layout
+        transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 35,
+        }}
+        className={`absolute top-1 bottom-1 rounded-full bg-white shadow-sm ${
+            billing === "monthly"
+                ? "left-1 right-[50%]"
+                : "left-[50%] right-1"
+        }`}
+    />
 
-                            <span className="rounded-full bg-[#E5F4D9] px-1.5 py-1 sm:px-2 text-[8px] sm:text-[10px] md:text-xs text-[#28720D] font-semibold leading-none">
-                                Saver
-                            </span>
-                        </button>
-                    </div>
+    <button
+        type="button"
+        onClick={() => setBilling("monthly")}
+        className={`relative z-10 flex h-[34px] items-center justify-center rounded-full px-4 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-colors duration-300 ${
+            billing === "monthly"
+                ? "text-[#4D5673]"
+                : "text-[#737A94]"
+        }`}
+    >
+        Monthly
+    </button>
+
+    <button
+        type="button"
+        onClick={() => setBilling("yearly")}
+        className={`relative z-10 flex h-[34px] items-center justify-center gap-1.5 sm:gap-2 rounded-full px-4 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-colors duration-300 ${
+            billing === "yearly"
+                ? "text-[#4D5673]"
+                : "text-[#737A94]"
+        }`}
+    >
+        <span>Yearly</span>
+
+        <span className="rounded-full bg-[#E5F4D9] px-1.5 py-1 sm:px-2 text-[8px] sm:text-[10px] md:text-xs text-[#28720D] font-semibold leading-none">
+            Saver
+        </span>
+    </button>
+</div>
+
+
                 </motion.div>
 
                 {/* PRICING TABLE */}
@@ -335,21 +354,49 @@ function PricingSection() {
                                         const Icon = plan.icon;
 
                                         return (
+                                            // <motion.div
+                                            //     key={plan.name}
+                                            //     variants={cardVariants}
+                                            //     className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
+                                            //             ? "bg-[#F4FAFF]"
+                                            //             : "bg-white"
+                                            //         } ${plan.name === "Free"
+                                            //             ? "lg:rounded-l-[7px]"
+                                            //             : plan.name === "Pro"
+                                            //                 ? "lg:rounded-r-[7px]"
+                                            //                 : ""
+                                            //         }`}
+                                            // >
+
                                             <motion.div
                                                 key={plan.name}
                                                 variants={cardVariants}
-                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${
-                                                    plan.popular
-                                                        ? "bg-[#F4FAFF]"
-                                                        : "bg-white"
-                                                } ${
-                                                    plan.name === "Free"
-                                                        ? "lg:rounded-l-[7px]"
+                                                whileHover={{
+                                                    y: -8,
+                                                    scale: 1.01,
+                                                    boxShadow: "0 18px 35px rgba(0, 0, 0, 0.10)",
+                                                }}
+                                                transition={{
+                                                    duration: 0.8,
+                                                    ease: [0.22, 1, 0.36, 1],
+                                                }}
+                                                className={`
+        relative z-20 flex min-h-[250px] flex-col items-center justify-center
+        border-[1px] border-[#D7DCE6]
+        px-4 sm:px-5
+        ${plan.popular ? "bg-[#F4FAFF]" : "bg-white"}
+        ${plan.name === "Free"
+                                                        ? "lg:rounded-l-[8px]"
                                                         : plan.name === "Pro"
-                                                        ? "lg:rounded-r-[7px]"
-                                                        : ""
-                                                }`}
+                                                            ? "lg:rounded-r-[8px]"
+                                                            : "rounded-[8px] lg:rounded-none"
+                                                    }
+        hover:border-[#9CA3AF]
+        hover:rounded-[8px]
+        lg:hover:rounded-[8px]
+    `}
                                             >
+
 
                                                 {/* MOST POPULAR - KEEP SAME */}
                                                 {plan.popular && (
@@ -467,8 +514,8 @@ function PricingSection() {
                                                             {plan.name === "Pro"
                                                                 ? "yr"
                                                                 : billing === "monthly"
-                                                                ? "mo"
-                                                                : "yr"}
+                                                                    ? "mo"
+                                                                    : "yr"}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -531,12 +578,11 @@ function PricingSection() {
                                             duration: 0.35,
                                             delay: rowIndex * 0.04,
                                         }}
-                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${
-                                            rowIndex !==
+                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${rowIndex !==
                                             comparisonRows.length - 1
-                                                ? "border-b-[1px] border-[#E3E6EC]"
-                                                : ""
-                                        }`}
+                                            ? "border-b-[1px] border-[#E3E6EC]"
+                                            : ""
+                                            }`}
                                     >
 
                                         {/* FEATURE */}
@@ -565,29 +611,26 @@ function PricingSection() {
                                             return (
                                                 <div
                                                     key={`${row.feature}-${valueIndex}`}
-                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${
-                                                        !isLastColumn
-                                                            ? "border-r-[1px] border-[#E3E6EC]"
-                                                            : ""
-                                                    } ${
-                                                        valueIndex === 3
+                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${!isLastColumn
+                                                        ? "border-r-[1px] border-[#E3E6EC]"
+                                                        : ""
+                                                        } ${valueIndex === 3
                                                             ? "text-[#16814D]"
                                                             : "text-[#1C2338]"
-                                                    }`}
+                                                        }`}
                                                 >
                                                     {isCheck ? (
                                                         <span
-                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${
-                                                                valueIndex === 3
-                                                                    ? "bg-[#16814D]"
-                                                                    : valueIndex ===
-                                                                      2
+                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${valueIndex === 3
+                                                                ? "bg-[#16814D]"
+                                                                : valueIndex ===
+                                                                    2
                                                                     ? "bg-[#0C89E8]"
                                                                     : valueIndex ===
-                                                                      1
-                                                                    ? "bg-[#111]"
-                                                                    : "bg-[#626B82]"
-                                                            }`}
+                                                                        1
+                                                                        ? "bg-[#111]"
+                                                                        : "bg-[#626B82]"
+                                                                }`}
                                                         >
                                                             <Check
                                                                 className="h-[10px] w-[10px] text-white"
@@ -612,5 +655,7 @@ function PricingSection() {
         </motion.section>
     );
 }
+
+
 
 export default PricingSection;
