@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
+
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -33,6 +35,7 @@ function PricingSection() {
             monthlyPrice: "$9",
             fullyearlyPrice: "$108",
             yearlyPrice: "$97",
+            discount: "-10%",
             description: "Perfect for individuals getting started.",
             icon: Send,
             iconBg: "bg-[#EDEDED]",
@@ -47,6 +50,7 @@ function PricingSection() {
             monthlyPrice: "$29",
             fullyearlyPrice: "$348",
             yearlyPrice: "$313",
+            discount: "-10%",
             description: "Everything you need to grow faster.",
             icon: TrendingUp,
             iconBg: "bg-[#E8F1FF]",
@@ -62,6 +66,7 @@ function PricingSection() {
             monthlyPrice: "$1999",
             fullyearlyPrice: "$3349",
             yearlyPrice: "$1999",
+            discount: "-40%",
             description: "For agencies and power users.",
             icon: Crown,
             iconBg: "bg-[#E7F6EF]",
@@ -438,54 +443,49 @@ function PricingSection() {
                                             ease: [0.22, 1, 0.36, 1],
                                         }}
                                         className={`
-    relative
-    z-30
-    flex
-    min-h-[270px]
-    w-full
-    flex-col
-    items-center
-    justify-center
-    border-[1px]
-    border-[#D7DCE6]
-    bg-white
-    px-4
-    py-5
-    sm:min-h-[270px]
-    lg:min-h-[250px]
-    lg:px-3
-
-    ${
-        plan.name === "Growth" || plan.name === "Pro"
-            ? "mt-5 sm:mt-5 lg:mt-0"
-            : ""
-    }
-
-    ${
-        plan.popular
-            ? "bg-[#F4FAFF]"
-            : ""
-    }
-
-    rounded-[8px]
-    lg:rounded-none
-
-    ${
-        plan.name === "Free"
-            ? "lg:rounded-l-[8px]"
-            : ""
-    }
-
-    ${
-        plan.name === "Pro"
-            ? "lg:rounded-r-[8px]"
-            : ""
-    }
-
-    hover:border-[#9CA3AF]
-    hover:rounded-[8px]
-    lg:hover:rounded-[8px]
-`}
+                                            relative
+                                            z-30
+                                            flex
+                                            min-h-[270px]
+                                            w-full
+                                            flex-col
+                                            items-center
+                                            justify-center
+                                            border-[1px]
+                                            border-[#D7DCE6]
+                                            bg-white
+                                            px-4
+                                            py-5
+                                            sm:min-h-[270px]
+                                            lg:min-h-[250px]
+                                            lg:px-3
+                                            ${
+                                                plan.name === "Growth" ||
+                                                plan.name === "Pro"
+                                                    ? "mt-5 sm:mt-5 lg:mt-0"
+                                                    : ""
+                                            }
+                                            ${
+                                                plan.popular
+                                                    ? "bg-[#F4FAFF]"
+                                                    : ""
+                                            }
+                                            rounded-[8px]
+                                            lg:rounded-none
+                                            ${
+                                                plan.name === "Free"
+                                                    ? "lg:rounded-l-[8px]"
+                                                    : ""
+                                            }
+                                            ${
+                                                plan.name === "Pro"
+                                                    ? "lg:rounded-r-[8px]"
+                                                    : ""
+                                            }
+                                            hover:border-[#9CA3AF]
+                                            hover:rounded-[8px]
+                                            lg:hover:rounded-[8px]
+                                        `}
                                     >
 
                                         {/* MOST POPULAR */}
@@ -639,77 +639,76 @@ function PricingSection() {
                                         <div className="mt-0 flex flex-col items-center">
 
                                             {/* YEARLY PRICE / DISCOUNT */}
-                                            <div
-                                                className="
-                                                    mb-1
-                                                    flex
-                                                    h-[18px]
-                                                    items-center
-                                                    justify-center
-                                                "
-                                            >
-                                                <AnimatePresence mode="wait">
-                                                    {plan.name === "Pro" &&
-                                                        plan.fullyearlyPrice && (
-                                                            <motion.div
-                                                                key={`discount-${billing}`}
-                                                                initial={{
-                                                                    opacity: 0,
-                                                                    y: 5,
-                                                                }}
-                                                                animate={{
-                                                                    opacity: 1,
-                                                                    y: 0,
-                                                                }}
-                                                                exit={{
-                                                                    opacity: 0,
-                                                                    y: -5,
-                                                                }}
-                                                                transition={{
-                                                                    duration: 0.25,
-                                                                }}
-                                                                className="
-                                                                    flex
-                                                                    items-center
-                                                                    gap-2
-                                                                "
-                                                            >
-                                                                <span
-                                                                    className="
-                                                                        text-[12px]
-                                                                        font-medium
-                                                                        leading-4
-                                                                        text-[#737373]
-                                                                        line-through
-                                                                        sm:text-[13px]
-                                                                        lg:text-[15px]
-                                                                    "
-                                                                >
-                                                                    {
-                                                                        plan.fullyearlyPrice
-                                                                    }
-                                                                </span>
+                                            {/* PRICE DISCOUNT */}
+<div
+    className="
+        mb-1
+        flex
+        h-[18px]
+        items-center
+        justify-center
+    "
+>
+    <AnimatePresence mode="wait">
+        {plan.fullyearlyPrice &&
+            (plan.name === "Pro" || billing === "yearly") && (
+                <motion.div
+                    key={`discount-${plan.name}-${billing}`}
+                    initial={{
+                        opacity: 0,
+                        y: 5,
+                    }}
+                    animate={{
+                        opacity: 1,
+                        y: 0,
+                    }}
+                    exit={{
+                        opacity: 0,
+                        y: -5,
+                    }}
+                    transition={{
+                        duration: 0.25,
+                    }}
+                    className="
+                        flex
+                        items-center
+                        gap-2
+                    "
+                >
+                    <span
+                        className="
+                            text-[12px]
+                            font-medium
+                            leading-4
+                            text-[#737373]
+                            line-through
+                            sm:text-[13px]
+                            lg:text-[15px]
+                        "
+                    >
+                        {plan.fullyearlyPrice}
+                    </span>
 
-                                                                <span
-                                                                    className="
-                                                                        rounded-full
-                                                                        bg-[#E5F4D9]
-                                                                        px-2
-                                                                        py-0.5
-                                                                        text-[8px]
-                                                                        font-semibold
-                                                                        leading-none
-                                                                        text-[#28720D]
-                                                                        sm:text-[9px]
-                                                                        md:text-[10px]
-                                                                    "
-                                                                >
-                                                                    -40%
-                                                                </span>
-                                                            </motion.div>
-                                                        )}
-                                                </AnimatePresence>
-                                            </div>
+                    <span
+                        className="
+                            rounded-full
+                            bg-[#E5F4D9]
+                            px-2
+                            py-0.5
+                            text-[8px]
+                            font-semibold
+                            leading-none
+                            text-[#28720D]
+                            sm:text-[9px]
+                            md:text-[10px]
+                        "
+                    >
+                        {plan.discount}
+                    </span>
+                </motion.div>
+            )}
+    </AnimatePresence>
+</div>
 
                                             {/* CURRENT PRICE */}
                                             <AnimatePresence mode="wait">
@@ -762,7 +761,7 @@ function PricingSection() {
                                                         {plan.name === "Pro"
                                                             ? "yr"
                                                             : billing ===
-                                                              "monthly"
+                                                                "monthly"
                                                             ? "mo"
                                                             : "yr"}
                                                     </span>
@@ -858,7 +857,6 @@ function PricingSection() {
                         variants={tableVariants}
                     >
                         <div className="min-w-[900px]">
-
                             {comparisonRows.map((row, rowIndex) => (
                                 <motion.div
                                     key={row.feature}
@@ -890,7 +888,6 @@ function PricingSection() {
                                         }
                                     `}
                                 >
-
                                     {/* FEATURE */}
                                     <div
                                         className="
@@ -972,9 +969,11 @@ function PricingSection() {
                                                             ${
                                                                 valueIndex === 3
                                                                     ? "bg-[#16814D]"
-                                                                    : valueIndex === 2
+                                                                    : valueIndex ===
+                                                                      2
                                                                     ? "bg-[#0C89E8]"
-                                                                    : valueIndex === 1
+                                                                    : valueIndex ===
+                                                                      1
                                                                     ? "bg-[#111]"
                                                                     : "bg-[#626B82]"
                                                             }
@@ -1002,7 +1001,6 @@ function PricingSection() {
                                     })}
                                 </motion.div>
                             ))}
-
                         </div>
                     </motion.div>
                 </div>
