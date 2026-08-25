@@ -403,7 +403,7 @@ function PricingSection() {
                                                         }}
                                                         className="absolute left-0 right-0 top-[-22px] z-[999] flex h-[35px] origin-bottom items-center justify-center rounded-t-[12px] bg-[#087B47]"
                                                     >
-                                                        <span className="text-[9px] lg:text-[17px] sm:text-[10px] md:text-[11px] text-white font-semibold leading-none tracking-wide">
+                                                        <span className="text-[9px] lg:text-[15px] sm:text-[10px] md:text-[11px] text-white font-semibold leading-none tracking-wide">
                                                             Yearly Exclusive
                                                         </span>
                                                     </motion.div>
