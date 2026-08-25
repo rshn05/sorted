@@ -278,8 +278,8 @@ function PricingSection() {
                             layout
                             transition={{
                                 type: "spring",
-                                stiffness: 500,
-                                damping: 35,
+                                stiffness: 250,
+                                damping: 30,
                             }}
                             className={`absolute top-1 bottom-1 rounded-full bg-white shadow-sm ${
                                 billing === "monthly"
@@ -367,7 +367,7 @@ function PricingSection() {
                                                     scale: 0.98,
                                                 }}
                                                 transition={{
-                                                    duration: 0.4,
+                                                    duration: 0.7,
                                                     ease: [0.22, 1, 0.36, 1],
                                                 }}
                                                 whileHover={{
@@ -407,7 +407,7 @@ function PricingSection() {
                                                         }}
                                                         transition={{
                                                             delay: 0.3,
-                                                            duration: 0.4,
+                                                            duration: 0.6,
                                                             ease: [
                                                                 0.22,
                                                                 1,
@@ -436,7 +436,7 @@ function PricingSection() {
                                                         }}
                                                         transition={{
                                                             delay: 0.3,
-                                                            duration: 0.4,
+                                                            duration: 0.6,
                                                             ease: [
                                                                 0.22,
                                                                 1,
@@ -500,7 +500,8 @@ function PricingSection() {
                                                                             x: 10,
                                                                         }}
                                                                         transition={{
-                                                                            duration: 0.3,
+                                                                            duration: 0.6,
+                                                                            ease: "easeInOut",
                                                                         }}
                                                                         className="flex items-center gap-1.5"
                                                                     >
@@ -536,8 +537,13 @@ function PricingSection() {
                                                                 scale: 0.96,
                                                             }}
                                                             transition={{
-                                                                duration: 0.35,
-                                                                ease: [0.22, 1, 0.36, 1],
+                                                                duration: 0.65,
+                                                                ease: [
+                                                                    0.22,
+                                                                    1,
+                                                                    0.36,
+                                                                    1,
+                                                                ],
                                                             }}
                                                             className="flex items-baseline justify-center gap-1.5"
                                                         >
