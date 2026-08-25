@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+
 import {
     Gift,
     Send,
@@ -166,79 +167,74 @@ function PricingSection() {
             : plan.yearlyPrice;
     };
 
-    /* SECTION ANIMATION */
     const sectionVariants = {
         hidden: {
             opacity: 0,
-            y: 45,
+            y: 35,
         },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.8,
+                duration: 0.65,
                 ease: [0.22, 1, 0.36, 1],
             },
         },
     };
 
-    /* HEADER ANIMATION */
     const headerVariants = {
         hidden: {
             opacity: 0,
-            y: 25,
+            y: 20,
         },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.5,
                 ease: "easeOut",
             },
         },
     };
 
-    /* CARDS CONTAINER ANIMATION */
     const cardsContainerVariants = {
         hidden: {},
         visible: {
             transition: {
-                delayChildren: 0.15,
-                staggerChildren: 0.12,
+                delayChildren: 0.1,
+                staggerChildren: 0.08,
             },
         },
     };
 
-    /* CARD ANIMATION */
     const cardVariants = {
         hidden: {
             opacity: 0,
-            y: 30,
-            scale: 0.97,
+            y: 25,
+            scale: 0.98,
         },
         visible: {
             opacity: 1,
             y: 0,
             scale: 1,
             transition: {
-                duration: 0.55,
+                duration: 0.45,
                 ease: [0.22, 1, 0.36, 1],
             },
         },
     };
 
-    /* TABLE ANIMATION */
     const tableVariants = {
         hidden: {
             opacity: 0,
-            y: 25,
+            y: 20,
         },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
-                delay: 0.3,
+                duration: 0.5,
+                delay: 0.2,
                 ease: "easeOut",
             },
         },
@@ -246,13 +242,22 @@ function PricingSection() {
 
     return (
         <motion.section
-            className="w-full overflow-visible bg-white px-4 py-10 sm:px-6 sm:py-12 md:px-8 md:py-14 lg:px-10 lg:py-[15px] xl:px-12"
+            className="
+                w-full
+                overflow-visible
+                bg-white
+                px-3 py-8
+                sm:px-5 sm:py-10
+                md:px-6 md:py-12
+                lg:px-8 lg:py-[15px]
+                xl:px-10
+            "
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{
                 once: true,
-                amount: 0.12,
+                amount: 0.08,
             }}
         >
             <div className="mx-auto w-full max-w-[1100px]">
@@ -262,24 +267,57 @@ function PricingSection() {
                     className="flex flex-col items-center"
                     variants={headerVariants}
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-center text-[#071535] font-bold leading-tight">
+                    <h2
+                        className="
+                            text-center
+                            text-3xl
+                            font-bold
+                            leading-tight
+                            text-[#071535]
+                            sm:text-4xl
+                            md:text-5xl
+                            lg:text-[50px]
+                        "
+                    >
                         Pricing Plans
                     </h2>
 
-                    <p className="mt-2 max-w-[700px] text-xs sm:text-sm md:text-base text-center text-[#65708A] leading-5 sm:leading-6">
-                        Everything you need to create, optimize and grow your content.
+                    <p
+                        className="
+                            mt-2
+                            max-w-[700px]
+                            px-2
+                            text-center
+                            text-xs
+                            leading-5
+                            text-[#65708A]
+                            sm:text-sm
+                            sm:leading-6
+                            md:text-base
+                        "
+                    >
+                        Everything you need to create, optimize and grow your
+                        content.
                     </p>
 
                     {/* BILLING TOGGLE */}
-                    <div className="mt-5 relative flex items-center rounded-full bg-[#DDE3EE] p-1">
-
-                        {/* Animated active background */}
+                    <div
+                        className="
+                            relative
+                            mt-5
+                            flex
+                            items-center
+                            rounded-full
+                            bg-[#DDE3EE]
+                            p-1
+                        "
+                    >
                         <motion.div
                             layout
                             transition={{
                                 type: "spring",
-                                stiffness: 250,
-                                damping: 30,
+                                stiffness: 500,
+                                damping: 32,
                             }}
                             className={`absolute top-1 bottom-1 rounded-full bg-white shadow-sm ${
                                 billing === "monthly"
@@ -291,7 +329,7 @@ function PricingSection() {
                         <button
                             type="button"
                             onClick={() => setBilling("monthly")}
-                            className={`relative z-10 flex h-[34px] items-center justify-center rounded-full px-4 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-colors duration-300 ${
+                            className={`relative z-10 flex h-[34px] items-center justify-center rounded-full px-4 text-[11px] font-medium leading-none transition-colors duration-200 sm:px-5 sm:text-xs md:px-6 md:text-sm ${
                                 billing === "monthly"
                                     ? "text-[#4D5673]"
                                     : "text-[#737A94]"
@@ -303,7 +341,7 @@ function PricingSection() {
                         <button
                             type="button"
                             onClick={() => setBilling("yearly")}
-                            className={`relative z-10 flex h-[34px] items-center justify-center gap-1.5 sm:gap-2 rounded-full px-4 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-colors duration-300 ${
+                            className={`relative z-10 flex h-[34px] items-center justify-center gap-1.5 rounded-full px-4 text-[11px] font-medium leading-none transition-colors duration-200 sm:gap-2 sm:px-5 sm:text-xs md:px-6 md:text-sm ${
                                 billing === "yearly"
                                     ? "text-[#4D5673]"
                                     : "text-[#737A94]"
@@ -311,365 +349,627 @@ function PricingSection() {
                         >
                             <span>Yearly</span>
 
-                            <span className="rounded-full bg-[#E5F4D9] px-1.5 py-1 sm:px-2 text-[8px] sm:text-[10px] md:text-xs text-[#28720D] font-semibold leading-none">
+                            <span
+                                className="
+                                    rounded-full
+                                    bg-[#E5F4D9]
+                                    px-1.5 py-1
+                                    text-[8px]
+                                    font-semibold
+                                    leading-none
+                                    text-[#28720D]
+                                    sm:px-2
+                                    sm:text-[10px]
+                                    md:text-xs
+                                "
+                            >
                                 Saver
                             </span>
                         </button>
                     </div>
                 </motion.div>
 
-                {/* PRICING TABLE */}
-                <div className="mt-8 sm:mt-10 w-full">
-                    <div className="mx-auto w-full">
+                {/* PRICING AREA */}
+                <div className="mt-12 w-full sm:mt-14 md:mt-16 lg:mt-16">
 
-                        {/* PRICING CARDS */}
-                        <motion.div
-                            className="relative overflow-visible"
-                            variants={cardsContainerVariants}
+                    {/* PRICING CARDS */}
+                    <motion.div
+                        className="relative w-full overflow-visible"
+                        variants={cardsContainerVariants}
+                    >
+                        <div
+                            className="
+                                grid
+                                w-full
+                                grid-cols-1
+                                gap-5
+                                sm:grid-cols-2
+                                sm:gap-5
+                                lg:grid-cols-[190px_repeat(4,minmax(0,1fr))]
+                                lg:gap-0
+                            "
                         >
-                            <div className="relative rounded-[8px] border-[1px] border-[#D7DCE6]">
 
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[210px_repeat(4,minmax(0,1fr))]">
+                            {/* CHOOSE YOUR PLAN */}
+                            <motion.div
+                                variants={cardVariants}
+                                className="
+                                    hidden
+                                    min-h-[250px]
+                                    items-center
+                                    bg-white
+                                    px-5
+                                    border-[1px]
+                                    border-[#D7DCE6]
+                                    rounded-[8px]
+                                    lg:flex
+                                "
+                            >
+                                <h3
+                                    className="
+                                        text-xl
+                                        font-bold
+                                        leading-[1.25]
+                                        text-[#071535]
+                                        md:text-2xl
+                                    "
+                                >
+                                    Choose
+                                    <br />
+                                    your plan
+                                </h3>
+                            </motion.div>
 
-                                    {/* CHOOSE YOUR PLAN */}
+                            {/* PLAN CARDS */}
+                            {plans.map((plan) => {
+                                const Icon = plan.icon;
+
+                                return (
                                     <motion.div
+                                        key={plan.name}
                                         variants={cardVariants}
-                                        className="hidden min-h-[270px] items-center rounded-l-[7px] bg-white px-7 lg:flex"
+                                        whileHover={{
+                                            y: -7,
+                                            boxShadow:
+                                                "0 16px 32px rgba(0, 0, 0, 0.10)",
+                                        }}
+                                        transition={{
+                                            duration: 0.28,
+                                            ease: [0.22, 1, 0.36, 1],
+                                        }}
+                                        className={`
+    relative
+    z-30
+    flex
+    min-h-[270px]
+    w-full
+    flex-col
+    items-center
+    justify-center
+    border-[1px]
+    border-[#D7DCE6]
+    bg-white
+    px-4
+    py-5
+    sm:min-h-[270px]
+    lg:min-h-[250px]
+    lg:px-3
+
+    ${
+        plan.name === "Growth" || plan.name === "Pro"
+            ? "mt-5 sm:mt-5 lg:mt-0"
+            : ""
+    }
+
+    ${
+        plan.popular
+            ? "bg-[#F4FAFF]"
+            : ""
+    }
+
+    rounded-[8px]
+    lg:rounded-none
+
+    ${
+        plan.name === "Free"
+            ? "lg:rounded-l-[8px]"
+            : ""
+    }
+
+    ${
+        plan.name === "Pro"
+            ? "lg:rounded-r-[8px]"
+            : ""
+    }
+
+    hover:border-[#9CA3AF]
+    hover:rounded-[8px]
+    lg:hover:rounded-[8px]
+`}
                                     >
-                                        <h3 className="text-xl md:text-2xl text-[#071535] font-bold leading-[1.25]">
-                                            Choose
-                                            <br />
-                                            your plan
-                                        </h3>
-                                    </motion.div>
 
-                                    {/* PLAN CARDS */}
-                                    {plans.map((plan) => {
-                                        const Icon = plan.icon;
-
-                                        return (
+                                        {/* MOST POPULAR */}
+                                        {plan.popular && (
                                             <motion.div
-                                                key={`${plan.name}-${billing}`}
-                                                variants={cardVariants}
                                                 initial={{
                                                     opacity: 0,
-                                                    y: 12,
-                                                    scale: 0.98,
+                                                    scaleY: 0.7,
                                                 }}
                                                 animate={{
                                                     opacity: 1,
-                                                    y: 0,
-                                                    scale: 1,
-                                                }}
-                                                exit={{
-                                                    opacity: 0,
-                                                    y: -12,
-                                                    scale: 0.98,
+                                                    scaleY: 1,
                                                 }}
                                                 transition={{
-                                                    duration: 0.7,
-                                                    ease: [0.22, 1, 0.36, 1],
+                                                    delay: 0.5,
+                                                    duration: 0.35,
+                                                    ease: [
+                                                        0.22,
+                                                        1,
+                                                        0.36,
+                                                        1,
+                                                    ],
                                                 }}
-                                                whileHover={{
-                                                    y: -8,
-                                                    scale: 1.01,
-                                                    boxShadow:
-                                                        "0 18px 35px rgba(0, 0, 0, 0.10)",
-                                                }}
-                                                className={`
-                                                    relative z-20 flex min-h-[250px] flex-col items-center justify-center
-                                                    border-[1px] border-[#D7DCE6]
-                                                    px-4 sm:px-5
-                                                    ${plan.popular ? "bg-[#F4FAFF]" : "bg-white"}
-                                                    ${
-                                                        plan.name === "Free"
-                                                            ? "lg:rounded-l-[8px]"
-                                                            : plan.name === "Pro"
-                                                            ? "lg:rounded-r-[8px]"
-                                                            : "rounded-[8px] lg:rounded-none"
-                                                    }
-                                                    hover:border-[#9CA3AF]
-                                                    hover:rounded-[8px]
-                                                    lg:hover:rounded-[8px]
-                                                `}
+                                                className="
+                                                    absolute
+                                                    left-[-1px]
+                                                    right-[-1px]
+                                                    top-[-11px]
+                                                    z-[999]
+                                                    flex
+                                                    h-[24px]
+                                                    origin-bottom
+                                                    items-center
+                                                    justify-center
+                                                    rounded-t-[8px]
+                                                    bg-[#0C89E8]
+                                                "
                                             >
+                                                <span
+                                                    className="
+                                                        text-[9px]
+                                                        font-semibold
+                                                        uppercase
+                                                        leading-none
+                                                        tracking-wide
+                                                        text-white
+                                                        sm:text-[10px]
+                                                        md:text-[11px]
+                                                    "
+                                                >
+                                                    Most Popular
+                                                </span>
+                                            </motion.div>
+                                        )}
 
-                                                {/* MOST POPULAR */}
-                                                {plan.popular && (
-                                                    <motion.div
-                                                        initial={{
-                                                            opacity: 0,
-                                                            scaleY: 0.7,
-                                                        }}
-                                                        animate={{
-                                                            opacity: 1,
-                                                            scaleY: 1,
-                                                        }}
-                                                        transition={{
-                                                            delay: 0.3,
-                                                            duration: 0.6,
-                                                            ease: [
-                                                                0.22,
-                                                                1,
-                                                                0.36,
-                                                                1,
-                                                            ],
-                                                        }}
-                                                        className="absolute left-0 right-0 top-[-11px] z-[999] flex h-[24px] origin-bottom items-center justify-center rounded-t-[8px] bg-[#0C89E8]"
-                                                    >
-                                                        <span className="text-[9px] sm:text-[10px] md:text-[11px] text-white font-semibold uppercase leading-none tracking-wide">
-                                                            Most Popular
-                                                        </span>
-                                                    </motion.div>
-                                                )}
+                                        {/* PRO BADGE */}
+                                        {plan.name === "Pro" && (
+                                            <motion.div
+                                                initial={{
+                                                    opacity: 0,
+                                                    scaleY: 0.7,
+                                                }}
+                                                animate={{
+                                                    opacity: 1,
+                                                    scaleY: 1,
+                                                }}
+                                                transition={{
+                                                    delay: 0.5,
+                                                    duration: 0.35,
+                                                    ease: [
+                                                        0.22,
+                                                        1,
+                                                        0.36,
+                                                        1,
+                                                    ],
+                                                }}
+                                                className="
+                                                    absolute
+                                                    left-[-1px]
+                                                    right-[-1px]
+                                                    top-[-22px]
+                                                    z-[999]
+                                                    flex
+                                                    h-[35px]
+                                                    origin-bottom
+                                                    items-center
+                                                    justify-center
+                                                    rounded-t-[12px]
+                                                    bg-[#087B47]
+                                                "
+                                            >
+                                                <span
+                                                    className="
+                                                        text-[9px]
+                                                        font-semibold
+                                                        leading-none
+                                                        tracking-wide
+                                                        text-white
+                                                        sm:text-[10px]
+                                                        md:text-[11px]
+                                                        lg:text-[15px]
+                                                    "
+                                                >
+                                                    Yearly Exclusive
+                                                </span>
+                                            </motion.div>
+                                        )}
 
-                                                {/* PRO BADGE */}
-                                                {plan.name === "Pro" && (
-                                                    <motion.div
-                                                        initial={{
-                                                            opacity: 0,
-                                                            scaleY: 0.7,
-                                                        }}
-                                                        animate={{
-                                                            opacity: 1,
-                                                            scaleY: 1,
-                                                        }}
-                                                        transition={{
-                                                            delay: 0.3,
-                                                            duration: 0.6,
-                                                            ease: [
-                                                                0.22,
-                                                                1,
-                                                                0.36,
-                                                                1,
-                                                            ],
-                                                        }}
-                                                        className="absolute left-0 right-0 top-[-22px] z-[999] flex h-[35px] origin-bottom items-center justify-center rounded-t-[12px] bg-[#087B47]"
-                                                    >
-                                                        <span className="text-[9px] lg:text-[15px] sm:text-[10px] md:text-[11px] text-white font-semibold leading-none tracking-wide">
-                                                            Yearly Exclusive
-                                                        </span>
-                                                    </motion.div>
-                                                )}
+                                        {/* ICON */}
+                                        <motion.div
+                                            className={`
+                                                mt-1
+                                                flex
+                                                h-11
+                                                w-11
+                                                shrink-0
+                                                items-center
+                                                justify-center
+                                                rounded-full
+                                                ${plan.iconBg}
+                                            `}
+                                            whileHover={{
+                                                scale: 1.08,
+                                                rotate: 4,
+                                            }}
+                                            transition={{
+                                                duration: 0.2,
+                                            }}
+                                        >
+                                            <Icon
+                                                className={`h-6 w-6 ${plan.iconColor}`}
+                                                strokeWidth={1.8}
+                                            />
+                                        </motion.div>
 
-                                                {/* ICON */}
+                                        {/* PLAN NAME */}
+                                        <h4
+                                            className={`
+                                                mt-4
+                                                text-base
+                                                font-bold
+                                                leading-5
+                                                sm:text-lg
+                                                ${plan.nameColor}
+                                            `}
+                                        >
+                                            {plan.name}
+                                        </h4>
+
+                                        {/* PRICE */}
+                                        <div className="mt-0 flex flex-col items-center">
+
+                                            {/* YEARLY PRICE / DISCOUNT */}
+                                            <div
+                                                className="
+                                                    mb-1
+                                                    flex
+                                                    h-[18px]
+                                                    items-center
+                                                    justify-center
+                                                "
+                                            >
+                                                <AnimatePresence mode="wait">
+                                                    {plan.name === "Pro" &&
+                                                        plan.fullyearlyPrice && (
+                                                            <motion.div
+                                                                key={`discount-${billing}`}
+                                                                initial={{
+                                                                    opacity: 0,
+                                                                    y: 5,
+                                                                }}
+                                                                animate={{
+                                                                    opacity: 1,
+                                                                    y: 0,
+                                                                }}
+                                                                exit={{
+                                                                    opacity: 0,
+                                                                    y: -5,
+                                                                }}
+                                                                transition={{
+                                                                    duration: 0.25,
+                                                                }}
+                                                                className="
+                                                                    flex
+                                                                    items-center
+                                                                    gap-2
+                                                                "
+                                                            >
+                                                                <span
+                                                                    className="
+                                                                        text-[12px]
+                                                                        font-medium
+                                                                        leading-4
+                                                                        text-[#737373]
+                                                                        line-through
+                                                                        sm:text-[13px]
+                                                                        lg:text-[15px]
+                                                                    "
+                                                                >
+                                                                    {
+                                                                        plan.fullyearlyPrice
+                                                                    }
+                                                                </span>
+
+                                                                <span
+                                                                    className="
+                                                                        rounded-full
+                                                                        bg-[#E5F4D9]
+                                                                        px-2
+                                                                        py-0.5
+                                                                        text-[8px]
+                                                                        font-semibold
+                                                                        leading-none
+                                                                        text-[#28720D]
+                                                                        sm:text-[9px]
+                                                                        md:text-[10px]
+                                                                    "
+                                                                >
+                                                                    -40%
+                                                                </span>
+                                                            </motion.div>
+                                                        )}
+                                                </AnimatePresence>
+                                            </div>
+
+                                            {/* CURRENT PRICE */}
+                                            <AnimatePresence mode="wait">
                                                 <motion.div
-                                                    className={`mt-5 flex h-11 w-11 items-center justify-center rounded-full ${plan.iconBg}`}
-                                                    whileHover={{
-                                                        scale: 1.1,
-                                                        rotate: 4,
+                                                    key={`${plan.name}-${billing}`}
+                                                    initial={{
+                                                        opacity: 0,
+                                                        y: 6,
+                                                    }}
+                                                    animate={{
+                                                        opacity: 1,
+                                                        y: 0,
+                                                    }}
+                                                    exit={{
+                                                        opacity: 0,
+                                                        y: -6,
                                                     }}
                                                     transition={{
                                                         duration: 0.25,
                                                     }}
+                                                    className="
+                                                        flex
+                                                        items-baseline
+                                                        justify-center
+                                                        gap-1.5
+                                                    "
                                                 >
-                                                    <Icon
-                                                        className={`h-6 w-6 ${plan.iconColor}`}
-                                                        strokeWidth={1.8}
-                                                    />
+                                                    <span
+                                                        className={`
+                                                            text-3xl
+                                                            font-bold
+                                                            leading-9
+                                                            sm:text-[34px]
+                                                            ${plan.priceColor}
+                                                        `}
+                                                    >
+                                                        {getPrice(plan)}
+                                                    </span>
+
+                                                    <span
+                                                        className="
+                                                            text-[9px]
+                                                            leading-4
+                                                            text-[#30384C]
+                                                            sm:text-[10px]
+                                                            md:text-[11px]
+                                                        "
+                                                    >
+                                                        /user/
+                                                        {plan.name === "Pro"
+                                                            ? "yr"
+                                                            : billing ===
+                                                              "monthly"
+                                                            ? "mo"
+                                                            : "yr"}
+                                                    </span>
                                                 </motion.div>
-
-                                                {/* PLAN NAME */}
-                                                <h4
-                                                    className={`mt-5 text-base sm:text-lg font-bold leading-5 ${plan.nameColor}`}
-                                                >
-                                                    {plan.name}
-                                                </h4>
-
-                                                {/* PRICE */}
-                                                <div className="mt-0 flex flex-col items-start">
-
-                                                    {/* YEARLY STRIKE PRICE */}
-                                                    <div className="h-[16px] mb-2 flex items-center">
-                                                        <AnimatePresence mode="wait">
-                                                            {billing === "yearly" &&
-                                                                plan.name === "Pro" &&
-                                                                plan.fullyearlyPrice && (
-                                                                    <motion.div
-                                                                        key={`strike-${plan.name}-${billing}`}
-                                                                        initial={{
-                                                                            opacity: 0,
-                                                                            x: -10,
-                                                                        }}
-                                                                        animate={{
-                                                                            opacity: 1,
-                                                                            x: 0,
-                                                                        }}
-                                                                        exit={{
-                                                                            opacity: 0,
-                                                                            x: 10,
-                                                                        }}
-                                                                        transition={{
-                                                                            duration: 0.6,
-                                                                            ease: "easeInOut",
-                                                                        }}
-                                                                        className="flex items-center gap-1.5"
-                                                                    >
-                                                                        <span className="text-left ml-4 text-[12px] lg:text-[15px] sm:text-[13px] font-medium leading-4 text-[#737373] line-through">
-                                                                            {plan.fullyearlyPrice}
-                                                                        </span>
-
-                                                                        <span className="rounded-full bg-[#E5F4D9] ml-4 px-2 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-semibold leading-none text-[#28720D]">
-                                                                            -40%
-                                                                        </span>
-                                                                    </motion.div>
-                                                                )}
-                                                        </AnimatePresence>
-                                                    </div>
-
-                                                    {/* CURRENT PRICE + PERIOD */}
-                                                    <AnimatePresence mode="wait">
-                                                        <motion.div
-                                                            key={`${plan.name}-${billing}-price`}
-                                                            initial={{
-                                                                opacity: 0,
-                                                                y: 10,
-                                                                scale: 0.96,
-                                                            }}
-                                                            animate={{
-                                                                opacity: 1,
-                                                                y: 0,
-                                                                scale: 1,
-                                                            }}
-                                                            exit={{
-                                                                opacity: 0,
-                                                                y: -10,
-                                                                scale: 0.96,
-                                                            }}
-                                                            transition={{
-                                                                duration: 0.65,
-                                                                ease: [
-                                                                    0.22,
-                                                                    1,
-                                                                    0.36,
-                                                                    1,
-                                                                ],
-                                                            }}
-                                                            className="flex items-baseline justify-center gap-1.5"
-                                                        >
-                                                            <span
-                                                                className={`text-3xl sm:text-[34px] font-bold leading-9 ${plan.priceColor}`}
-                                                            >
-                                                                {getPrice(plan)}
-                                                            </span>
-
-                                                            <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
-                                                                /user/
-                                                                {plan.name === "Pro"
-                                                                    ? "yr"
-                                                                    : billing === "monthly"
-                                                                    ? "mo"
-                                                                    : "yr"}
-                                                            </span>
-                                                        </motion.div>
-                                                    </AnimatePresence>
-                                                </div>
-
-                                                {/* DESCRIPTION */}
-                                                <p className="mt-2 min-h-[40px] max-w-[190px] px-2 text-[10px] sm:text-[11px] md:text-xs text-center text-[#596278] leading-4">
-                                                    {plan.description}
-                                                </p>
-
-                                                {/* BUTTON */}
-                                                <motion.button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        navigate("/signup")
-                                                    }
-                                                    whileHover={{
-                                                        scale: 1.04,
-                                                    }}
-                                                    whileTap={{
-                                                        scale: 0.97,
-                                                    }}
-                                                    className={`mt-4 mb-3 flex h-[38px] w-[140px] max-w-full items-center justify-center rounded-[4px] text-[11px] sm:text-xs font-medium leading-4 shadow-sm transition-all duration-300 ${plan.buttonStyle}`}
-                                                >
-                                                    Get Started
-                                                </motion.button>
-                                            </motion.div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* LIMIT TEXT */}
-                        <p className="sm:text-4xl pt-4 pb-0.5 ml-[10px] md:text-5xl lg:text-[13px] text-[#737373] font-normal leading-tight">
-                            Limit renews monthly
-                        </p>
-
-                        {/* DETAILS TABLE */}
-                        <motion.div
-                            className="w-full overflow-x-auto rounded-[8px] border-[1px] border-[#D7DCE6] bg-white"
-                            variants={tableVariants}
-                        >
-                            <div className="min-w-[900px]">
-
-                                {comparisonRows.map((row, rowIndex) => (
-                                    <motion.div
-                                        key={row.feature}
-                                        initial={{
-                                            opacity: 0,
-                                            y: 10,
-                                        }}
-                                        whileInView={{
-                                            opacity: 1,
-                                            y: 0,
-                                        }}
-                                        viewport={{
-                                            once: true,
-                                            amount: 0.2,
-                                        }}
-                                        transition={{
-                                            duration: 0.35,
-                                            delay: rowIndex * 0.04,
-                                        }}
-                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${
-                                            rowIndex !== comparisonRows.length - 1
-                                                ? "border-b-[1px] border-[#E3E6EC]"
-                                                : ""
-                                        }`}
-                                    >
-
-                                        {/* FEATURE */}
-                                        <div className="flex flex-col justify-center border-r-[1px] border-[#E3E6EC] px-3">
-                                            <span className="text-[12px] md:text-[13px] text-[#18213A] font-semibold leading-4">
-                                                {row.feature}
-                                            </span>
-
-                                            {row.note && (
-                                                <span className="text-[6px] lg:text-[8.5px] md:text-[6px] text-[#667085]">
-                                                    {row.note}
-                                                </span>
-                                            )}
+                                            </AnimatePresence>
                                         </div>
 
-                                        {/* VALUES */}
-                                        {row.values.map((value, valueIndex) => {
-                                            const isCheck =
-                                                typeof value === "object" &&
-                                                value?.check;
+                                        {/* DESCRIPTION */}
+                                        <p
+                                            className="
+                                                mt-2
+                                                min-h-[40px]
+                                                max-w-[190px]
+                                                px-2
+                                                text-center
+                                                text-[10px]
+                                                leading-4
+                                                text-[#596278]
+                                                sm:text-[11px]
+                                                md:text-xs
+                                            "
+                                        >
+                                            {plan.description}
+                                        </p>
 
-                                            const isLastColumn =
-                                                valueIndex ===
-                                                row.values.length - 1;
+                                        {/* BUTTON */}
+                                        <motion.button
+                                            type="button"
+                                            onClick={() =>
+                                                navigate("/signup")
+                                            }
+                                            whileHover={{
+                                                scale: 1.03,
+                                            }}
+                                            whileTap={{
+                                                scale: 0.97,
+                                            }}
+                                            className={`
+                                                mt-4
+                                                mb-1
+                                                flex
+                                                h-[38px]
+                                                w-[140px]
+                                                max-w-full
+                                                items-center
+                                                justify-center
+                                                rounded-[4px]
+                                                text-[11px]
+                                                font-medium
+                                                leading-4
+                                                shadow-sm
+                                                transition-all
+                                                duration-300
+                                                sm:text-xs
+                                                ${plan.buttonStyle}
+                                            `}
+                                        >
+                                            Get Started
+                                        </motion.button>
+                                    </motion.div>
+                                );
+                            })}
+                        </div>
+                    </motion.div>
 
-                                            return (
-                                                <div
-                                                    key={`${row.feature}-${valueIndex}`}
-                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${
+                    {/* LIMIT TEXT */}
+                    <p
+                        className="
+                            pt-4
+                            pb-1
+                            pl-1
+                            text-[11px]
+                            font-normal
+                            leading-tight
+                            text-[#737373]
+                            sm:text-xs
+                            md:text-[13px]
+                        "
+                    >
+                        Limit renews monthly
+                    </p>
+
+                    {/* DETAILS TABLE */}
+                    <motion.div
+                        className="
+                            w-full
+                            overflow-x-auto
+                            rounded-[8px]
+                            border-[1px]
+                            border-[#D7DCE6]
+                            bg-white
+                        "
+                        variants={tableVariants}
+                    >
+                        <div className="min-w-[900px]">
+
+                            {comparisonRows.map((row, rowIndex) => (
+                                <motion.div
+                                    key={row.feature}
+                                    initial={{
+                                        opacity: 0,
+                                        y: 8,
+                                    }}
+                                    whileInView={{
+                                        opacity: 1,
+                                        y: 0,
+                                    }}
+                                    viewport={{
+                                        once: true,
+                                        amount: 0.15,
+                                    }}
+                                    transition={{
+                                        duration: 0.3,
+                                        delay: rowIndex * 0.03,
+                                    }}
+                                    className={`
+                                        grid
+                                        min-h-[42px]
+                                        grid-cols-[210px_repeat(4,minmax(0,1fr))]
+                                        ${
+                                            rowIndex !==
+                                            comparisonRows.length - 1
+                                                ? "border-b-[1px] border-[#E3E6EC]"
+                                                : ""
+                                        }
+                                    `}
+                                >
+
+                                    {/* FEATURE */}
+                                    <div
+                                        className="
+                                            flex
+                                            flex-col
+                                            justify-center
+                                            border-r-[1px]
+                                            border-[#E3E6EC]
+                                            px-3
+                                        "
+                                    >
+                                        <span
+                                            className="
+                                                text-[12px]
+                                                font-semibold
+                                                leading-4
+                                                text-[#18213A]
+                                                md:text-[13px]
+                                            "
+                                        >
+                                            {row.feature}
+                                        </span>
+
+                                        {row.note && (
+                                            <span
+                                                className="
+                                                    text-[6px]
+                                                    text-[#667085]
+                                                    md:text-[7px]
+                                                    lg:text-[8.5px]
+                                                "
+                                            >
+                                                {row.note}
+                                            </span>
+                                        )}
+                                    </div>
+
+                                    {/* VALUES */}
+                                    {row.values.map((value, valueIndex) => {
+                                        const isCheck =
+                                            typeof value === "object" &&
+                                            value?.check;
+
+                                        const isLastColumn =
+                                            valueIndex ===
+                                            row.values.length - 1;
+
+                                        return (
+                                            <div
+                                                key={`${row.feature}-${valueIndex}`}
+                                                className={`
+                                                    flex
+                                                    min-h-[42px]
+                                                    items-center
+                                                    justify-center
+                                                    px-2
+                                                    text-center
+                                                    ${
                                                         !isLastColumn
                                                             ? "border-r-[1px] border-[#E3E6EC]"
                                                             : ""
-                                                    } ${
+                                                    }
+                                                    ${
                                                         valueIndex === 3
                                                             ? "text-[#16814D]"
                                                             : "text-[#1C2338]"
-                                                    }`}
-                                                >
-                                                    {isCheck ? (
-                                                        <span
-                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${
+                                                    }
+                                                `}
+                                            >
+                                                {isCheck ? (
+                                                    <span
+                                                        className={`
+                                                            flex
+                                                            h-[17px]
+                                                            w-[17px]
+                                                            items-center
+                                                            justify-center
+                                                            rounded-full
+                                                            ${
                                                                 valueIndex === 3
                                                                     ? "bg-[#16814D]"
                                                                     : valueIndex === 2
@@ -677,26 +977,34 @@ function PricingSection() {
                                                                     : valueIndex === 1
                                                                     ? "bg-[#111]"
                                                                     : "bg-[#626B82]"
-                                                            }`}
-                                                        >
-                                                            <Check
-                                                                className="h-[10px] w-[10px] text-white"
-                                                                strokeWidth={3}
-                                                            />
-                                                        </span>
-                                                    ) : (
-                                                        <span className="text-[10px] lg:text-[11.5px] md:text-[11px] leading-4">
-                                                            {value}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            );
-                                        })}
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
+                                                            }
+                                                        `}
+                                                    >
+                                                        <Check
+                                                            className="h-[10px] w-[10px] text-white"
+                                                            strokeWidth={3}
+                                                        />
+                                                    </span>
+                                                ) : (
+                                                    <span
+                                                        className="
+                                                            text-[10px]
+                                                            leading-4
+                                                            md:text-[11px]
+                                                            lg:text-[11.5px]
+                                                        "
+                                                    >
+                                                        {value}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
+                                </motion.div>
+                            ))}
+
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </motion.section>
