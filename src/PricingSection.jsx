@@ -58,7 +58,7 @@ function PricingSection() {
         },
         {
             name: "Pro",
-            monthlyPrice: "$199",
+            monthlyPrice: "$1999",
             fullyearlyPrice: "$3349",
             yearlyPrice: "$1999",
             description: "For agencies and power users.",
@@ -415,7 +415,7 @@ function PricingSection() {
                                                     <div className="h-[16px] mb-2 flex items-center">
 
 
-                                                        {billing === "yearly" && plan.fullyearlyPrice && (
+                                                        {plan.name === "Pro" && plan.fullyearlyPrice && (
                                                             <div className="flex items-center gap-1.5">
                                                                 <span className="text-left ml-4 text-[12px] lg:text-[15px] sm:text-[13px] font-medium leading-4 text-[#737373] line-through">
                                                                     {plan.fullyearlyPrice}
@@ -439,7 +439,7 @@ function PricingSection() {
                                                         </span>
 
                                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
-                                                            /user/{billing === "monthly" ? "mo" : "yr"}
+                                                            /user/{plan.name === "Pro" ? "yr" : billing === "monthly" ? "mo" : "yr"}
                                                         </span>
                                                     </div>
 
