@@ -59,7 +59,7 @@ function PricingSection() {
         {
             name: "Pro",
             monthlyPrice: "$199",
-            fullyearlyPrice: "$2388",
+            fullyearlyPrice: "$3349",
             yearlyPrice: "$1999",
             description: "For agencies and power users.",
             icon: Crown,
@@ -422,7 +422,7 @@ function PricingSection() {
                                                                 </span>
 
                                                                 <span className="rounded-full bg-[#E5F4D9] ml-4 px-2 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-semibold leading-none text-[#28720D]">
-                                                                    {plan.name === "Pro" ? "-16%" : "-10%"}
+                                                                    {plan.name === "Pro" ? "-40%" : "-10%"}
                                                                 </span>
                                                             </div>
                                                         )}
