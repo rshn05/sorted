@@ -1,6 +1,9 @@
 import { useState } from "react";
+
 import { motion } from "framer-motion";
+
 import { useNavigate } from "react-router-dom";
+
 import {
     Gift,
     Send,
@@ -72,12 +75,7 @@ function PricingSection() {
         },
     ];
 
-
-
-
     const comparisonRows = [
-
-
         {
             feature: "Multi-Client Workspaces",
             values: ["1", "2", "5", "Unlimited"],
@@ -267,7 +265,6 @@ function PricingSection() {
                     className="flex flex-col items-center"
                     variants={headerVariants}
                 >
-
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-center text-[#071535] font-bold leading-tight">
                         Pricing Plans
                     </h2>
@@ -278,14 +275,14 @@ function PricingSection() {
 
                     {/* BILLING TOGGLE */}
                     <div className="mt-5 flex items-center rounded-full bg-[#EEF1F9] p-1">
-
                         <button
                             type="button"
                             onClick={() => setBilling("monthly")}
-                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${billing === "monthly"
-                                ? "bg-[#ffffff] text-[#4D5673] shadow-sm"
-                                : "bg-transparent text-[#737A94]"
-                                }`}
+                            className={`rounded-full px-4 py-2 sm:px-5 md:px-6 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
+                                billing === "monthly"
+                                    ? "bg-[#ffffff] text-[#4D5673] shadow-sm"
+                                    : "bg-transparent text-[#737A94]"
+                            }`}
                         >
                             Monthly
                         </button>
@@ -293,10 +290,11 @@ function PricingSection() {
                         <button
                             type="button"
                             onClick={() => setBilling("yearly")}
-                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${billing === "yearly"
-                                ? "bg-white text-[#4D5673] shadow-sm"
-                                : "bg-transparent text-[#737A94]"
-                                }`}
+                            className={`flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-2 sm:px-4 text-[11px] sm:text-xs md:text-sm font-medium leading-none transition-all duration-300 ${
+                                billing === "yearly"
+                                    ? "bg-white text-[#4D5673] shadow-sm"
+                                    : "bg-transparent text-[#737A94]"
+                            }`}
                         >
                             <span>Yearly</span>
 
@@ -304,14 +302,11 @@ function PricingSection() {
                                 Saver
                             </span>
                         </button>
-
                     </div>
                 </motion.div>
 
                 {/* PRICING TABLE */}
                 <div className="mt-8 sm:mt-10 w-full">
-
-                    {/* DESKTOP / TABLET WRAPPER */}
                     <div className="mx-auto w-full">
 
                         {/* PRICING CARDS */}
@@ -320,9 +315,8 @@ function PricingSection() {
                             variants={cardsContainerVariants}
                         >
                             <div className="relative rounded-[8px] border-[1px] border-[#D7DCE6]">
+
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[210px_repeat(4,minmax(0,1fr))]">
-
-
 
                                     {/* CHOOSE YOUR PLAN */}
                                     <motion.div
@@ -344,18 +338,20 @@ function PricingSection() {
                                             <motion.div
                                                 key={plan.name}
                                                 variants={cardVariants}
-                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${plan.popular
-                                                    ? "bg-[#F4FAFF]"
-                                                    : "bg-white"
-                                                    } ${plan.name === "Free"
+                                                className={`relative z-10 flex min-h-[250px] flex-col items-center justify-center border-b-[1px] border-[#D7DCE6] px-4 sm:px-5 lg:border-b-0 lg:border-l-[1px] ${
+                                                    plan.popular
+                                                        ? "bg-[#F4FAFF]"
+                                                        : "bg-white"
+                                                } ${
+                                                    plan.name === "Free"
                                                         ? "lg:rounded-l-[7px]"
                                                         : plan.name === "Pro"
-                                                            ? "lg:rounded-r-[7px]"
-                                                            : ""
-                                                    }`}
+                                                        ? "lg:rounded-r-[7px]"
+                                                        : ""
+                                                }`}
                                             >
 
-                                                {/* MOST POPULAR */}
+                                                {/* MOST POPULAR - KEEP SAME */}
                                                 {plan.popular && (
                                                     <motion.div
                                                         initial={{
@@ -380,6 +376,35 @@ function PricingSection() {
                                                     >
                                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] text-white font-semibold uppercase leading-none tracking-wide">
                                                             Most Popular
+                                                        </span>
+                                                    </motion.div>
+                                                )}
+
+                                                {/* PRO BADGE - SAME DESIGN, GREEN */}
+                                                {plan.name === "Pro" && (
+                                                    <motion.div
+                                                        initial={{
+                                                            opacity: 0,
+                                                            scaleY: 0.7,
+                                                        }}
+                                                        animate={{
+                                                            opacity: 1,
+                                                            scaleY: 1,
+                                                        }}
+                                                        transition={{
+                                                            delay: 0.6,
+                                                            duration: 0.4,
+                                                            ease: [
+                                                                0.22,
+                                                                1,
+                                                                0.36,
+                                                                1,
+                                                            ],
+                                                        }}
+                                                        className="absolute left-0 right-0 top-[-22px] z-[999] flex h-[35px] origin-bottom items-center justify-center rounded-t-[12px] bg-[#087B47]"
+                                                    >
+                                                        <span className="text-[9px] lg:text-[17px] sm:text-[10px] md:text-[11px] text-white font-semibold leading-none tracking-wide">
+                                                            Yearly Exclusive
                                                         </span>
                                                     </motion.div>
                                                 )}
@@ -413,22 +438,21 @@ function PricingSection() {
 
                                                     {/* YEARLY STRIKE PRICE */}
                                                     <div className="h-[16px] mb-2 flex items-center">
+                                                        {plan.name === "Pro" &&
+                                                            plan.fullyearlyPrice && (
+                                                                <div className="flex items-center gap-1.5">
+                                                                    <span className="text-left ml-4 text-[12px] lg:text-[15px] sm:text-[13px] font-medium leading-4 text-[#737373] line-through">
+                                                                        {plan.fullyearlyPrice}
+                                                                    </span>
 
-
-                                                        {plan.name === "Pro" && plan.fullyearlyPrice && (
-                                                            <div className="flex items-center gap-1.5">
-                                                                <span className="text-left ml-4 text-[12px] lg:text-[15px] sm:text-[13px] font-medium leading-4 text-[#737373] line-through">
-                                                                    {plan.fullyearlyPrice}
-                                                                </span>
-
-                                                                <span className="rounded-full bg-[#E5F4D9] ml-4 px-2 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-semibold leading-none text-[#28720D]">
-                                                                    {plan.name === "Pro" ? "-40%" : "-10%"}
-                                                                </span>
-                                                            </div>
-                                                        )}
+                                                                    <span className="rounded-full bg-[#E5F4D9] ml-4 px-2 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-semibold leading-none text-[#28720D]">
+                                                                        {plan.name === "Pro"
+                                                                            ? "-40%"
+                                                                            : "-10%"}
+                                                                    </span>
+                                                                </div>
+                                                            )}
                                                     </div>
-
-
 
                                                     {/* CURRENT PRICE + PERIOD */}
                                                     <div className="flex items-baseline justify-center gap-1.5">
@@ -439,10 +463,14 @@ function PricingSection() {
                                                         </span>
 
                                                         <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#30384C] leading-4">
-                                                            /user/{plan.name === "Pro" ? "yr" : billing === "monthly" ? "mo" : "yr"}
+                                                            /user/
+                                                            {plan.name === "Pro"
+                                                                ? "yr"
+                                                                : billing === "monthly"
+                                                                ? "mo"
+                                                                : "yr"}
                                                         </span>
                                                     </div>
-
                                                 </div>
 
                                                 {/* DESCRIPTION */}
@@ -466,18 +494,14 @@ function PricingSection() {
                                                 >
                                                     Get Started
                                                 </motion.button>
-
                                             </motion.div>
                                         );
                                     })}
-
                                 </div>
-
                             </div>
                         </motion.div>
 
-                        {/* SPACE BETWEEN PRICING AND DETAILS */}
-                        {/* <div className="h-4" /> */}
+                        {/* LIMIT TEXT */}
                         <p className="sm:text-4xl pt-4 pb-0.5 ml-[10px] md:text-5xl lg:text-[13px] text-[#737373] font-normal leading-tight">
                             Limit renews monthly
                         </p>
@@ -488,7 +512,6 @@ function PricingSection() {
                             variants={tableVariants}
                         >
                             <div className="min-w-[900px]">
-
                                 {comparisonRows.map((row, rowIndex) => (
                                     <motion.div
                                         key={row.feature}
@@ -508,18 +531,16 @@ function PricingSection() {
                                             duration: 0.35,
                                             delay: rowIndex * 0.04,
                                         }}
-                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${rowIndex !==
+                                        className={`grid grid-cols-[210px_repeat(4,minmax(0,1fr))] min-h-[42px] ${
+                                            rowIndex !==
                                             comparisonRows.length - 1
-                                            ? "border-b-[1px] border-[#E3E6EC]"
-                                            : ""
-                                            }`}
+                                                ? "border-b-[1px] border-[#E3E6EC]"
+                                                : ""
+                                        }`}
                                     >
-
-
 
                                         {/* FEATURE */}
                                         <div className="flex flex-col justify-center border-r-[1px] border-[#E3E6EC] px-3">
-
                                             <span className="text-[12px] md:text-[13px] text-[#18213A] font-semibold leading-4">
                                                 {row.feature}
                                             </span>
@@ -529,7 +550,6 @@ function PricingSection() {
                                                     {row.note}
                                                 </span>
                                             )}
-
                                         </div>
 
                                         {/* VALUES */}
@@ -545,25 +565,29 @@ function PricingSection() {
                                             return (
                                                 <div
                                                     key={`${row.feature}-${valueIndex}`}
-                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${!isLastColumn
-                                                        ? "border-r-[1px] border-[#E3E6EC]"
-                                                        : ""
-                                                        } ${valueIndex === 3
+                                                    className={`flex min-h-[42px] items-center justify-center px-2 text-center ${
+                                                        !isLastColumn
+                                                            ? "border-r-[1px] border-[#E3E6EC]"
+                                                            : ""
+                                                    } ${
+                                                        valueIndex === 3
                                                             ? "text-[#16814D]"
                                                             : "text-[#1C2338]"
-                                                        }`}
+                                                    }`}
                                                 >
-
                                                     {isCheck ? (
                                                         <span
-                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${valueIndex === 3
-                                                                ? "bg-[#16814D]"
-                                                                : valueIndex === 2
+                                                            className={`flex h-[17px] w-[17px] items-center justify-center rounded-full ${
+                                                                valueIndex === 3
+                                                                    ? "bg-[#16814D]"
+                                                                    : valueIndex ===
+                                                                      2
                                                                     ? "bg-[#0C89E8]"
-                                                                    : valueIndex === 1
-                                                                        ? "bg-[#111]"
-                                                                        : "bg-[#626B82]"
-                                                                }`}
+                                                                    : valueIndex ===
+                                                                      1
+                                                                    ? "bg-[#111]"
+                                                                    : "bg-[#626B82]"
+                                                            }`}
                                                         >
                                                             <Check
                                                                 className="h-[10px] w-[10px] text-white"
@@ -575,20 +599,15 @@ function PricingSection() {
                                                             {value}
                                                         </span>
                                                     )}
-
                                                 </div>
                                             );
                                         })}
-
                                     </motion.div>
                                 ))}
-
                             </div>
                         </motion.div>
-
                     </div>
                 </div>
-
             </div>
         </motion.section>
     );
