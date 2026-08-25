@@ -649,124 +649,202 @@ function PricingSection() {
         justify-center
     "
 >
-    <AnimatePresence mode="wait">
-        {plan.fullyearlyPrice &&
-            (plan.name === "Pro" || billing === "yearly") && (
-                <motion.div
-                    key={`discount-${plan.name}-${billing}`}
-                    initial={{
-                        opacity: 0,
-                        y: 5,
-                    }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                    }}
-                    exit={{
-                        opacity: 0,
-                        y: -5,
-                    }}
-                    transition={{
-                        duration: 0.25,
-                    }}
-                    className="
-                        flex
-                        items-center
-                        gap-2
-                    "
-                >
-                    <span
-                        className="
-                            text-[12px]
-                            font-medium
-                            leading-4
-                            text-[#737373]
-                            line-through
-                            sm:text-[13px]
-                            lg:text-[15px]
-                        "
-                    >
-                        {plan.fullyearlyPrice}
-                    </span>
+    {plan.name === "Pro" ? (
+        /* PRO - COMPLETELY STATIC */
+        <div
+            className="
+                flex
+                items-center
+                gap-2
+            "
+        >
+            <span
+                className="
+                    text-[12px]
+                    font-medium
+                    leading-4
+                    text-[#737373]
+                    line-through
+                    sm:text-[13px]
+                    lg:text-[15px]
+                "
+            >
+                {plan.fullyearlyPrice}
+            </span>
 
-                    <span
+            <span
+                className="
+                    rounded-full
+                    bg-[#E5F4D9]
+                    px-2
+                    py-0.5
+                    text-[8px]
+                    font-semibold
+                    leading-none
+                    text-[#28720D]
+                    sm:text-[9px]
+                    md:text-[10px]
+                "
+            >
+                {plan.discount}
+            </span>
+        </div>
+    ) : (
+        /* STARTER/GROWTH - ANIMATION ONLY ON YEARLY */
+        <AnimatePresence mode="wait">
+            {billing === "yearly" &&
+                plan.fullyearlyPrice && (
+                    <motion.div
+                        key={`discount-${plan.name}`}
+                        initial={{
+                            opacity: 0,
+                            y: 5,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: 0,
+                        }}
+                        exit={{
+                            opacity: 0,
+                            y: -5,
+                        }}
+                        transition={{
+                            duration: 0.25,
+                        }}
                         className="
-                            rounded-full
-                            bg-[#E5F4D9]
-                            px-2
-                            py-0.5
-                            text-[8px]
-                            font-semibold
-                            leading-none
-                            text-[#28720D]
-                            sm:text-[9px]
-                            md:text-[10px]
+                            flex
+                            items-center
+                            gap-2
                         "
                     >
-                        {plan.discount}
-                    </span>
-                </motion.div>
-            )}
-    </AnimatePresence>
+                        <span
+                            className="
+                                text-[12px]
+                                font-medium
+                                leading-4
+                                text-[#737373]
+                                line-through
+                                sm:text-[13px]
+                                lg:text-[15px]
+                            "
+                        >
+                            {plan.fullyearlyPrice}
+                        </span>
+
+                        <span
+                            className="
+                                rounded-full
+                                bg-[#E5F4D9]
+                                px-2
+                                py-0.5
+                                text-[8px]
+                                font-semibold
+                                leading-none
+                                text-[#28720D]
+                                sm:text-[9px]
+                                md:text-[10px]
+                            "
+                        >
+                            {plan.discount}
+                        </span>
+                    </motion.div>
+                )}
+        </AnimatePresence>
+    )}
 </div>
 
                                             {/* CURRENT PRICE */}
-                                            <AnimatePresence mode="wait">
-                                                <motion.div
-                                                    key={`${plan.name}-${billing}`}
-                                                    initial={{
-                                                        opacity: 0,
-                                                        y: 6,
-                                                    }}
-                                                    animate={{
-                                                        opacity: 1,
-                                                        y: 0,
-                                                    }}
-                                                    exit={{
-                                                        opacity: 0,
-                                                        y: -6,
-                                                    }}
-                                                    transition={{
-                                                        duration: 0.25,
-                                                    }}
-                                                    className="
-                                                        flex
-                                                        items-baseline
-                                                        justify-center
-                                                        gap-1.5
-                                                    "
-                                                >
-                                                    <span
-                                                        className={`
-                                                            text-3xl
-                                                            font-bold
-                                                            leading-9
-                                                            sm:text-[34px]
-                                                            ${plan.priceColor}
-                                                        `}
-                                                    >
-                                                        {getPrice(plan)}
-                                                    </span>
+{plan.name === "Free" || plan.name === "Pro" ? (
+    <div
+        className="
+            flex
+            items-baseline
+            justify-center
+            gap-1.5
+        "
+    >
+        <span
+            className={`
+                text-3xl
+                font-bold
+                leading-9
+                sm:text-[34px]
+                ${plan.priceColor}
+            `}
+        >
+            {getPrice(plan)}
+        </span>
 
-                                                    <span
-                                                        className="
-                                                            text-[9px]
-                                                            leading-4
-                                                            text-[#30384C]
-                                                            sm:text-[10px]
-                                                            md:text-[11px]
-                                                        "
-                                                    >
-                                                        /user/
-                                                        {plan.name === "Pro"
-                                                            ? "yr"
-                                                            : billing ===
-                                                                "monthly"
-                                                            ? "mo"
-                                                            : "yr"}
-                                                    </span>
-                                                </motion.div>
-                                            </AnimatePresence>
+        <span
+            className="
+                text-[9px]
+                leading-4
+                text-[#30384C]
+                sm:text-[10px]
+                md:text-[11px]
+            "
+        >
+            /user/
+            {plan.name === "Pro"
+                ? "yr"
+                : billing === "monthly"
+                ? "mo"
+                : "yr"}
+        </span>
+    </div>
+) : (
+    <AnimatePresence mode="wait">
+        <motion.div
+            key={`${plan.name}-${billing}`}
+            initial={{
+                opacity: 0,
+                y: 6,
+            }}
+            animate={{
+                opacity: 1,
+                y: 0,
+            }}
+            exit={{
+                opacity: 0,
+                y: -6,
+            }}
+            transition={{
+                duration: 0.25,
+            }}
+            className="
+                flex
+                items-baseline
+                justify-center
+                gap-1.5
+            "
+        >
+            <span
+                className={`
+                    text-3xl
+                    font-bold
+                    leading-9
+                    sm:text-[34px]
+                    ${plan.priceColor}
+                `}
+            >
+                {getPrice(plan)}
+            </span>
+
+            <span
+                className="
+                    text-[9px]
+                    leading-4
+                    text-[#30384C]
+                    sm:text-[10px]
+                    md:text-[11px]
+                "
+            >
+                /user/
+                {billing === "monthly" ? "mo" : "yr"}
+            </span>
+        </motion.div>
+    </AnimatePresence>
+)}
                                         </div>
 
                                         {/* DESCRIPTION */}

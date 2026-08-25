@@ -252,7 +252,7 @@ function FooterSection() {
                             </div>
 
                             {/* SECURITY & COMPLIANCE */}
-                            <div className="mt-6 mb-4 text-[17px] font-bold text-white sm:text-[22px]">
+                            <div className="mt-6 mb-4 text-[17px] font-bold text-white sm:text-[19px]">
                                 <p>Security &amp; Compliance</p>
                             </div>
 
