@@ -22,7 +22,7 @@ relative overflow-hidden flex flex-col md:flex-row justify-between min-h-[340px]
           className="bg-white text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"
         >
           <a
-            href="https://calendly.com/manoj-sortted/30min"
+            href="https://calendly.com/subjectmatterexpert/demo"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white text-black font-semibold px-6 py-1 rounded-lg hover:bg-gray-200 transition-colors duration-150 inline-flex items-center gap-2"

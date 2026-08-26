@@ -883,7 +883,7 @@ function HeroSection() {
             
             
             <a
-                href="https://calendly.com/manoj-sortted/30min"
+                href="https://calendly.com/subjectmatterexpert/demo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black font-semibold"
