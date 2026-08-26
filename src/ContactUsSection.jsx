@@ -93,7 +93,7 @@ function ContactUsSection() {
           </h1>
 
           <p className="mt-1 text-sm text-gray-500 sm:text-[15px]">
-            Start optimizing your content with AI-powered insights
+            Have a question or need assistance? Reach out to us.
           </p>
         </motion.div>
 
