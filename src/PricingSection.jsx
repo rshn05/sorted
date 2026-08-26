@@ -65,9 +65,9 @@ function PricingSection() {
         {
             name: "Pro",
             monthlyPrice: "$1999",
-            fullyearlyPrice: "$3349",
+            fullyearlyPrice: "$3998",
             yearlyPrice: "$1999",
-            discount: "-40%",
+            discount: "-50%",
             description: "For agencies and power users.",
             icon: Crown,
             iconBg: "bg-[#E7F6EF]",
